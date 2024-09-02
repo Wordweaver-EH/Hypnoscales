@@ -38,13 +38,20 @@
             margin-top: 0;
             color: #34495e;
             font-size: 1.2em;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
         .count {
             font-size: 0.8em;
             color: #7f8c8d;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .ratio {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin-right: 3px;
+            border-radius: 50%;
         }
         ol {
             padding-left: 20px;
@@ -63,7 +70,13 @@
     <h1>Hypnosis Scales and Suggestions</h1>
     <div class="grid">
         <div class="scale">
-            <h2>Arizona Motor Scale of Hypnotizability (AMSH) <span class="count">14 items</span></h2>
+            <h2>Arizona Motor Scale of Hypnotizability (AMSH)</h2>
+            <div class="count">
+                <span class="ratio motor"></span>
+                <span class="ratio cognitive"></span>
+                <span class="ratio perceptual"></span>
+                14 items
+            </div>
             <ol>
                 <li class="motor">Eye closure</li>
                 <li class="motor">Hand lowering</li>
@@ -76,14 +89,21 @@
                 <li class="motor inhibitory">Arm immobilization</li>
                 <li class="perceptual inhibitory">Anosmia</li>
                 <li class="perceptual">Auditory hallucination</li>
-                <li class="perceptual">Negative visual hallucination</li>
+                <li class="perceptual inhibitory">Negative visual hallucination</li>
                 <li class="cognitive inhibitory">Posthypnotic amnesia</li>
                 <li class="cognitive">Posthypnotic suggestion</li>
             </ol>
         </div>
 
         <div class="scale">
-            <h2>Barber Suggestibility Scale (BSS) <span class="count">8 items</span></h2>
+            <h2>Barber Suggestibility Scale (BSS)</h2>
+            <div class="count">
+                <span class="ratio motor"></span>
+                <span class="ratio motor"></span>
+                <span class="ratio cognitive"></span>
+                <span class="ratio perceptual"></span>
+                8 items
+            </div>
             <ol>
                 <li class="motor">Arm lowering</li>
                 <li class="motor">Arm levitation</li>
@@ -97,7 +117,15 @@
         </div>
 
         <div class="scale">
-            <h2>Creative Imagination Scale (CIS) <span class="count">10 items</span></h2>
+            <h2>Creative Imagination Scale (CIS)</h2>
+            <div class="count">
+                <span class="ratio motor"></span>
+                <span class="ratio cognitive"></span>
+                <span class="ratio perceptual"></span>
+                <span class="ratio perceptual"></span>
+                <span class="ratio affective"></span>
+                10 items
+            </div>
             <ol>
                 <li class="motor">Arm heaviness</li>
                 <li class="motor">Hand levitation</li>
@@ -113,7 +141,14 @@
         </div>
 
         <div class="scale">
-            <h2>Harvard Group Scale (HGSHS:A) <span class="count">12 items</span></h2>
+            <h2>Harvard Group Scale (HGSHS:A)</h2>
+            <div class="count">
+                <span class="ratio motor"></span>
+                <span class="ratio motor"></span>
+                <span class="ratio motor"></span>
+                <span class="ratio cognitive"></span>
+                12 items
+            </div>
             <ol>
                 <li class="motor">Head falling</li>
                 <li class="motor">Eye closure</li>
@@ -131,7 +166,14 @@
         </div>
 
         <div class="scale">
-            <h2>Stanford Hypnotic Susceptibility Scale, Form C (SHSS:C) <span class="count">12 items</span></h2>
+            <h2>Stanford Hypnotic Susceptibility Scale, Form C (SHSS:C)</h2>
+            <div class="count">
+                <span class="ratio motor"></span>
+                <span class="ratio cognitive"></span>
+                <span class="ratio perceptual"></span>
+                <span class="ratio perceptual"></span>
+                12 items
+            </div>
             <ol>
                 <li class="motor">Hand lowering</li>
                 <li class="motor">Moving hands apart</li>
@@ -143,13 +185,21 @@
                 <li class="motor inhibitory">Arm immobilization</li>
                 <li class="perceptual inhibitory">Anosmia</li>
                 <li class="perceptual">Hallucinated voice</li>
-                <li class="perceptual">Negative visual hallucination</li>
+                <li class="perceptual inhibitory">Negative visual hallucination</li>
                 <li class="cognitive inhibitory">Post-hypnotic amnesia</li>
             </ol>
         </div>
 
         <div class="scale">
-            <h2>Sussex-Waterloo Scale (SWASH) <span class="count">10 items</span></h2>
+            <h2>Sussex-Waterloo Scale (SWASH)</h2>
+            <div class="count">
+                <span class="ratio motor"></span>
+                <span class="ratio motor"></span>
+                <span class="ratio cognitive"></span>
+                <span class="ratio perceptual"></span>
+                <span class="ratio perceptual"></span>
+                10 items
+            </div>
             <ol>
                 <li class="motor">Hand lowering</li>
                 <li class="motor">Moving hands together</li>
@@ -158,7 +208,7 @@
                 <li class="motor inhibitory">Arm rigidity</li>
                 <li class="motor inhibitory">Arm immobilization</li>
                 <li class="perceptual">Music hallucination</li>
-                <li class="perceptual">Negative visual hallucination</li>
+                <li class="perceptual inhibitory">Negative visual hallucination</li>
                 <li class="cognitive inhibitory">Amnesia</li>
                 <li class="cognitive">Post-hypnotic suggestion</li>
             </ol>
