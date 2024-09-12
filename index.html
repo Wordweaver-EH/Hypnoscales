@@ -81,31 +81,49 @@
             font-weight: bold;
             list-style-type: none;
         }
-        .training-marker::before, .test-marker::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 50%;
-            width: 15px;
-            height: 1px;
-            background-color: #333;
+        .scale {
+            position: relative;
+            padding-right: 30px;
         }
-        .training-marker::after, .test-marker::after {
+        .marker {
+            position: absolute;
+            right: 0;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+            font-weight: bold;
+            padding: 5px;
+        }
+        .training-marker {
+            top: 40px;
+            height: 120px;
+        }
+        .test-marker {
+            top: 200px;
+            height: 180px;
+        }
+        .marker::before {
             content: "";
             position: absolute;
-            left: 15px;
-            top: 50%;
+            top: 0;
+            bottom: 0;
+            left: -1px;
             width: 1px;
             background-color: #333;
         }
-        .training-marker::after {
-            height: calc(400% + 4em);
+        .scale ol {
+            counter-reset: item;
+            list-style-type: none;
         }
-        .test-marker::after {
-            height: calc(600% + 6em);
+        .scale li {
+            counter-increment: item;
+            margin-bottom: 5px;
         }
-        .training-marker ~ li, .test-marker ~ li {
-            padding-left: 20px;
+        .scale li::before {
+            content: counter(item) ". ";
+            display: inline-block;
+            width: 2em;
+            margin-left: -2em;
         }
     </style>
 </head>
@@ -249,12 +267,10 @@
             <h2>Carleton Skills Training Program (CSTP)</h2>
             <div class="count"><span style="color:#e74c3c">4</span>:<span style="color:#2ecc71">1</span>:<span style="color:#3498db">5</span> - 10 items</div>
             <ol>
-                <li class="training-marker">Training Items</li>
                 <li class="motor" title="Your arm feels light.&#10;It's floating upwards.&#10;Let it rise on its own.">1. Arm Rising (right arm)</li>
                 <li class="motor inhibitory" title="Your hands are stuck together.&#10;They're glued tight.&#10;Try to separate them, but you can't."><strong>2. Hand Lock (hands clasped together)</strong></li>
                 <li class="perceptual" title="Imagine a book in your hands.&#10;Feel its weight and texture.&#10;See it clearly in your mind.">3. Book Hallucination 👁️</li>
                 <li class="cognitive inhibitory" title="You'll forget these experiences.&#10;They'll slip from your memory.&#10;You can't recall them until told."><strong>4. Amnesia</strong></li>
-                <li class="test-marker">Test Items</li>
                 <li class="motor" title="Your arm feels light.&#10;It's floating upwards.&#10;Let it rise on its own.">1. Arm Rising (right arm)</li>
                 <li class="motor" title="Your hands are moving apart.&#10;They're being pushed by a force.&#10;Let them separate.">2. Arms Moving Apart</li>
                 <li class="motor inhibitory" title="Your arm is becoming stiff.&#10;It's rigid like a steel bar.&#10;Try to bend it, but you can't."><strong>3. Arm Rigidity (left arm)</strong></li>
@@ -262,6 +278,8 @@
                 <li class="perceptual" title="Hear your favorite music.&#10;Listen to every detail.&#10;Feel the rhythm and melody.">5. Experiencing Music 👂</li>
                 <li class="perceptual" title="Feel a kitten in your lap.&#10;Hear its purr, feel its fur.&#10;Experience its presence vividly.">6. Experiencing a Kitten 👂🤚</li>
             </ol>
+            <div class="marker training-marker">Training Items</div>
+            <div class="marker test-marker">Test Items</div>
         </div>
     </div>
 </body>
