@@ -353,7 +353,66 @@ on effortful generation.
 
 ---
 
-## 7. Individual differences measures: PsiQ as alternative/supplement to VVIQ
+## 7. The spontaneous/suggested distinction is a delivery artefact
+
+The Weitzenhoffer taxonomy separates "spontaneous" phenomena (waxy flexibility,
+psychomotor retardation, time distortion, dissociation, absorption, GRO suspension)
+from "suggested" phenomena. But spontaneous phenomena are not mechanistically
+distinct — they arise because the induction context, setting, and expectation function
+as implicit priors that generate the same top-down suppression of sensory evidence
+that explicit verbal suggestions produce.
+
+**The mechanism is identical under predictive processing:**
+- Explicit suggestion: verbal instruction → strong top-down prior → experience
+- Spontaneous phenomenon: context/expectation → strong top-down prior → same experience
+
+The "spontaneous" label means only that the prior source is contextual rather than
+verbal, not that a different computational process is at work.
+
+**Implication for the taxonomy:** The spontaneous branch is better treated as an
+inventory of phenomena not yet formalised into explicit suggestion format. Every item
+in the spontaneous branch should be reproducible by giving an explicit verbal
+suggestion — and probably more reliably, since verbal instruction calibrates the prior
+more precisely than ambient context does. The spontaneous/suggested boundary should
+not be treated as a meaningful measurement category.
+
+**Implication for scale coverage:** Items in the spontaneous branch are measurable
+with explicit suggestions:
+- xm1 (Waxy Flexibility) → "Your limbs will hold any position I place them in"
+- xs3 (Time Distortion) → "The time passing will feel much shorter/longer than it is"
+- xs4 (Body Image Distortions) → "You will feel your body sinking, floating, expanding"
+- xc1 (Dissociation) → "Part of you will watch the session from a distance"
+- xc5 (Absorption) → "Your attention will narrow completely to this single experience"
+- xc7 (Abdication of Volition) → "You will find it easy to let go of the sense of directing yourself"
+
+None of these require special apparatus. They are standard therapeutic/clinical
+hypnosis language already in use.
+
+**Implication for the SWASH finding (§5):** The hypnotic induction context generates
+implicit priors for spontaneous phenomena. Participants under SWASH may be having
+genuine experiences (time distortion, absorption, waxy flexibility) that score zero
+on every scale item because nothing measures them. If measured, SWASH might show
+*higher* total responding than PCS on an expanded item set — the apparent suppression
+of explicit suggestion items under induction may partly reflect attention diverted
+to unmeasured spontaneous channel.
+
+**Revised taxonomy coverage with spontaneous branch collapsed into suggested:**
+
+With spontaneous phenomena treated as explicitly suggestionable, the uncovered space
+reduces to: affective suggestions (a1–a9), kinesthetic/proprioceptive positive (s5),
+analgesia/anaesthesia (s7/s8), higher cognitive (age regression/progression, false
+memory, trance logic, delusions), communicative motor (automatic writing, signaling),
+and relational (r1–r4). These remain genuinely absent from the existing datasets and
+require new instruments.
+
+The effective coverage of the *measurable* taxonomy (suggested + spontaneous-as-
+suggested, excluding relational) rises from ~30% to a potential ~55% with a revised
+10-item scale incorporating the proposed items (§11), and to ~75% if spontaneous items
+are added as explicit suggestions.
+
+---
+
+## 8. Individual differences measures: PsiQ as alternative/supplement to VVIQ
 
 VVIQ (Marks 1973) has two limitations for this context:
 1. **Volitional only** — measures deliberate imagery vividness; does not capture
@@ -389,7 +448,7 @@ The two measures might dissociate cleanly across item types.
 
 ---
 
-## 8. Open questions for future work
+## 9. Open questions for future work
 
 1. Does VVIQ × taste replicate in df3 (SWASH paper has matched items)?
 2. Does the Bernoulli k=2 LCA finding hold in df2, df3, df5? Cross-dataset
@@ -418,7 +477,7 @@ The two measures might dissociate cleanly across item types.
 
 ---
 
-## 9. Cognitive challenge item: naming inhibition as amnesia replacement/supplement
+## 10. Cognitive challenge item: naming inhibition as amnesia replacement/supplement
 
 **The existing amnesia item:**
 - Floor rate: ~27% (PCS/SWASH); moderate, not extreme.
@@ -458,7 +517,7 @@ than generation.
 
 ---
 
-## 10. Item-by-item problems and replacements
+## 11. Item-by-item problems and replacements
 
 Floor rates across five datasets (mean across PCS norms, SWASH norms, PCS-VVIQ,
 SWASH-val, vEAR PCS):
