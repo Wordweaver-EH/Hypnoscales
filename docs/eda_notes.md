@@ -233,36 +233,83 @@ imagery" context — and VVIQ predicts it strongly. Music and visual items are s
 by a clear sensory environment. If that environment were degraded, VVIQ should predict
 them as strongly as it currently predicts taste, or more so (perceptual modality match).
 
-**Proposed revision:**
+**Three substrate approaches for perceptual items:**
 
-A revised two-item perceptual probe using sensory degradation:
-- *Auditory version:* suggestion delivered against low-level broadband noise (~40dB);
-  participant rates intensity of heard music 0–5.
-- *Visual version:* suggestion delivered against dynamic pixelated noise or phase-
-  scrambled grating; participant rates intensity of seen pattern 0–5.
+**1. Degraded-environment versions (equipment-assisted)**
+- *Auditory:* suggestion delivered against low-level broadband noise (~40 dB); rate
+  intensity of heard music 0–5. Direct analogue of Merckelbach & van de Ven.
+- *Visual:* suggestion delivered against dynamic pixelated noise or phase-scrambled
+  grating (Dijkstra paradigm); rate intensity of seen pattern 0–5.
 
-These items would have:
-- Higher pass rates in unselected samples (floor lifted)
-- Stronger VVIQ correlations (imagery vividness no longer masked by environmental
-  sensory dominance)
-- Genuine domain-specific perceptual variance not captured by motor items
-- Direct theoretical grounding in predictive processing + individual differences
+**2. Phosphene/eigengrau substrate (no equipment)**
+Eyes closed in a moderately darkened room. The visual field is already a dynamic
+noise field (eigengrau + phosphene activity) — sensory confidence is near-zero by
+default. Two item variants:
+- *Positive visual hallucination:* "Notice the visual field behind your eyes. As you
+  watch, something begins to take shape — a light, a colour, a form." Rate vividness
+  0–5. Natural gradient: phosphene flicker (1) → organised shapes (3) → stable 3D
+  constructs (5).
+- *Instruction principle:* discovery-oriented over volitional — "notice what appears"
+  not "try to see X." Volitional instruction fails; undirected attention on the
+  substrate succeeds. (Weaver, blog.phenomenal.ink/veil-of-perception, n.d.)
+  Phenomenologically equivalent to passing an ideomotor suggestion — the experience
+  arrives, it is not produced.
 
-Combined with the motor pair (which indexes the shared general factor efficiently),
-a four-item hybrid screener — two motor challenge + one degraded auditory + one
-degraded visual — might capture both the general factor and the perceptual-specific
-variance that the current ten-item scale carries but the two-item version gives up.
+Phosphene-hallucination trait link supports this as a valid suggestibility probe:
+respondents who have spontaneous hallucination experience show ~10× higher odds of
+phosphene experience (chi-square p < 0.0025; Weaver, blog.phenomenal.ink/
+something-about-phosphenes, n.d.). When the substrate is already active (phosphenes),
+the suggestion has a real percept to work with rather than nothing.
+
+**3. Cross-modal synesthesia item (Nair & Brang 2019)**
+Nair & Brang demonstrated that brief visual deprivation is sufficient to induce
+auditory-evoked visual percepts in non-synesthetes — cross-modal binding is latent
+in the general population and released by reducing visual sensory confidence.
+
+Applied item: eyes closed + brief tone or musical phrase → suggest colour or form
+associated with the sound appears in the visual field. Combines:
+- Eigengrau substrate (visual deprivation, sensory confidence → 0)
+- Auditory input as the prior-driving signal
+- Top-down imagery as the generative mechanism
+
+This collapses the music hallucination and visual hallucination dimensions into a
+single cross-modal item. Reeder's model predicts that hyperphantasics (strong
+mid-level imagery prior) will show the strongest binding; aphantasics will not bind
+even under deprivation, producing maximal individual-differences sensitivity.
+
+The item also connects naturally to the existing scale structure: the music
+hallucination item is already auditory; adding the cross-modal visual component
+upgrades it from a pure auditory suggestion to a richer perceptual event without
+requiring new equipment.
+
+**Proposed four-item hybrid screener:**
+
+| Item | Type | Substrate | Equipment |
+|------|------|-----------|-----------|
+| Arm rigidity | Motor challenge | Normal | None |
+| Arm immobilisation | Motor challenge | Normal | None |
+| Eigengrau visual | Positive visual hallucination | Eyes-closed eigengrau | None |
+| Cross-modal tone→colour | Auditory-visual | Eyes-closed + tone | Speaker/headphones |
+
+Would capture: general factor (motor pair) + perceptual-specific variance
+(eigengrau + cross-modal) + individual differences in imagery vividness.
+No floor issues. No equipment for three of four items.
 
 **Key references:**
 - Barber, T.X., & Calverley, D.S. (1964). *J. Abnorm. Soc. Psychol.*, 68(1), 13–20.
 - Merckelbach, H., & van de Ven, V. (2001). *J. Behav. Ther. Exp. Psychiat.*, 32(3), 137–144.
+- Nair, A., & Brang, D. (2019). Inducing synesthesia in non-synesthetes: Short-term
+  visual deprivation facilitates auditory-evoked visual percepts. *Consciousness and
+  Cognition*, 70, 70–79. https://doi.org/10.1016/j.concog.2019.02.006
 - Dijkstra, N., Bosch, S.E., & van Gerven, M.A.J. (2021). Perceptual reality monitoring.
   *Trends Cogn. Sci.* (and related MEG/fMRI work).
 - Reeder, R.R. (2024). A novel model of divergent predictive perception. *Neurosci.
-  Biobehav. Rev.* (or similar — check exact journal/year).
+  Biobehav. Rev.* https://doi.org/10.1093/nc/niae011 (verify journal/year).
 - Clark, A. (2013). Whatever next? *Behav. Brain Sci.*, 36(3), 181–204.
 - Clark, A. (2015). *Surfing Uncertainty.* Oxford University Press.
 - Clark, A. (2023). *The Experience Machine.* W.W. Norton.
+- Weaver, W. (n.d.). Something about phosphenes. blog.phenomenal.ink
+- Weaver, W. (n.d.). Veil of perception. blog.phenomenal.ink
 
 ---
 
@@ -276,6 +323,13 @@ variance that the current ten-item scale carries but the two-item version gives 
 4. What mediates the taste-VVIQ relationship? Olfactory/gustatory imagery
    vividness scales would clarify whether it is truly taste-specific or
    general imaginative compliance.
+8. Does the cross-modal (Nair & Brang) item show stronger VVIQ correlation than
+   the unimodal auditory item under equivalent deprivation? Would distinguish
+   imagery-vividness sensitivity from general hallucinability.
+9. Does the eigengrau positive-visual item correlate with phosphene proneness
+   (from blog survey) and with the neg-visual spike profile (P2)? If P2 is a
+   genuine high-visual-hallucinability phenotype, eigengrau responding should
+   predict it directly.
 5. Full MAMBAC/MAXEIG/L-Mode on df4 using proper taxometric methodology.
 6. The neg-visual spike profile (P2): is it stable across sessions? If those 15
    people have stable high neg-visual scores, they are a genuine phenotype worth
