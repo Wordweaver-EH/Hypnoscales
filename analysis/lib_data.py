@@ -5,7 +5,9 @@ All analysis scripts import from here. Nothing is hard-coded outside this file.
 
 Sources:
   Canonical scoring: Lush et al. preprocdata.Rmd (osf/pcs_vviq/)
-  Motor-pair mapping: osf/GROUND_TRUTH.md §4
+  Motor-pair mapping: arm rigidity + arm immobilisation subjective items for
+    PCS/SWASH datasets; corresponding rigidity/immobilisation items for
+    HGSHS:A involuntariness/objective scoring (see public scale item names).
   Exclusion flags: dataset codebooks
 """
 
@@ -273,10 +275,17 @@ def spearman_brown(r_interitem):
     return 2 * r_interitem / (1 + r_interitem)
 
 
+# Minimum valid bootstrap draws required to report a CI.
+_BOOT_MIN_VALID = 100
+
+
 def bootstrap_ci(x, y, stat='pearson', n_boot=N_BOOT, seed=RANDOM_SEED):
     """Bootstrap percentile CI for Pearson or Spearman r.
 
-    Returns (lower, upper).
+    Returns (lower, upper), or (nan, nan) when the bootstrap distribution is
+    degenerate (e.g. floor-heavy items where most resamples are constant).
+    Draws where either resampled vector is constant are skipped; if fewer than
+    _BOOT_MIN_VALID valid draws remain the CI is unavailable.
     """
     rng    = np.random.default_rng(seed)
     x_arr  = np.asarray(x, dtype=float)
@@ -286,12 +295,17 @@ def bootstrap_ci(x, y, stat='pearson', n_boot=N_BOOT, seed=RANDOM_SEED):
     n      = len(x_arr)
     boot   = []
     for _ in range(n_boot):
-        idx   = rng.integers(0, n, size=n)
+        idx = rng.integers(0, n, size=n)
+        xs, ys = x_arr[idx], y_arr[idx]
+        if xs.std() == 0 or ys.std() == 0:
+            continue          # constant resample — skip, don't append NaN
         if stat == 'pearson':
-            r, _ = pearsonr(x_arr[idx], y_arr[idx])
+            r, _ = pearsonr(xs, ys)
         else:
-            r, _ = spearmanr(x_arr[idx], y_arr[idx])
+            r, _ = spearmanr(xs, ys)
         boot.append(r)
+    if len(boot) < _BOOT_MIN_VALID:
+        return float('nan'), float('nan')
     alpha = (100 - CI_LEVEL) / 2
     return float(np.percentile(boot, alpha)), float(np.percentile(boot, 100 - alpha))
 

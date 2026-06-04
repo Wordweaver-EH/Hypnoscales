@@ -1,15 +1,15 @@
 """
-a04_classification.py â€” Classification / screening performance.
+a04_classification.py --  Classification / screening performance.
 
 Design matches Zech et al. (2024) HGSHS-5:G benchmark:
   Three ordered groups (low / medium / high) using tertile boundaries
   on each scale independently. Weighted kappa (linear) across all three
-  ordered categories. n=1,963 in Zech; our n=240â€“508.
+  ordered categories. n=1,963 in Zech; our n=240-- 508.
 
 Primary: criterion = full-scale total (genre-standard, directly comparable
          to HGSHS-5:G kappa=0.578).
 Secondary (sensitivity): criterion = rest score (overlap-free per Girard &
-         Christensen 2008) â€” reported as conservative complement, NOT as
+         Christensen 2008) --  reported as conservative complement, NOT as
          the benchmark comparison.
 
 Binary classification (top-% screen) retained as supplementary ROC/AUC.
@@ -27,11 +27,19 @@ from lib_data import (TABLES_DIR, FIGURES_DIR, load_all, MOTOR_COLS, make_tables
 
 
 # ---------------------------------------------------------------------------
-# Three-group (tertile) classification â€” matches Zech 2024 design
+# Three-group threshold classification — matches Zech 2024 design
+# ---------------------------------------------------------------------------
+# Groups are defined by strict score thresholds at the 33rd/67th percentile
+# boundaries (scores > threshold). For discrete motor composites this means
+# the realised high group is often smaller than one third of the sample
+# (e.g. 22–28% rather than 33%). Actual group sizes are reported alongside
+# every κ estimate; do not describe the groups as exact tertiles.
 # ---------------------------------------------------------------------------
 
-def tertile_groups(scores):
-    """Assign 0=low, 1=medium, 2=high by 33rd/67th percentile boundaries.
+def threshold_groups(scores):
+    """Assign 0=low, 1=medium, 2=high using strict > thresholds at the
+    33rd/67th percentile boundaries.  For discrete scores, the high group
+    is typically smaller than one third of the sample.
     Returns (groups, lo_cut, hi_cut)."""
     lo = np.percentile(scores, 100 / 3)
     hi = np.percentile(scores, 200 / 3)
@@ -41,32 +49,47 @@ def tertile_groups(scores):
     return groups, lo, hi
 
 
+# Keep old name as an alias so any external callers are not broken.
+tertile_groups = threshold_groups
+
+
 def three_group_kappa(motor, criterion):
-    """Weighted (linear) and unweighted kappa for tertile classification."""
-    motor_g, m_lo, m_hi   = tertile_groups(motor)
-    crit_g,  c_lo, c_hi   = tertile_groups(criterion)
+    """Weighted (linear) and unweighted kappa for three-group threshold
+    classification.  Reports actual group proportions alongside counts."""
+    motor_g, m_lo, m_hi   = threshold_groups(motor)
+    crit_g,  c_lo, c_hi   = threshold_groups(criterion)
+    n = len(motor)
     kw = cohen_kappa_score(crit_g, motor_g, weights='linear')
     ku = cohen_kappa_score(crit_g, motor_g)
     cm = confusion_matrix(crit_g, motor_g, labels=[0, 1, 2])
+    n_low  = int(np.sum(motor_g == 0))
+    n_mid  = int(np.sum(motor_g == 1))
+    n_high = int(np.sum(motor_g == 2))
     return {
-        'kappa_weighted': round(kw, 3),
+        'kappa_weighted':   round(kw, 3),
         'kappa_unweighted': round(ku, 3),
         'confusion_matrix': cm,
-        'motor_lo_cut': round(m_lo, 3),
-        'motor_hi_cut': round(m_hi, 3),
-        'crit_lo_cut':  round(c_lo, 3),
-        'crit_hi_cut':  round(c_hi, 3),
-        'n_low_motor':  int(np.sum(motor_g == 0)),
-        'n_mid_motor':  int(np.sum(motor_g == 1)),
-        'n_high_motor': int(np.sum(motor_g == 2)),
-        'n_low_crit':   int(np.sum(crit_g == 0)),
-        'n_mid_crit':   int(np.sum(crit_g == 1)),
-        'n_high_crit':  int(np.sum(crit_g == 2)),
+        'motor_lo_cut':     round(m_lo, 3),
+        'motor_hi_cut':     round(m_hi, 3),
+        'crit_lo_cut':      round(c_lo, 3),
+        'crit_hi_cut':      round(c_hi, 3),
+        'n_low_motor':      n_low,
+        'n_mid_motor':      n_mid,
+        'n_high_motor':     n_high,
+        'pct_low_motor':    round(n_low  / n, 3),
+        'pct_mid_motor':    round(n_mid  / n, 3),
+        'pct_high_motor':   round(n_high / n, 3),
+        'n_low_crit':       int(np.sum(crit_g == 0)),
+        'n_mid_crit':       int(np.sum(crit_g == 1)),
+        'n_high_crit':      int(np.sum(crit_g == 2)),
+        'pct_low_crit':     round(np.sum(crit_g == 0) / n, 3),
+        'pct_mid_crit':     round(np.sum(crit_g == 1) / n, 3),
+        'pct_high_crit':    round(np.sum(crit_g == 2) / n, 3),
     }
 
 
 # ---------------------------------------------------------------------------
-# Binary (top-%) classification â€” for ROC/AUC and sensitivity/specificity
+# Binary (top-%) classification --  for ROC/AUC and sensitivity/specificity
 # ---------------------------------------------------------------------------
 
 CUTOFFS = (0.08, 0.10, 0.12, 0.15, 0.20, 0.33)
@@ -95,17 +118,20 @@ def binary_metrics(motor, criterion, label, criterion_label):
         spec  = tn / (tn + fp) if (tn + fp) > 0 else np.nan
         ppv   = tp / (tp + fp) if (tp + fp) > 0 else np.nan
         npv   = tn / (tn + fn) if (tn + fn) > 0 else np.nan
+        n_pred_high = int(np.sum(ph))
         rows.append({
-            'dataset':       label,
-            'criterion':     criterion_label,
-            'cutoff_pct':    f'{int(pct*100)}%',
-            'n':             len(motor),
-            'n_true_high':   int(np.sum(th)),
-            'kappa_binary':  round(kappa, 3),
-            'sensitivity':   round(sens,  3),
-            'specificity':   round(spec,  3),
-            'PPV':           round(ppv,   3),
-            'NPV':           round(npv,   3),
+            'dataset':        label,
+            'criterion':      criterion_label,
+            'cutoff_pct':     f'{int(pct*100)}%',
+            'n':              len(motor),
+            'n_true_high':    int(np.sum(th)),
+            'n_pred_high':    n_pred_high,
+            'pct_pred_high':  round(n_pred_high / len(motor), 3),
+            'kappa_binary':   round(kappa, 3),
+            'sensitivity':    round(sens,  3),
+            'specificity':    round(spec,  3),
+            'PPV':            round(ppv,   3),
+            'NPV':            round(npv,   3),
         })
     # ROC/AUC at top-33% (matches three-group high-group definition)
     th33, _ = classify_binary(motor, criterion, 0.33)
@@ -130,14 +156,14 @@ def main():
         ('df2',       MOTOR_COLS['df2'],     'rest_score',     'SubjectiveTotal',                   'df2 PCS-VVIQ'),
         ('df3',       MOTOR_COLS['df3'],     'rest_score',     'Subjectivescore',                   'df3 SWASH'),
         ('df5',       MOTOR_COLS['df5'],     'rest_score',     'PCscore',                           'df5 vEAR PCS'),
-        # df4 HGSHS:A â€” involuntariness dimension (Bowers 0â€“5 scale, same range as PCS/SWASH)
+        # df4 HGSHS:A --  involuntariness dimension (Bowers 0-- 5 scale, same range as PCS/SWASH)
         ('df4',       MOTOR_COLS['df4_inv'], 'rest_score_inv', 'INV_total',                         'df4 HGSHS:A inv'),
-        # df4 HGSHS:A â€” objective binary (motor sum 0/1/2; coarser than inv)
+        # df4 HGSHS:A --  objective binary (motor sum 0/1/2; coarser than inv)
         ('df4',       MOTOR_COLS['df4_obj'], 'rest_score_obj', 'OBJ_total',                         'df4 HGSHS:A obj'),
     ]
 
-    # ---- Three-group weighted kappa (primary â€” matches Zech 2024 design) ----
-    print("PRIMARY CLASSIFICATION â€” weighted kappa, three ordered groups")
+    # ---- Three-group weighted kappa (primary -- matches Zech 2024 design) ----
+    print("PRIMARY CLASSIFICATION -- weighted kappa, three ordered groups")
     print("Matches Zech et al. (2024) HGSHS-5:G design: tertile low/medium/high")
     print("Benchmark: kappa_weighted = 0.578 (N=1,963)")
     print()
@@ -176,14 +202,20 @@ def main():
             'n_low_motor':       res['n_low_motor'],
             'n_mid_motor':       res['n_mid_motor'],
             'n_high_motor':      res['n_high_motor'],
+            'pct_low_motor':     res['pct_low_motor'],
+            'pct_mid_motor':     res['pct_mid_motor'],
+            'pct_high_motor':    res['pct_high_motor'],
             'n_low_crit':        res['n_low_crit'],
             'n_mid_crit':        res['n_mid_crit'],
             'n_high_crit':       res['n_high_crit'],
+            'pct_low_crit':      res['pct_low_crit'],
+            'pct_mid_crit':      res['pct_mid_crit'],
+            'pct_high_crit':     res['pct_high_crit'],
         })
 
     # ---- Secondary: rest-score criterion (overlap-free sensitivity check) ----
     print()
-    print("SECONDARY â€” rest-score criterion (overlap-free, sensitivity check)")
+    print("SECONDARY --  rest-score criterion (overlap-free, sensitivity check)")
     print("Not directly comparable to HGSHS-5:G benchmark.")
     print()
 
@@ -211,14 +243,20 @@ def main():
             'n_low_motor':       res['n_low_motor'],
             'n_mid_motor':       res['n_mid_motor'],
             'n_high_motor':      res['n_high_motor'],
+            'pct_low_motor':     res['pct_low_motor'],
+            'pct_mid_motor':     res['pct_mid_motor'],
+            'pct_high_motor':    res['pct_high_motor'],
             'n_low_crit':        res['n_low_crit'],
             'n_mid_crit':        res['n_mid_crit'],
             'n_high_crit':       res['n_high_crit'],
+            'pct_low_crit':      res['pct_low_crit'],
+            'pct_mid_crit':      res['pct_mid_crit'],
+            'pct_high_crit':     res['pct_high_crit'],
         })
 
     # ---- Binary classification for ROC/AUC (supplementary) ----
     print()
-    print("SUPPLEMENTARY â€” binary (top-33%) classification, ROC/AUC")
+    print("SUPPLEMENTARY --  binary (top-33%) classification, ROC/AUC")
     print()
 
     binary_rows = []

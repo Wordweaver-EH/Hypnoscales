@@ -119,6 +119,10 @@ def item_retest_stability(rt, pairs, labels, types, scale_label):
         r, p = pearsonr(sub[t1_col].values, sub[t2_col].values)
         ci = bootstrap_ci(sub[t1_col].values, sub[t2_col].values,
                           'pearson', n_boot=N_BOOT)
+        ci_lo = round(ci[0], 3) if not np.isnan(ci[0]) else np.nan
+        ci_hi = round(ci[1], 3) if not np.isnan(ci[1]) else np.nan
+        ci_note = ('degenerate bootstrap: floor rate too high for reliable CI'
+                   if np.isnan(ci[0]) else '')
         # Mean T1, mean T2, floor rate T1
         m1 = sub[t1_col].mean()
         m2 = sub[t2_col].mean()
@@ -126,7 +130,7 @@ def item_retest_stability(rt, pairs, labels, types, scale_label):
         rows.append({
             'item': lbl, 'type': itype, 'scale': scale_label,
             'r': round(r,3), 'p': round(p,4),
-            'ci_lo': round(ci[0],3), 'ci_hi': round(ci[1],3),
+            'ci_lo': ci_lo, 'ci_hi': ci_hi, 'ci_note': ci_note,
             'n': len(sub), 'mean_t1': round(m1,2), 'mean_t2': round(m2,2),
             'floor_rate_t1': round(floor_t1,3)
         })
@@ -367,7 +371,8 @@ def plot_retest_stability(stab_df, ax):
     x = np.arange(len(stab_df))
     ax.bar(x, stab_df['r'], color=colours, alpha=0.85, zorder=3)
     for i, row in stab_df.reset_index(drop=True).iterrows():
-        ax.plot([i, i], [row['ci_lo'], row['ci_hi']], 'k-', lw=1.5, zorder=4)
+        if not (np.isnan(row['ci_lo']) or np.isnan(row['ci_hi'])):
+            ax.plot([i, i], [row['ci_lo'], row['ci_hi']], 'k-', lw=1.5, zorder=4)
     ax.axhline(0, color='#333', lw=0.8)
     # Full-scale line
     ax.axhline(0.523, color='#555', lw=1.2, ls='--', alpha=0.8, label='Full scale r=0.523')

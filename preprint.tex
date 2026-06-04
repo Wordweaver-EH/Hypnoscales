@@ -181,8 +181,11 @@ changes nothing. Spearman-Brown reliability $= 2r/(1+r)$, where $r$ is
 the inter-item correlation \citep{eisinga2013spearman}. All CIs are 95\%
 bootstrap ($n_{\text{boot}} = 5000$, seed\,=\,20260603).
 
-Classification used tertile groups (low/medium/high) with weighted Cohen's
-$\kappa$ (linear weights). Both the full-scale total and the overlap-free
+Classification used three ordered groups (low/medium/high) defined by strict
+score thresholds at the 33rd/67th percentile boundaries. For discrete motor
+composites, the realised high group is typically smaller than one third of the
+sample (22--28\% in most datasets); actual proportions are reported alongside
+each $\kappa$ estimate. Weighted Cohen's $\kappa$ (linear weights) was used. Both the full-scale total and the overlap-free
 rest score are reported as criteria; the latter quantifies classification
 agreement not attributable to shared items. Binary cutoff sweeps (8\%--33\%)
 provide AUC, sensitivity, specificity, PPV, and NPV. All-pairs analysis computed $r_{\text{full}}$ and $r_{\text{rest}}$ for all
@@ -317,7 +320,8 @@ DES dissociation      & 559 & 0.100 & 0.092 & 0.107 & ---$^\dagger$ \\
 \subsection{Classification}
 
 Table~\ref{tab:classification} shows three-group weighted $\kappa$ and AUC
-for top-third classification. Against the full total, PCS reaches
+for high-group classification (strict threshold at the 67th percentile; realised
+proportions 22--32\% depending on dataset). Against the full total, PCS reaches
 $\kappa_w = 0.50$--$0.55$ and SWASH/HGSHS:A involuntariness reaches
 $\kappa_w = 0.65$. The overlap-free rest-score criterion produces lower
 values---PCS 0.29--0.34, SWASH 0.45--0.46, HGSHS:A involuntariness
@@ -349,14 +353,14 @@ HGSHS:A (obj.) & 584 & 0.554 & 0.459 & 0.347 & 0.267 & 0.841 \\
 \midrule
 \textit{HGSHS-5:G (prior short form)} & --- & \textit{$\approx$0.58} & & & & \\
 \bottomrule
-\multicolumn{7}{l}{\parbox{12cm}{\textit{Note.} AUC: top-third on full total. Rest score: non-motor items. HGSHS-5:G: \citet{riegel2021hgshs5g, zech2024hgshs5g}.}}\\
+\multicolumn{7}{l}{\parbox{12cm}{\textit{Note.} AUC: high-group on full total (threshold at 67th percentile; realised proportion varies by dataset). Rest score: non-motor items. HGSHS-5:G: \citet{riegel2021hgshs5g, zech2024hgshs5g}.}}\\
 \end{tabular}
 \end{table}
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=\textwidth]{figures/fig4_roc_primary.png}
-\caption{ROC curves: motor composite classifying top-third on full total,
+\caption{ROC curves: motor composite classifying high-group on full total (threshold at 67th percentile),
   three PCS datasets. AUC = 0.829, 0.852, 0.858.}
 \label{fig:roc}
 \end{figure}
@@ -416,7 +420,7 @@ carries a reliability advantage that accounts for part of its slightly
 higher external signal.
 
 High specificity (0.87--0.99 across the binary sweep) means that high
-motor-pair scores have a low false-positive rate for top-third status; modest
+motor-pair scores have a low false-positive rate for high-group status; modest
 sensitivity at tight cutoffs means some true high responders will not be
 flagged. That trade-off is appropriate for first-pass triage, not final
 selection.
@@ -474,7 +478,7 @@ The pipeline consists of the following files:
     pair, full scale, and overlap-free motor-T1 to rest-T2
     (\texttt{table\_test\_retest.csv}).
   \item \texttt{a04\_classification.py} --- Weighted Cohen's $\kappa$
-    (tertile), AUC, and binary cutoff sweep for sensitivity, specificity,
+    (three threshold groups), AUC, and binary cutoff sweep for sensitivity, specificity,
     PPV, and NPV (\texttt{table\_classification.csv}).
   \item \texttt{a05\_all\_pairs.py} --- $r_{\text{full}}$ and
     $r_{\text{rest}}$ for all $\binom{10}{2} = 45$ two-item combinations in

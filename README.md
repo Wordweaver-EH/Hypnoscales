@@ -37,14 +37,14 @@ Preprint and full analysis pipeline: [github.com/Wordweaver-EH/Hypnoscales](http
 
 ```bash
 pip install numpy pandas scipy scikit-learn matplotlib openpyxl
-python a01_descriptives.py
-python a02_convergence.py
-python a03_retest.py
-python a04_classification.py
-python a05_all_pairs.py
-python a06_external.py
-python a07_sensitivity.py
-python a08_figures.py
+python analysis/a01_descriptives.py
+python analysis/a02_convergence.py
+python analysis/a03_retest.py
+python analysis/a04_classification.py
+python analysis/a05_all_pairs.py
+python analysis/a06_external.py
+python analysis/a07_sensitivity.py
+python analysis/a08_figures.py
 ```
 
 Or open `analysis.ipynb` for the full inline narrative version.

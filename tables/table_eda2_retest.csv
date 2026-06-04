@@ -1,21 +1,21 @@
-item,type,scale,r,p,ci_lo,ci_hi,n,mean_t1,mean_t2,floor_rate_t1
-Hand lower.,motor,PCS,0.323,0.0111,0.03,0.566,61,3.8,3.85,0.0
-Hands togeth.,motor,PCS,0.318,0.0125,0.061,0.545,61,3.38,2.92,0.016
-Mosquito,perceptual,PCS,0.503,0.0,0.295,0.687,61,2.02,0.97,0.279
-Taste,perceptual,PCS,0.449,0.0003,0.245,0.632,61,1.79,1.11,0.18
-Arm rigid.*,motor,PCS,0.217,0.0934,-0.084,0.476,61,3.75,2.74,0.0
-Arm immob.*,motor,PCS,0.411,0.001,0.176,0.615,61,2.93,2.31,0.049
-Music,perceptual,PCS,0.645,0.0,,,61,0.33,0.31,0.836
-Neg. visual,perceptual,PCS,0.216,0.0944,,,61,0.25,0.41,0.951
-Amnesia,cognitive,PCS,0.337,0.0079,0.083,0.563,61,1.67,1.33,0.23
-Post-hypnotic,cognitive,PCS,0.266,0.0386,0.008,0.514,61,1.26,1.57,0.541
-Hand lower.,motor,SWASH,0.469,0.0001,0.225,0.667,62,3.5,3.34,0.048
-Hands togeth.,motor,SWASH,0.49,0.0001,0.283,0.662,62,2.74,2.42,0.113
-Mosquito,perceptual,SWASH,0.61,0.0,0.345,0.813,62,1.24,0.81,0.468
-Taste,perceptual,SWASH,0.639,0.0,0.439,0.78,62,1.16,1.07,0.323
-Arm rigid.*,motor,SWASH,0.558,0.0,0.332,0.735,62,2.89,2.55,0.048
-Arm immob.*,motor,SWASH,0.42,0.0007,0.169,0.629,62,2.18,1.69,0.129
-Music,perceptual,SWASH,-0.013,0.9214,,,62,0.16,0.11,0.887
-Neg. visual,perceptual,SWASH,-0.025,0.8488,,,62,0.19,0.16,0.935
-Amnesia,cognitive,SWASH,0.382,0.0022,0.165,0.568,62,1.85,0.73,0.242
-Post-hypnotic,cognitive,SWASH,0.193,0.1322,-0.09,0.475,62,1.16,0.81,0.565
+item,type,scale,r,p,ci_lo,ci_hi,ci_note,n,mean_t1,mean_t2,floor_rate_t1
+Hand lower.,motor,PCS,0.323,0.0111,0.03,0.566,,61,3.8,3.85,0.0
+Hands togeth.,motor,PCS,0.318,0.0125,0.061,0.545,,61,3.38,2.92,0.016
+Mosquito,perceptual,PCS,0.503,0.0,0.295,0.687,,61,2.02,0.97,0.279
+Taste,perceptual,PCS,0.449,0.0003,0.245,0.632,,61,1.79,1.11,0.18
+Arm rigid.*,motor,PCS,0.217,0.0934,-0.084,0.476,,61,3.75,2.74,0.0
+Arm immob.*,motor,PCS,0.411,0.001,0.176,0.615,,61,2.93,2.31,0.049
+Music,perceptual,PCS,0.645,0.0,0.179,0.926,,61,0.33,0.31,0.836
+Neg. visual,perceptual,PCS,0.216,0.0944,-0.082,0.67,,61,0.25,0.41,0.951
+Amnesia,cognitive,PCS,0.337,0.0079,0.083,0.563,,61,1.67,1.33,0.23
+Post-hypnotic,cognitive,PCS,0.266,0.0386,0.008,0.514,,61,1.26,1.57,0.541
+Hand lower.,motor,SWASH,0.469,0.0001,0.225,0.667,,62,3.5,3.34,0.048
+Hands togeth.,motor,SWASH,0.49,0.0001,0.283,0.662,,62,2.74,2.42,0.113
+Mosquito,perceptual,SWASH,0.61,0.0,0.345,0.813,,62,1.24,0.81,0.468
+Taste,perceptual,SWASH,0.639,0.0,0.439,0.78,,62,1.16,1.07,0.323
+Arm rigid.*,motor,SWASH,0.558,0.0,0.332,0.735,,62,2.89,2.55,0.048
+Arm immob.*,motor,SWASH,0.42,0.0007,0.169,0.629,,62,2.18,1.69,0.129
+Music,perceptual,SWASH,-0.013,0.9214,-0.141,0.263,,62,0.16,0.11,0.887
+Neg. visual,perceptual,SWASH,-0.025,0.8488,-0.077,0.21,,62,0.19,0.16,0.935
+Amnesia,cognitive,SWASH,0.382,0.0022,0.165,0.568,,62,1.85,0.73,0.242
+Post-hypnotic,cognitive,SWASH,0.193,0.1322,-0.09,0.475,,62,1.16,0.81,0.565
