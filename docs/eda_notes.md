@@ -282,18 +282,58 @@ hallucination item is already auditory; adding the cross-modal visual component
 upgrades it from a pure auditory suggestion to a richer perceptual event without
 requiring new equipment.
 
-**Proposed four-item hybrid screener:**
+**Additional candidate items:**
 
-| Item | Type | Substrate | Equipment |
-|------|------|-----------|-----------|
+**vEAR as a scale item (not just criterion)**
+vEAR (visual evoked afterimage response) has been used here as an external criterion
+(df5 correlations). But the afterimage itself is a natural suggestion substrate: show
+a brief bright stimulus, then suggest the participant maintains, extends, and
+elaborates the afterimage under suggestion. Real sensory persistence provides an
+anchor — not purely imagined, not purely perceived. The suggestion rides a genuine
+trace rather than generating from nothing.
+- Substrate: veridical afterimage (high credibility, reduces demand characteristics)
+- Direction: suggestion to shape/transform/extend what is already there
+- Modality: visual, but distinct from both eigengrau (no prior stimulus) and
+  Dijkstra noise (no structured percept). Closer to the morphic/figure-ground class.
+- Individual differences: vEAR score itself predicts PCS performance (df5), so
+  afterimage suggestibility may already be partially indexed by it.
+
+**Chills/tingles (somatic/ASMR-adjacent)**
+A somatosensory modality absent from PCS/SWASH entirely. ASMR-like tingling and
+musical frissons (chills) share the feature of being:
+- Involuntary (arrive rather than being produced — same phenomenology as ideomotor)
+- Triggered top-down (specific sounds, expectations, or direct suggestion)
+- Graded in intensity (0–5 is natural)
+- Already widely experienced in the general population (ASMR prevalence ~20–30% in
+  unselected samples; frissons higher)
+
+As a suggestion item: auditory trigger (whispering, tapping, music) or direct
+suggestion alone → rate tingling/chilling spreading from scalp or spine 0–5.
+Near-floor problem is less acute than for visual items because the phenomenon is
+common and the relevant sensory confidence (skin/proprioception) is lower than
+external visual/auditory confidence.
+
+The ASMR dataset (Autonomous Experiences Questionnaire) was briefly in the repo
+(removed as unused). Its correlation with PCS items was not run — worth recovering.
+Cross-modal angle: chills to music (frisson) involves an auditory→somatic pathway;
+ASMR involves auditory/visual→somatic. Both are real cross-modal binding under
+reduced threat of sensory contradiction.
+
+**Proposed extended screener (exploratory):**
+
+| Item | Modality | Substrate | Equipment |
+|------|----------|-----------|-----------|
 | Arm rigidity | Motor challenge | Normal | None |
 | Arm immobilisation | Motor challenge | Normal | None |
-| Eigengrau visual | Positive visual hallucination | Eyes-closed eigengrau | None |
-| Cross-modal tone→colour | Auditory-visual | Eyes-closed + tone | Speaker/headphones |
+| Eigengrau visual | Positive visual | Eyes-closed eigengrau | None |
+| Cross-modal tone→colour | Auditory-visual | Eigengrau + tone | Speaker |
+| vEAR elaboration | Visual-transformative | Afterimage | Brief flash stimulus |
+| Chills/tingling | Somatic | Auditory trigger or direct | Optional speaker |
 
-Would capture: general factor (motor pair) + perceptual-specific variance
-(eigengrau + cross-modal) + individual differences in imagery vividness.
-No floor issues. No equipment for three of four items.
+Would capture: general factor (motor pair) + visual perceptual (eigengrau/vEAR) +
+cross-modal binding (Nair & Brang) + somatic/ASMR channel.
+No floor issues anticipated for any item. All have a substrate that reduces reliance
+on effortful generation.
 
 **Key references:**
 - Barber, T.X., & Calverley, D.S. (1964). *J. Abnorm. Soc. Psychol.*, 68(1), 13–20.
@@ -313,7 +353,43 @@ No floor issues. No equipment for three of four items.
 
 ---
 
-## 7. Open questions for future work
+## 7. Individual differences measures: PsiQ as alternative/supplement to VVIQ
+
+VVIQ (Marks 1973) has two limitations for this context:
+1. **Volitional only** — measures deliberate imagery vividness; does not capture
+   spontaneous/intrusive imagery, which is closer to what hallucination items require.
+2. **Visual only** — single modality; misses auditory, somatic, gustatory imagery
+   relevant to the items above.
+
+**PsiQ (Phenomenological Sensitivity / Perceptual Sensitivity Questionnaire)** —
+note: verify which specific scale is intended; candidates include:
+- Reeder's **Perceptual Imagination Scale** / Phenomenological Imagery measures
+  (multi-modal, includes spontaneous dimension)
+- The **Psi-Q** (parapsychology; measures anomalous perceptual experiences,
+  feelings of presence, etc. — correlates with hallucination proneness and
+  reduced reality monitoring)
+- The **Questionnaire on Mental Imagery (QMI)** / Betts — multi-modal including
+  auditory, tactile, kinaesthetic, gustatory
+
+For the revised scale's validation purposes, the ideal individual differences battery:
+
+| Measure | What it adds over VVIQ |
+|---------|------------------------|
+| VVIQ | Baseline volitional visual imagery vividness |
+| PsiQ / Perceptual Sensitivity | Spontaneous/anomalous perceptual experiences; non-volitional channel |
+| OSIVQ or QMI | Multi-modal (auditory, somatic, gustatory) coverage |
+| ASMR proneness (AEQ) | Somatic cross-modal sensitivity directly relevant to chills item |
+| Aphantasia/hyperphantasia self-report | Extreme ends of Reeder spectrum; controls ceiling/floor in imagery measures |
+
+**Prediction:** PsiQ should predict the new perceptual items more strongly than VVIQ
+because it captures the involuntary/spontaneous dimension — the hallucination items
+require passive discovery, not active generation. VVIQ will still predict the
+deliberate imagination required by the White Christmas/noise paradigm versions.
+The two measures might dissociate cleanly across item types.
+
+---
+
+## 8. Open questions for future work
 
 1. Does VVIQ × taste replicate in df3 (SWASH paper has matched items)?
 2. Does the Bernoulli k=2 LCA finding hold in df2, df3, df5? Cross-dataset
@@ -323,13 +399,6 @@ No floor issues. No equipment for three of four items.
 4. What mediates the taste-VVIQ relationship? Olfactory/gustatory imagery
    vividness scales would clarify whether it is truly taste-specific or
    general imaginative compliance.
-8. Does the cross-modal (Nair & Brang) item show stronger VVIQ correlation than
-   the unimodal auditory item under equivalent deprivation? Would distinguish
-   imagery-vividness sensitivity from general hallucinability.
-9. Does the eigengrau positive-visual item correlate with phosphene proneness
-   (from blog survey) and with the neg-visual spike profile (P2)? If P2 is a
-   genuine high-visual-hallucinability phenotype, eigengrau responding should
-   predict it directly.
 5. Full MAMBAC/MAXEIG/L-Mode on df4 using proper taxometric methodology.
 6. The neg-visual spike profile (P2): is it stable across sessions? If those 15
    people have stable high neg-visual scores, they are a genuine phenotype worth
@@ -337,3 +406,12 @@ No floor issues. No equipment for three of four items.
 7. Why does the relaxation induction reduce responding when the classic literature
    expects induction to increase it? The norms sample is unselected undergraduates.
    In selected high-suggestibles the direction might be different.
+8. Does the cross-modal (Nair & Brang) item show stronger PsiQ/VVIQ correlation than
+   the unimodal auditory item under equivalent deprivation? Would distinguish
+   imagery-vividness sensitivity from general hallucinability.
+9. Does the eigengrau positive-visual item correlate with phosphene proneness
+   (from blog survey) and with the neg-visual spike profile (P2)?
+10. Does PsiQ dissociate from VVIQ in predicting volitional-substrate items
+    (noise paradigm) vs. discovery-oriented items (eigengrau, chills)?
+11. Run ASMR questionnaire (AEQ) × PCS item correlations — the dataset was in the
+    repo but correlations were never computed. Recover and run.
