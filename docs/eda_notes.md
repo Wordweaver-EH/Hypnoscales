@@ -652,9 +652,90 @@ validated motor pair and taste:
 | 10 | Chills/ASMR | Somatic autonomic — s3/s10 | Post-hypnotic | Low | Optional |
 | 11 | vEAR elaboration | Visual transformative — s1 | — (new) | Low | Brief flash |
 
-Motor pair (#5, #6) preserved as the two-item short form. All floor items replaced
+Motor pair (#6, #7) preserved as the two-item short form. All floor items replaced
 with lower-floor alternatives grounded in sensory-confidence framework. Three new
 modalities added: tactile-localised, somatic-autonomic, visual-transformative.
 
 Note: this is a theoretical proposal, not a validated scale. Ordering, phrasing,
 and combination would need piloting before any psychometric claims.
+
+---
+
+## 12. Organising framework: 4 × 2 matrix
+
+A cleaner principle than Weitzenhoffer's taxonomy. Items are classified by two
+independent dimensions:
+
+**Modality** (what faculty the suggestion acts on): Motor, Perceptual, Cognitive, Affective
+
+**Direction** (what the suggestion does):
+- *Facilitatory / direct / positive* — adds, enables, or enhances an experience
+- *Inhibitory / challenge / negative* — removes, blocks, or resists an experience
+
+The motor inhibitory cell is the only fully-populated cell in existing scales — which
+is precisely why the motor pair dominates total-score variance. Every other cell is
+underpopulated, floored, or absent.
+
+**Psychometric implication of direction:** Facilitatory items discriminate better at
+low-to-mid suggestibility (most people can do something). Inhibitory/challenge items
+discriminate better at mid-to-high (the gap between "felt resistance" and "genuinely
+couldn't" separates moderate from high responders). Covering both directions in each
+modality gives better measurement across the full range.
+
+---
+
+### 4 × 2 mapping of proposed items
+
+| | Facilitatory | Inhibitory |
+|---|---|---|
+| **Motor** | Hand lowering (heaviness) · Hands together (force) · Arm levitation (floating) | Arm rigidity · Arm immobilisation · [Finger lock — df4 only] |
+| **Perceptual** | Taste · Localised tingling · Eigengrau/cross-modal (visual+auditory) · Chills/ASMR · vEAR elaboration | Naming inhibition *(cognitive-perceptual border)* · [Analgesia — apparatus required] |
+| **Cognitive** | **[gap — hypermnesia needs memory baseline]** | Amnesia / naming inhibition |
+| **Affective** | Calm/contentment · Chills as somatic-affective *(border)* | **[gap — emotional blunting is clinical]** |
+
+**Two cells remain empty in a brief self-report format:**
+
+*Cognitive facilitatory:* Hypermnesia requires a memory test and a baseline — you
+cannot self-report enhanced recall without something to recall against. Options:
+- Within-session recall: study a word list early, suggest recall enhancement, test
+  later. Adds complexity but keeps it within a single session.
+- Alternatively: drop this cell and accept cognitive coverage is inhibitory-only
+  (naming inhibition covers the inhibitory side well).
+
+*Affective inhibitory:* Emotional blunting, dissociation from affect, and
+indifference induction are clinically relevant but ethically complex in unselected
+samples (inducing fear/guilt/anxiety is not appropriate for screening). Calm/safety
+is the accessible end of affective inhibitory (suggesting affect-away from anxiety)
+but that blurs into facilitatory calm. Options:
+- Frame as "emotional distance" suggestion: "Whatever you feel, you observe it calmly
+  from a distance." Crosses into dissociation (xc2) and is double-coded.
+- Accept the cell is empty for unselected screening use; reserve for clinical contexts.
+
+---
+
+### Item count per cell (proposed 11-item scale)
+
+| | Facilitatory | Inhibitory |
+|---|---|---|
+| **Motor** | 3 (lowering, together, levitation) | 2 (rigidity, immobilisation) |
+| **Perceptual** | 4 (taste, tingling, eigengrau, chills) | 0–1 (naming inhibition is border) |
+| **Cognitive** | 0 | 1 (naming inhibition) |
+| **Affective** | 1 (calm/chills border) | 0 |
+
+Motor is 5/11 items. Perceptual facilitatory is richest new addition. Cognitive and
+affective are thin. If trimming to 8 items for practicality, a balanced selection:
+
+| # | Item | Cell |
+|---|------|------|
+| 1 | Hand lowering | Motor facilitatory |
+| 2 | Arm levitation / floating | Motor facilitatory |
+| 3 | Arm rigidity | Motor inhibitory |
+| 4 | Arm immobilisation | Motor inhibitory |
+| 5 | Taste hallucination | Perceptual facilitatory (gustatory) |
+| 6 | Eigengrau / cross-modal visual | Perceptual facilitatory (visual+auditory) |
+| 7 | Naming inhibition | Cognitive inhibitory |
+| 8 | Calm / contentment | Affective facilitatory |
+
+Short form (2-item): items 3+4 (motor inhibitory pair — current validated screener).
+Mid form (4-item): items 2+3+4+6 (motor facilitated + inhibited + perceptual).
+Full form (8-item): all above.
