@@ -1,15 +1,15 @@
 """
-a04_classification.py — Classification / screening performance.
+a04_classification.py â€” Classification / screening performance.
 
 Design matches Zech et al. (2024) HGSHS-5:G benchmark:
   Three ordered groups (low / medium / high) using tertile boundaries
   on each scale independently. Weighted kappa (linear) across all three
-  ordered categories. n=1,963 in Zech; our n=240–508.
+  ordered categories. n=1,963 in Zech; our n=240â€“508.
 
 Primary: criterion = full-scale total (genre-standard, directly comparable
          to HGSHS-5:G kappa=0.578).
 Secondary (sensitivity): criterion = rest score (overlap-free per Girard &
-         Christensen 2008) — reported as conservative complement, NOT as
+         Christensen 2008) â€” reported as conservative complement, NOT as
          the benchmark comparison.
 
 Binary classification (top-% screen) retained as supplementary ROC/AUC.
@@ -23,11 +23,11 @@ Outputs:
 import numpy as np
 import pandas as pd
 from sklearn.metrics import cohen_kappa_score, confusion_matrix, roc_curve, auc
-from lib_data import (load_all, MOTOR_COLS, make_tables_dir)
+from lib_data import (TABLES_DIR, FIGURES_DIR, load_all, MOTOR_COLS, make_tables_dir)
 
 
 # ---------------------------------------------------------------------------
-# Three-group (tertile) classification — matches Zech 2024 design
+# Three-group (tertile) classification â€” matches Zech 2024 design
 # ---------------------------------------------------------------------------
 
 def tertile_groups(scores):
@@ -66,7 +66,7 @@ def three_group_kappa(motor, criterion):
 
 
 # ---------------------------------------------------------------------------
-# Binary (top-%) classification — for ROC/AUC and sensitivity/specificity
+# Binary (top-%) classification â€” for ROC/AUC and sensitivity/specificity
 # ---------------------------------------------------------------------------
 
 CUTOFFS = (0.08, 0.10, 0.12, 0.15, 0.20, 0.33)
@@ -130,14 +130,14 @@ def main():
         ('df2',       MOTOR_COLS['df2'],     'rest_score',     'SubjectiveTotal',                   'df2 PCS-VVIQ'),
         ('df3',       MOTOR_COLS['df3'],     'rest_score',     'Subjectivescore',                   'df3 SWASH'),
         ('df5',       MOTOR_COLS['df5'],     'rest_score',     'PCscore',                           'df5 vEAR PCS'),
-        # df4 HGSHS:A — involuntariness dimension (Bowers 0–5 scale, same range as PCS/SWASH)
+        # df4 HGSHS:A â€” involuntariness dimension (Bowers 0â€“5 scale, same range as PCS/SWASH)
         ('df4',       MOTOR_COLS['df4_inv'], 'rest_score_inv', 'INV_total',                         'df4 HGSHS:A inv'),
-        # df4 HGSHS:A — objective binary (motor sum 0/1/2; coarser than inv)
+        # df4 HGSHS:A â€” objective binary (motor sum 0/1/2; coarser than inv)
         ('df4',       MOTOR_COLS['df4_obj'], 'rest_score_obj', 'OBJ_total',                         'df4 HGSHS:A obj'),
     ]
 
-    # ---- Three-group weighted kappa (primary — matches Zech 2024 design) ----
-    print("PRIMARY CLASSIFICATION — weighted kappa, three ordered groups")
+    # ---- Three-group weighted kappa (primary â€” matches Zech 2024 design) ----
+    print("PRIMARY CLASSIFICATION â€” weighted kappa, three ordered groups")
     print("Matches Zech et al. (2024) HGSHS-5:G design: tertile low/medium/high")
     print("Benchmark: kappa_weighted = 0.578 (N=1,963)")
     print()
@@ -183,7 +183,7 @@ def main():
 
     # ---- Secondary: rest-score criterion (overlap-free sensitivity check) ----
     print()
-    print("SECONDARY — rest-score criterion (overlap-free, sensitivity check)")
+    print("SECONDARY â€” rest-score criterion (overlap-free, sensitivity check)")
     print("Not directly comparable to HGSHS-5:G benchmark.")
     print()
 
@@ -218,7 +218,7 @@ def main():
 
     # ---- Binary classification for ROC/AUC (supplementary) ----
     print()
-    print("SUPPLEMENTARY — binary (top-33%) classification, ROC/AUC")
+    print("SUPPLEMENTARY â€” binary (top-33%) classification, ROC/AUC")
     print()
 
     binary_rows = []
@@ -242,7 +242,7 @@ def main():
     out = pd.concat([kappa_df.assign(analysis='three_group'),
                      binary_df.assign(analysis='binary')],
                     ignore_index=True)
-    out.to_csv('tables/table_classification.csv', index=False)
+    out.to_csv(f'{TABLES_DIR}/table_classification.csv', index=False)
     print()
     print("Saved: tables/table_classification.csv")
 

@@ -1,5 +1,5 @@
 """
-a01_descriptives.py — Item descriptives with floor/ceiling rates.
+a01_descriptives.py â€” Item descriptives with floor/ceiling rates.
 
 Outputs:
   tables/table_item_descriptives.csv
@@ -8,7 +8,7 @@ Outputs:
 
 import numpy as np
 import pandas as pd
-from lib_data import (load_all, ITEMS_DF1, ITEMS_DF2, ITEMS_DF3,
+from lib_data import (TABLES_DIR, FIGURES_DIR, load_all, ITEMS_DF1, ITEMS_DF2, ITEMS_DF3,
                       ITEMS_DF4_INV, ITEMS_DF4_OBJ, ITEMS_DF5,
                       LABELS_PCS, LABELS_HGSHS, TYPES_PCS, TYPES_HGSHS,
                       MOTOR_COLS, PROCEDURE_ERA, make_tables_dir)
@@ -63,7 +63,7 @@ def main():
         all_rows.extend(rows)
 
     desc_df = pd.DataFrame(all_rows)
-    desc_df.to_csv('tables/table_item_descriptives.csv', index=False)
+    desc_df.to_csv(f'{TABLES_DIR}/table_item_descriptives.csv', index=False)
     print("Saved: tables/table_item_descriptives.csv")
 
     # Dataset summary
@@ -99,7 +99,7 @@ def main():
         })
 
     summary_df = pd.DataFrame(summary_rows)
-    summary_df.to_csv('tables/table_dataset_summary.csv', index=False)
+    summary_df.to_csv(f'{TABLES_DIR}/table_dataset_summary.csv', index=False)
     print("Saved: tables/table_dataset_summary.csv")
 
     # Print floor summary

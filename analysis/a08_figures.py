@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 import os
 
-from lib_data import (load_all, ITEMS_DF1, ITEMS_DF2, ITEMS_DF3, ITEMS_DF5,
+from lib_data import (TABLES_DIR, FIGURES_DIR, load_all, ITEMS_DF1, ITEMS_DF2, ITEMS_DF3, ITEMS_DF5,
                       MOTOR_COLS, LABELS_PCS, TYPES_PCS, COLOUR_MAP,
                       make_figures_dir)
 from sklearn.metrics import roc_curve, auc
@@ -27,7 +27,7 @@ DPI = 300
 
 def fig1_forest_plot():
     """Forest plot: motor pair correlations across datasets."""
-    conv = pd.read_csv('tables/table_main_convergence.csv')
+    conv = pd.read_csv(f'{TABLES_DIR}/table_main_convergence.csv')
     intensity = conv[conv['dimension'].isin(['intensity', 'involuntariness'])].copy()
 
     fig, axes = plt.subplots(1, 2, figsize=(13, 6), sharey=True)
@@ -72,14 +72,14 @@ def fig1_forest_plot():
                  'correlations with full-scale and rest-score across datasets',
                  fontsize=11, y=1.02)
     plt.tight_layout()
-    plt.savefig('figures/fig1_forest_plot.png', dpi=DPI, bbox_inches='tight')
+    plt.savefig(f'{FIGURES_DIR}/fig1_forest_plot.png', dpi=DPI, bbox_inches='tight')
     plt.close()
     print("Saved: figures/fig1_forest_plot.png")
 
 
 def fig2_all_pairs_rank():
     """All-pairs rank: motor pair among 45 pairs, all PCS datasets."""
-    pairs = pd.read_csv('tables/table_all_pairs.csv')
+    pairs = pd.read_csv(f'{TABLES_DIR}/table_all_pairs.csv')
 
     # Show all PCS datasets (drop SWASH — incidental)
     pcs_datasets = [ds for ds in ['df1 PCS', 'df2 PCS-VVIQ', 'df5 vEAR PCS']
@@ -120,14 +120,14 @@ def fig2_all_pairs_rank():
     fig.suptitle('All-pairs analysis: pre-specified motor pair among all 45 two-item combinations\n'
                  'Highlighted in red', fontsize=10)
     plt.tight_layout()
-    plt.savefig('figures/fig2_all_pairs_rank.png', dpi=DPI, bbox_inches='tight')
+    plt.savefig(f'{FIGURES_DIR}/fig2_all_pairs_rank.png', dpi=DPI, bbox_inches='tight')
     plt.close()
     print("Saved: figures/fig2_all_pairs_rank.png")
 
 
 def fig3_item_floor():
     """Item means + floor percentages, one panel per dataset."""
-    desc = pd.read_csv('tables/table_item_descriptives.csv')
+    desc = pd.read_csv(f'{TABLES_DIR}/table_item_descriptives.csv')
     intensity = desc[desc['dimension'] == 'intensity']
     datasets  = [('df1 PCS (cond=0)', 'df1 PCS'),
                  ('df1 SWASH (cond=1)', 'df1 SWASH'),
@@ -169,7 +169,7 @@ def fig3_item_floor():
                  'Motor items (i5, i6) sit at mid-scale; perceptual items approach floor',
                  fontsize=10)
     plt.tight_layout(rect=[0, 0, 0.88, 1])
-    plt.savefig('figures/fig3_item_floor.png', dpi=DPI, bbox_inches='tight')
+    plt.savefig(f'{FIGURES_DIR}/fig3_item_floor.png', dpi=DPI, bbox_inches='tight')
     plt.close()
     print("Saved: figures/fig3_item_floor.png")
 
@@ -213,14 +213,14 @@ def fig4_roc_curves():
                  'Motor items are inside the total (part-whole; same design as HGSHS-5:G)',
                  fontsize=10)
     plt.tight_layout()
-    plt.savefig('figures/fig4_roc_primary.png', dpi=DPI, bbox_inches='tight')
+    plt.savefig(f'{FIGURES_DIR}/fig4_roc_primary.png', dpi=DPI, bbox_inches='tight')
     plt.close()
     print("Saved: figures/fig4_roc_primary.png")
 
 
 def fig5_external_validity():
     """Grouped bar chart: motor pair vs full scale r across external criteria."""
-    ext = pd.read_csv('tables/table_external_validity.csv')
+    ext = pd.read_csv(f'{TABLES_DIR}/table_external_validity.csv')
 
     # Select main criteria — one row per criterion, motor vs full_scale
     criteria_order = [
@@ -290,7 +290,7 @@ def fig5_external_validity():
                  fontsize=10)
 
     plt.tight_layout()
-    plt.savefig('figures/fig5_external_validity.png', dpi=DPI, bbox_inches='tight')
+    plt.savefig(f'{FIGURES_DIR}/fig5_external_validity.png', dpi=DPI, bbox_inches='tight')
     plt.close()
     print("Saved: figures/fig5_external_validity.png")
 

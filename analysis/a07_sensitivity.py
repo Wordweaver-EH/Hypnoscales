@@ -1,5 +1,5 @@
 """
-a07_sensitivity.py — Sensitivity analyses.
+a07_sensitivity.py â€” Sensitivity analyses.
 
 Checks:
   1. Sum vs mean scoring of the motor pair
@@ -17,7 +17,7 @@ Outputs:
 import numpy as np
 import pandas as pd
 from scipy.stats import pearsonr, spearmanr, zscore
-from lib_data import (load_all, ITEMS_DF1, ITEMS_DF2, ITEMS_DF3, ITEMS_DF5,
+from lib_data import (TABLES_DIR, FIGURES_DIR, load_all, ITEMS_DF1, ITEMS_DF2, ITEMS_DF3, ITEMS_DF5,
                       MOTOR_COLS, bootstrap_ci, N_BOOT, make_tables_dir)
 
 
@@ -60,7 +60,7 @@ def main():
     for key, all_items, mc, tc, rc, label in intensity_configs:
         df = dfs[key]
 
-        # 1. Sum scoring (baseline — also used in main analyses)
+        # 1. Sum scoring (baseline â€” also used in main analyses)
         motor_sum  = df[mc].sum(axis=1)
         motor_mean = df[mc].mean(axis=1)
         total      = df[tc]
@@ -103,20 +103,20 @@ def main():
     rows.append(sens_row(motor2, df2['SubjectiveTotal'], 'df2 PCS-VVIQ', 'scoring_check', 'canonical_10item_total'))
     rows.append(sens_row(motor2, df2['BuggyTotal'],      'df2 PCS-VVIQ', 'scoring_check', 'buggy_12col_total'))
 
-    # 6. df3 SWASH — first-test vs retest total (documents the original bug)
+    # 6. df3 SWASH â€” first-test vs retest total (documents the original bug)
     df3 = dfs['df3']
     motor3 = df3[MOTOR_COLS['df3']].sum(axis=1)
     # First-test (correct)
     rows.append(sens_row(motor3, df3['Subjectivescore'],
                          'df3 SWASH', 'retest_check', 'vs_first_test_total_n418'))
-    # Retest total (original bug — n≈66 only)
+    # Retest total (original bug â€” nâ‰ˆ66 only)
     df3_rt = df3[df3['Subjectivereturnscore'].notna()]
     motor3_rt = df3_rt[MOTOR_COLS['df3']].sum(axis=1)
     rows.append(sens_row(motor3_rt, df3_rt['Subjectivereturnscore'],
                          'df3 SWASH', 'retest_check', 'vs_retest_total_n66_original_bug'))
 
     sens_df = pd.DataFrame(rows)
-    sens_df.to_csv('tables/table_sensitivity.csv', index=False)
+    sens_df.to_csv(f'{TABLES_DIR}/table_sensitivity.csv', index=False)
     print("Saved: tables/table_sensitivity.csv")
 
     print("\nSENSITIVITY ANALYSIS RESULTS")

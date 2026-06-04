@@ -1,5 +1,5 @@
 """
-a03_retest.py — Test-retest reliability analyses.
+a03_retest.py â€” Test-retest reliability analyses.
 
 Two sources of retest data:
   1. PCS norms retest file (n=123, full T1+T2 item data, PCS+SWASH split)
@@ -14,17 +14,17 @@ Outputs:
 import numpy as np
 import pandas as pd
 from scipy.stats import pearsonr, spearmanr
-from lib_data import (load_all, load_retest, MOTOR_COLS, ITEMS_DF1, ITEMS_DF3,
+from lib_data import (TABLES_DIR, FIGURES_DIR, load_all, load_retest, MOTOR_COLS, ITEMS_DF1, ITEMS_DF3,
                       spearman_brown, bootstrap_ci, N_BOOT, make_tables_dir)
 
-# PCS norms retest — T2 column name mapping
+# PCS norms retest â€” T2 column name mapping
 # T1 columns: standard names (ArmRigiditySubjectiveRating, etc.)
 # T2 columns: suffix _69 (rigidity) _70 (immobilisation)
 RETEST_MOTOR_T2 = ['ArmRigiditySubjectiveRating_69', 'ArmImmobilisationSubjectiveRating_70']
 RETEST_TOTAL_T1 = 'TotalSubjectiveScore'   # sum of 10 items
 RETEST_TOTAL_T2 = 'TotalSubjectiveScore_75'
-# Convert to mean-per-item (same 0–5 scale as PCS items)
-# TotalSubjectiveScore = sum of 10 items → divide by 10 for mean
+# Convert to mean-per-item (same 0â€“5 scale as PCS items)
+# TotalSubjectiveScore = sum of 10 items â†’ divide by 10 for mean
 # Equivalently: FIRSTSUBJECTIVE/5 and RTsubj/5 are already mean-per-item
 
 
@@ -61,7 +61,7 @@ def main():
 
     rows = []
 
-    # ── PCS norms retest ────────────────────────────────────
+    # â”€â”€ PCS norms retest â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     for label, rt_df, cond in [('df1 PCS retest', rt_pcs, 'PCS'),
                                 ('df1 SWASH retest', rt_swash, 'SWASH')]:
         # Motor pair sums
@@ -88,9 +88,9 @@ def main():
         if r: rows.append(r)
 
         # Rest T1 vs Rest T2 (compute rest scores for retest file)
-        # T1 rest items — need to recompute (8 non-motor items in ITEMS_DF1)
+        # T1 rest items â€” need to recompute (8 non-motor items in ITEMS_DF1)
         rest_items_t1 = [c for c in ITEMS_DF1 if c not in MOTOR_COLS['df1']]
-        # T2 rest items — suffix mapping
+        # T2 rest items â€” suffix mapping
         # T2 item columns: HandLoweringSubjectiveRating_65, ..., PostHypnoticSubjectiveRating_74
         # Suffix numbers: _65 to _74, minus motor pair (_69, _70)
         rest_items_t2 = [c for c in rt_df.columns
@@ -101,11 +101,11 @@ def main():
             r = retest_row(t1_rest, t2_rest, 'rest_score_T1', 'rest_score_T2', label)
             if r: rows.append(r)
 
-            # Motor T1 vs Rest T2 (screening → non-motor criterion)
+            # Motor T1 vs Rest T2 (screening â†’ non-motor criterion)
             r = retest_row(t1_motor, t2_rest, 'motor_pair_T1', 'rest_score_T2', label)
             if r: rows.append(r)
 
-    # ── df3 SWASH retest (T2 total only) ───────────────────
+    # â”€â”€ df3 SWASH retest (T2 total only) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     df3 = dfs['df3']
     df3_retest = df3[df3['Subjectivereturnscore'].notna()].copy()
     t1_motor_df3 = df3_retest[MOTOR_COLS['df3']].sum(axis=1)
@@ -120,17 +120,17 @@ def main():
                    'full_total_T1', 'full_total_T2', 'df3 SWASH retest')
     if r: rows.append(r)
 
-    # ── Compile and save ────────────────────────────────────
+    # â”€â”€ Compile and save â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     rt_df_out = pd.DataFrame(rows)
-    rt_df_out.to_csv('tables/table_test_retest.csv', index=False)
+    rt_df_out.to_csv(f'{TABLES_DIR}/table_test_retest.csv', index=False)
     print("Saved: tables/table_test_retest.csv")
 
     print("\nTEST-RETEST RESULTS")
     print("=" * 80)
     print(rt_df_out.to_string(index=False))
 
-    # Key comparison: motor T1→T2 vs full T1→T2
-    print("\nKey comparison — motor pair stability vs full scale stability:")
+    # Key comparison: motor T1â†’T2 vs full T1â†’T2
+    print("\nKey comparison â€” motor pair stability vs full scale stability:")
     for label in ['df1 PCS retest', 'df1 SWASH retest']:
         sub = rt_df_out[rt_df_out['dataset'] == label]
         mot = sub[sub['T1_var'] == 'motor_pair_T1'][sub['T2_var'] == 'motor_pair_T2']

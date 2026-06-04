@@ -19,9 +19,11 @@ RANDOM_SEED = 20260603
 N_BOOT      = 5000
 CI_LEVEL    = 95
 
-ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = os.path.join(ROOT_DIR, 'data')   # raw dataset files
-OSF_DIR  = os.path.join(ROOT_DIR, 'osf')    # source OSF repositories
+ROOT_DIR    = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_DIR    = os.path.join(ROOT_DIR, 'data')     # raw dataset files
+OSF_DIR     = os.path.join(ROOT_DIR, 'osf')      # source OSF repositories
+TABLES_DIR  = os.path.join(ROOT_DIR, 'tables')   # computed output tables
+FIGURES_DIR = os.path.join(ROOT_DIR, 'figures')  # publication figures
 
 # ── Motor-pair column names per dataset ─────────────────────
 MOTOR_COLS = {
@@ -328,8 +330,8 @@ def corr_row(x, y, label, dataset, scale, context, dimension,
 
 
 def make_tables_dir():
-    os.makedirs(f'{DATA_DIR}/tables', exist_ok=True)
+    os.makedirs(TABLES_DIR, exist_ok=True)
 
 
 def make_figures_dir():
-    os.makedirs(f'{DATA_DIR}/figures', exist_ok=True)
+    os.makedirs(FIGURES_DIR, exist_ok=True)

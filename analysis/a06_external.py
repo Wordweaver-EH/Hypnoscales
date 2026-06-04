@@ -1,5 +1,5 @@
 """
-a06_external.py — External validity analyses.
+a06_external.py â€” External validity analyses.
 
 Tests whether the motor pair preserves the full PCS relationship
 with external criteria outside the scale itself.
@@ -11,16 +11,16 @@ Datasets with individual PCS items + external criterion:
   - des:       DES_score (Dissociative Experiences Scale)
 
 Datasets with SWASH/PCS TOTAL only (no individual items):
-  - RHI (n=740):  SubjectiveSWASH → cannot compute motor pair
-  - MTS (n=154):  SWASH_subjective_score → cannot compute motor pair
-  - VP  (n=501):  SWASH_subjective_score → cannot compute motor pair
+  - RHI (n=740):  SubjectiveSWASH â†’ cannot compute motor pair
+  - MTS (n=154):  SWASH_subjective_score â†’ cannot compute motor pair
+  - VP  (n=501):  SWASH_subjective_score â†’ cannot compute motor pair
   These are noted in the output but excluded from the main table.
 
 For each external criterion, fit:
   1. criterion ~ full_score
   2. criterion ~ motor_pair
   3. criterion ~ rest_score
-  And report r, r², CIs.
+  And report r, rÂ², CIs.
 
 Outputs:
   tables/table_external_validity.csv
@@ -29,7 +29,7 @@ Outputs:
 import numpy as np
 import pandas as pd
 from scipy.stats import pearsonr
-from lib_data import (load_all, load_external_validity,
+from lib_data import (TABLES_DIR, FIGURES_DIR, load_all, load_external_validity,
                       MOTOR_COLS, ITEMS_EXT_PCS,
                       bootstrap_ci, corr_row, N_BOOT, make_tables_dir)
 
@@ -83,7 +83,7 @@ def main():
 
     all_rows = []
 
-    # ── df5: vEAR ──────────────────────────────────────────
+    # â”€â”€ df5: vEAR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     df5 = dfs['df5']
     for crit_col, crit_label in [
         ('vEARscoreFromVideoRatings', 'vEAR_score'),
@@ -94,7 +94,7 @@ def main():
                          crit_col, crit_label, 'df5 vEAR PCS')
             all_rows.extend(rows)
 
-    # ── Unusual-experiences datasets ───────────────────────
+    # â”€â”€ Unusual-experiences datasets â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     # anomalous: past-life, OBE, spirit-world, combined
     anom = ext['anomalous']
     anom_criteria = [
@@ -128,9 +128,9 @@ def main():
                  'DES_score', 'DES_dissociation', 'DES_PCS')
     all_rows.extend(rows)
 
-    # ── Compile ─────────────────────────────────────────────
+    # â”€â”€ Compile â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     out_df = pd.DataFrame(all_rows)
-    out_df.to_csv('tables/table_external_validity.csv', index=False)
+    out_df.to_csv(f'{TABLES_DIR}/table_external_validity.csv', index=False)
     print("Saved: tables/table_external_validity.csv")
 
     print("\nEXTERNAL VALIDITY RESULTS")
@@ -139,7 +139,7 @@ def main():
 
     print("\n--- RHI / MTS / VP note ---")
     print("RHI (n=740), mirror-touch synaesthesia (n=154), vicarious pain (n=501)")
-    print("available from osf/rhi/ but contain only SWASH total scores — no individual items.")
+    print("available from osf/rhi/ but contain only SWASH total scores â€” no individual items.")
     print("Cannot compute motor pair for these datasets. Full-scale SWASH correlates with")
     print("these criteria in the original publications but motor-pair isolation is not possible.")
 

@@ -1,5 +1,5 @@
 """
-a02_convergence.py — Main convergence analyses.
+a02_convergence.py â€” Main convergence analyses.
 
 Section 5: Motor pair vs full-scale total (part-whole) and vs rest score (part-rest).
 Section 6: Two-item reliability (Spearman-Brown, inter-item r).
@@ -11,7 +11,7 @@ Outputs:
 import numpy as np
 import pandas as pd
 from scipy.stats import pearsonr, spearmanr, norm
-from lib_data import (load_all, ITEMS_DF1, ITEMS_DF2, ITEMS_DF3,
+from lib_data import (TABLES_DIR, FIGURES_DIR, load_all, ITEMS_DF1, ITEMS_DF2, ITEMS_DF3,
                       ITEMS_DF4_INV, ITEMS_DF4_OBJ, ITEMS_DF5,
                       MOTOR_COLS, spearman_brown, bootstrap_ci,
                       corr_row, N_BOOT, make_tables_dir)
@@ -147,7 +147,7 @@ def main():
     conv_df['ok_full'] = conv_df['delta_full'].abs().le(0.02) | conv_df['target_r_full'].isna()
     conv_df['ok_rest'] = conv_df['delta_rest'].abs().le(0.02) | conv_df['target_r_rest'].isna()
 
-    conv_df.to_csv('tables/table_main_convergence.csv', index=False)
+    conv_df.to_csv(f'{TABLES_DIR}/table_main_convergence.csv', index=False)
     print("Saved: tables/table_main_convergence.csv")
 
     # Print results
@@ -157,7 +157,7 @@ def main():
             'r_rest', 'r_rest_ci_lo', 'r_rest_ci_hi', 'sb_reliability', 'interitem_r']
     print(conv_df[cols].to_string(index=False))
 
-    print("\nBenchmark: HGSHS-5:G r_full=0.83, R²=0.69 (Riegel 2021; Zech 2024 R²=0.69)")
+    print("\nBenchmark: HGSHS-5:G r_full=0.83, RÂ²=0.69 (Riegel 2021; Zech 2024 RÂ²=0.69)")
 
     # Validation check
     bad = conv_df[~conv_df['ok_full'] & conv_df['target_r_full'].notna()]

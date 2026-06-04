@@ -1,5 +1,5 @@
 """
-a05_all_pairs.py — All 2-item pair comparison.
+a05_all_pairs.py â€” All 2-item pair comparison.
 
 For each PCS/SWASH dataset:
   - Generate all C(10,2)=45 two-item combinations
@@ -19,7 +19,7 @@ import numpy as np
 import pandas as pd
 from itertools import combinations
 from scipy.stats import pearsonr
-from lib_data import (load_all, ITEMS_DF1, ITEMS_DF2, ITEMS_DF3, ITEMS_DF5,
+from lib_data import (TABLES_DIR, FIGURES_DIR, load_all, ITEMS_DF1, ITEMS_DF2, ITEMS_DF3, ITEMS_DF5,
                       MOTOR_COLS, LABELS_PCS, make_tables_dir)
 
 # Human-readable item labels
@@ -29,7 +29,7 @@ ITEM_LABELS_PCS = dict(zip(
      'Arm rigidity', 'Arm immobilisation',
      'Music', 'Neg. visual', 'Amnesia', 'Post-hypnotic']
 ))
-# For df2, df3, df5 — same logical items in different columns
+# For df2, df3, df5 â€” same logical items in different columns
 ITEM_LABELS_DF2 = dict(zip(ITEMS_DF2,
     ['Hand lowering', 'Hands together', 'Mosquito', 'Taste',
      'Arm rigidity', 'Arm immobilisation',
@@ -63,7 +63,7 @@ def all_pairs_analysis(df, all_items, item_labels, total_col, motor_cols, datase
         # Inter-item r
         mask_ii = df[c1].notna() & df[c2].notna()
         r_ii, _ = pearsonr(df[c1][mask_ii].values, df[c2][mask_ii].values)
-        from lib_data import spearman_brown
+        from lib_data import TABLES_DIR, FIGURES_DIR, spearman_brown
         sb = spearman_brown(r_ii)
 
         # Item means
@@ -151,14 +151,14 @@ def main():
     # Save combined table
     combined = pd.concat(all_dfs, ignore_index=True)
     combined.drop(columns=['c1','c2'], inplace=True, errors='ignore')
-    combined.to_csv('tables/table_all_pairs.csv', index=False)
+    combined.to_csv(f'{TABLES_DIR}/table_all_pairs.csv', index=False)
     print("\nSaved: tables/table_all_pairs.csv")
 
     summary_df = pd.DataFrame(summary_rows)
-    summary_df.to_csv('tables/table_all_pairs_summary.csv', index=False)
+    summary_df.to_csv(f'{TABLES_DIR}/table_all_pairs_summary.csv', index=False)
     print("Saved: tables/table_all_pairs_summary.csv")
 
-    print("\nSUMMARY — Motor pair rank across datasets")
+    print("\nSUMMARY â€” Motor pair rank across datasets")
     print(summary_df.to_string(index=False))
 
 
