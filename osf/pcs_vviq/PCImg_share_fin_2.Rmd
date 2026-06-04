@@ -1,0 +1,562 @@
+---
+title: "Imagery and phenomenological control"
+output: html_document
+date: "2023-02-28"
+---
+
+#load libraries
+```{r setdup, include=FALSE}
+library(tidyverse)
+library(ggpubr)
+library(ggstatsplot)
+library(readxl)
+library(scales)
+library(ggside)
+library(cocor)
+library(bfrr) #install by running: (devtools::install_github("debruine/bfrr")
+library(effectsize)
+sessionInfo() #Print version information about R, the OS and attached or loaded packages 
+myseed <- 1 #set seed for reproducible figures
+```
+
+# Experiment 1 
+### import pcs and swash datasets, filter by Experiment 1 and check age/gender
+```{r setdup88, include=FALSE}
+data_swash<-read_xlsx("swash_vviq_full.xlsx") #import swash
+data_pc<-read_xlsx("pcs_vviq_full.xlsx") #import pc 
+data_pc$Age<-as.integer(as.character(data_pc$Age))
+data_pc$Experiment<-as.factor(data_pc$Experiment)
+#Generate column with VVIQ ranging from 0 to 4
+data_pc$VVIQ_rescaled <- scales::rescale(data_pc$VVIQ, to = c(0, 4))
+data_swash$VVIQ_rescaled <- scales::rescale(data_swash$VVIQ, to = c(0, 4))
+
+data_swash_1 <- filter (data_swash, 
+                   Experiment == "Experiment 1") #keep only Exp 1 participants
+data_pc_1 <- filter (data_pc, 
+                   Experiment == "Experiment 1") #keep only Exp 1 participants
+
+#Age & Gender SWASH as shown in participants section
+meanage_swash_exp1<-round(mean(data_swash_1$Age), digits=2) #round for reporting
+sdage_swash_exp1<-round(sd(data_swash_1$Age), digits=2)#round for reporting
+range_age_swash_exp1 <- c(min(data_swash_1$Age), max(data_swash_1$Age))
+gender_swash_exp1<-table(data_swash_1$Gender)#round for reporting
+
+#Age & Gender PC
+meanage_pcs_exp1<-round(mean(data_pc_1$Age), digits=2)#round for reporting
+sdage_pcs_exp1<-round(sd(data_pc_1$Age), digits=2)#round for reporting
+range_age_pcs_exp1<-c(min(data_pc_1$Age), max(data_pc_1$Age)) 
+gender_pcs_exp1<-table(data_pc_1$Gender)
+
+```
+
+## Experiment 1: Relationship between SWASH and VVIQ
+```{r setdup22}
+#descriptives: mean and SD for SWASH scale
+mean_swash=mean(data_swash_1$SWASH)
+sd_swash=sd(data_swash_1$SWASH)
+round(mean_swash, digits=2) #display rounded to 2 decimals
+round(sd_swash, digits=2)#display rounded to 2 decimals
+
+#descriptives: mean and SD for VVIQ scale
+mean_vviq_swash=mean(data_swash_1$VVIQ_rescaled)
+sd_vviq_swash=sd(data_swash_1$VVIQ_rescaled)
+round(mean_vviq_swash, digits=2) #display rounded to 2 decimals
+round(sd_vviq_swash, digits=2)#display rounded to 2 decimals
+
+#linear model predicting SWASH score based on VVIQ score
+swash1 <- lm(SWASH ~ VVIQ_rescaled, data = data_swash_1)
+output_swash1 <- summary(swash1) 
+print(output_swash1) #for bf, we need estimate, SE
+round(output_swash1$coefficients["VVIQ_rescaled", "Estimate"], digits=2) #display beta rounded to 2 decimals 
+round(output_swash1$coefficients["VVIQ_rescaled", "t value"], digits=2) #round t value
+round(output_swash1$coefficients["VVIQ_rescaled", "Pr(>|t|)"], digits=2) #round p value
+round(output_swash1$coefficients["VVIQ_rescaled", "Std. Error"], digits=2) #round se
+round(output_swash1$adj.r.squared, digits=2) #round r squared
+CI_b_swash1 <- round(confint(swash1, 'VVIQ_rescaled', level=0.95), digits=2) #confidence interval for b 
+CI_b_swash1
+
+#extract values for BF calculation
+mean_effect <-output_swash1$coefficients["VVIQ_rescaled", "Estimate"]
+se_effect <-  output_swash1$coefficients["VVIQ_rescaled", "Std. Error"]
+sd_theory=(mean_swash/mean_vviq_swash)/2
+round(sd_theory, digits=2) #display rounded to 2 decimals
+sample_swashdf=nrow(data_swash_1)-2 #calculate degrees of freedom
+
+#Bayes factor + Robustness region for "Relationship between SWASH and VVIQ"
+rr_swash1 <- bfrr(
+    sample_mean = mean_effect, # mean of the sample
+    sample_se = se_effect, # SE of the sample
+    sample_df=sample_swashdf,
+    model = "normal",
+    mean = 0, # mean of the H1 distribution
+    sd = sd_theory, # SD of the H1 distribution
+    tail = 1, # is the test 1-tailed or 2-tailed
+    criterion = 3, # BF against which to test for support for H1/H0
+    precision = 0.001 # precision to vary RR parameters
+)
+summary(rr_swash1)
+round(rr_swash1$RR$sd, digits=2) #round rr
+
+#swash x vviq plot, Figure 1
+plot_swash1<-ggscatterstats(
+    data = data_swash_1,
+    x =VVIQ_rescaled, bf.message = FALSE, results.subtitle = FALSE,
+    y = SWASH,
+    xlab = "VVIQ",
+    ylab = "SWASH", xsidehistogram.args = list(fill = "#329896", color = "black", na.rm = TRUE), ysidehistogram.args = list(fill = "#B657CA", color = "black", na.rm = TRUE), title = "", ggtheme = ggplot2::theme_light(base_size = 15), plot.title = element_text(size=22), ggplot.component = list(ggplot2::scale_y_continuous(breaks = seq(0, 5, 1), limits=c(0, 5)), scale_x_continuous(breaks = seq(0, 4, 1), limits=c(0, 4))
+    ))+ ggpubr::theme_pubr()
+ggsave(plot =plot_swash1, paste("figure1_", Sys.Date(), ".tiff", sep = ""), width = 200, height =170, units="mm") #this helps generating a figure without overwriting the one already present
+round(cor(data_swash_1$VVIQ_rescaled, data_swash_1$SWASH, method="spearman"), digits=2) #spearman r to report under plot
+```
+
+## Experiment 1: Relationship between PCS and VVIQ
+```{r setdup22_pc}
+#descriptives
+mean_pcs=mean(data_pc_1$Pcscore) #calculate mean pcs
+round(mean_pcs, digits=2) #display rounded to 2 decimals
+sd_pcs=sd(data_pc_1$Pcscore)
+round(sd_pcs, digits=2) #display rounded to 2 decimals
+mean_vviq_pcs=mean(data_pc_1$VVIQ_rescaled) #calculate mean vviq
+round(mean_vviq_pcs, digits=2) #display rounded to 2 decimals
+sd_vviq_pcs=sd(data_pc_1$VVIQ_rescaled) #calculate sd vviq
+round(sd_vviq_pcs, digits=2)#display rounded to 2 decimals
+
+pc1 <- lm(Pcscore ~ VVIQ_rescaled, data = data_pc_1) #model pcscore predicted by vviq 
+output_pc1 <- summary(pc1)
+print(output_pc1) #for bf, we need estimate, SE
+round(output_pc1$coefficients["VVIQ_rescaled", "Estimate"], digits=2) #round beta
+round(output_pc1$coefficients["VVIQ_rescaled", "Std. Error"], digits=2) #round SE
+round(output_pc1$coefficients["VVIQ_rescaled", "t value"], digits=2) #round t value
+round(output_pc1$coefficients["VVIQ_rescaled", "Pr(>|t|)"], digits=3) #round p value
+round(output_pc1$adj.r.squared, digits=2) #round r squared
+CI_b_pc1 <- round(confint(pc1, 'VVIQ_rescaled', level=0.95), digits=2) #confidence interval for b 
+CI_b_pc1
+mean_effect_pc1 <- output_pc1$coefficients["VVIQ_rescaled", "Estimate"] #extract mean effect for BF calculation as the beta
+se_effect_pc <- output_pc1$coefficients["VVIQ_rescaled", "Std. Error"] #extract se of model
+sd_theory_pc<-(mean_pcs/mean_vviq_pcs)/2 #sd theory
+round(sd_theory_pc, digits=2) #round just for reporting
+sample_pcdf<-nrow(data_pc_1)-2 # calculate degrees of freedom
+
+#Bayes factor + Robustness region for "Relationship between PCS and VVIQ"
+rr_pc1 <- bfrr(
+    sample_mean = mean_effect_pc1, # mean of the sample
+    sample_se = se_effect_pc, # SE of the sample
+    sample_df = sample_pcdf,
+    model = "normal",#or normal 
+    mean = 0, # mean of the H1 distribution
+    sd = sd_theory_pc, # SD of the H1 distribution
+    tail = 1, # is the test 1-tailed or 2-tailed
+    criterion = 3, # BF against which to test for support for H1/H0
+    precision = 0.001 # precision to vary RR parameters
+)
+summary(rr_pc1)
+round(rr_pc1$RR$sd, digits=2) #round rr
+
+
+#let's plot pc x vviq, Figure 2
+plot_pc1<-ggscatterstats(
+    data = data_pc_1,
+    x =VVIQ_rescaled, bf.message = FALSE, results.subtitle = FALSE,
+    y = Pcscore,
+    xlab = "VVIQ",
+    ylab = "PCS", xsidehistogram.args = list(fill = "#329896", color = "black", na.rm = TRUE), ysidehistogram.args = list(fill = "#B657CA", color = "black", na.rm = TRUE),
+    title = "", ggtheme = ggplot2::theme_light(base_size = 15), plot.title = element_text(size=22), ggplot.component = list(ggplot2::scale_y_continuous(breaks = seq(0, 5, 1), limits=c(0, 5)), scale_x_continuous(breaks = seq(0, 4, 1), limits=c(0, 4))
+    ))+ ggpubr::theme_pubr()
+ggsave(plot =plot_pc1, paste("figure2_", Sys.Date(), ".tiff", sep = ""), width = 200, height =170, units="mm") #this helps generating a figure without overwriting the one already present
+round(cor(data_pc_1$VVIQ_rescaled, data_pc_1$Pcscore, method="spearman"), digits=2) #calculate and round spearman's r reported under figure
+
+```
+
+## Experiment 1: Slope comparison between VVIQxSWASH and VVIQxPCS
+```{r setdup99}
+sample1<-subset(data_swash_1, select=c(VVIQ_rescaled, SWASH)) #storing data as cocor wants
+sample2<-subset(data_pc_1, select=c(VVIQ_rescaled, Pcscore)) #storing data as cocor wants
+
+dat_list <- list(sample2 = as.data.frame(sample2),
+                 sample1 = as.data.frame(sample1))
+slopecomp<-cocor(formula = ~VVIQ_rescaled + Pcscore | VVIQ_rescaled + SWASH, 
+      data = dat_list) #formula for comparing slopes
+
+round(slopecomp@fisher1925$statistic, digits=2) #round z stat
+round(slopecomp@fisher1925$p.value, digits=2) #round p value
+round(slopecomp@zou2007$conf.int, digits=2) #round 95% CI 
+
+sample_mean_comp<- slopecomp@diff
+sample_se_comp=slopecomp@diff/slopecomp@fisher1925$statistic
+sd_theory=0.12 #explained in paper, prior based on Glisky et al., 1995
+
+#BF for slope comparison between SWASH x VVIQ and PCS x VVIQ
+rr_slopecomp <- bfrr(
+    sample_mean = sample_mean_comp, # mean of the sample
+    sample_se =sample_se_comp, # SE of the sample
+    model = "norm",#or normal 
+    mean = 0, # mean of the H1 distribution
+    sd = sd_theory, # SD of the H1 distribution
+    tail = 1, # is the test 1-tailed or 2-tailed
+    criterion = 3, # BF against which to test for support for H1/H0
+    precision = 0.001 # precision to vary RR parameters
+)
+summary(rr_slopecomp)
+round(rr_slopecomp$RR$sd, digits=2) #round rr
+
+```
+
+## Experiment 1: Comparing PCS of aphantasics with non aphantasics
+```{r setdusksp}
+data_pc_1$Group<-as.factor(as.character(data_pc_1$Group))
+summary_pcs_aphnoap <- data_pc_1 %>% 
+    group_by(Group) %>%
+    summarise(mean_pc=mean(Pcscore), sd_pc=sd(Pcscore), mean_vviq=mean(VVIQ_rescaled), sd_vviq=sd(VVIQ_rescaled)) #calculate stats summary pcs vviq for both groups
+
+data_pc_1 %>% #print same stats with rounded values for reporting
+    group_by(Group) %>%
+    summarise(mean_pc=round(mean(Pcscore), digits=2), sd_pc=round(sd(Pcscore), digits=2), mean_vviq=round(mean(VVIQ_rescaled), digits=2), sd_vviq=round(sd(VVIQ_rescaled), digits=2))
+
+pc2 <- t.test(data_pc_1$Pcscore ~ data_pc_1$Group) #t test with unaware aphants vs non aphants
+pc2
+round(pc2$parameter, digits=2) #round df
+round(pc2$statistic, digits=2) #round t value
+round(pc2$p.value, digits=2) #round p value to 2 digits (it's 0.018 so it has to be rounded to 2 digits)
+round(pc2$conf.int, digits=2) #round confidence
+hedges_g(data_pc_1$Pcscore ~ data_pc_1$Group) #95% CI for Hedges’ g is not reported in the manuscript to avoid confusion with the 95% CI reported in the same sentence
+
+mean_diff <- summary_pcs_aphnoap$mean_pc[2] - summary_pcs_aphnoap$mean_pc[1] #substract mean pc non-aphants minus mean pc aphants #substract mean pc non-aphants minus mean pc aphants
+se_diff<-mean_diff/as.double(pc2$statistic) # divide mean diff by pc2 t-statistics
+abs(round(se_diff, digits=2)) #round SE for reporting
+sd_theory_diff<- (summary_pcs_aphnoap$mean_pc[2])/2 #half the mean non-aphants
+round(sd_theory_diff, digits=2) #for reporting 
+df_pcaph<-as.double(pc2$parameter)
+#rr for "PCS between aphants and non-aphants"
+rr_pc2 <- bfrr(
+    sample_mean = mean_diff, # mean of the sample
+    sample_se =se_diff,# SE of the sample
+    sample_df=df_pcaph, #pc2 t-test sample df
+    model = "normal", #or normal 
+    mean = 0, # mean of the H1 distribution
+    sd = sd_theory_diff, # half 
+    tail = 1, # is the test 1-tailed or 2-tailed
+    criterion = 3, # BF against which to test for support for H1/H0
+    precision = 0.001 # precision to vary RR parameters
+)
+summary(rr_pc2)
+round(rr_pc2$RR$sd, digits=2) #round rr
+```
+
+
+# Experiment 2
+## checking age & descriptives
+```{r setdup55}
+#to check *included* aphants age swash
+summary_age2 <- data_swash %>%
+    group_by(Group) %>%
+    summarise(mean_age=round(mean(Age), digits=2), sd_age=round(sd(Age), digits=2), min=round(min(Age), digits=2), max=round(max(Age), digits=2))
+
+summary_gender2<- data_swash %>% #gender info for self-repo aph
+    group_by(Group, Gender) %>%
+    summarise(n=n())
+
+#to check *included* aphants age pc
+summary_age <- data_pc %>%
+    group_by(Group) %>%
+    summarise(mean_age=round(mean(Age), digits=2), sd_age=round(sd(Age), digits=2), min=round(min(Age), digits=2), max=round(max(Age), digits=2))
+
+summary_gender22<- data_pc %>% #gender info for self-reported aph
+    group_by(Group, Gender) %>%
+    summarise(n=n())
+
+#participants section: compare age differences between study 1 and 2
+#age comparison with study 1 
+agetest_swash<-t.test(data_swash$Age~data_swash$Experiment) #t test to compare age diff between study 1 SWASH sample and study 2 SWASH sample
+round(agetest_swash$parameter, digits=2) #round df
+round(agetest_swash$statistic, digits=2) #round t value
+round(agetest_swash$p.value, digits=2) #round p value to 2 digits (it's 0.018 so it has to be rounded to 2 
+
+agetest_pc<-t.test(data_pc$Age~data_pc$Experiment) #t test to compare age diff between study 1 PCS sample and study 2 PCS sample
+round(agetest_pc$parameter, digits=2) #round df
+round(agetest_pc$statistic, digits=2) #round t value
+round(agetest_pc$p.value, digits=2) #round p value to 2 digits (it's 0.018 so it has to be rounded to 2 
+```
+
+
+## Experiment 2: SWASH comparison Exp2 aphantasics
+```{r set550}
+# comparison SWASH between non-aphantasics and self-reported aphantasics
+#summary descriptives swash+vviq per group
+summary_swash22 <- data_swash %>%
+    group_by(Group) %>%
+    summarise(mean=mean(SWASH), sd=sd(SWASH), mean_vviq=mean(VVIQ_rescaled), sd_vviq=sd(VVIQ_rescaled), n=n())
+
+# rounding ONLY for reporting
+data_swash %>%
+    group_by(Group) %>%
+    summarise(mean=round(mean(SWASH), digits=2), sd=round(sd(SWASH), digits=2), mean_vviq=round(mean(VVIQ_rescaled), digits=2), sd_vviq=round(sd(VVIQ_rescaled), digits=2))
+
+
+data_swash_2 <- filter (data_swash, 
+                   !Group == "Blinded aphantasics") #remove blinded aphants 
+
+data_swash_2$Group<-as.factor(as.character(data_swash_2$Group))
+swash2<- t.test(data_swash_2$SWASH ~ data_swash_2$Group)
+round(swash2$parameter, digits=2) #round df
+round(swash2$statistic, digits=2) #round t value
+round(swash2$conf.int, digits=2) #round confidence
+
+hedges_g(data_swash_2$SWASH ~ data_swash_2$Group)
+
+
+sample_mean_swashdiff<-summary_swash22$mean[2] - summary_swash22$mean[3]
+ #mean non aphantasics - mean self-reported aphants
+sample_se_swashdiff<-sample_mean_swashdiff/as.double(swash2$statistic)
+round(sample_se_swashdiff, digits=2)
+upper_swashdiff=summary_swash22$mean[2]
+rr_swash2 <- bfrr(
+    sample_mean = sample_mean_swashdiff, # mean of the sample
+    sample_se = sample_se_swashdiff, # SE of the sample
+    model = "uniform", #or normal 
+    lower = 0, # mean of the H1 distribution
+    upper = upper_swashdiff, # SD of the H1 distribution
+    criterion = 3, rr_interval = list( # ranges to vary H1 parameters for robustness regions
+       lower = c(0, 0), # explore H1 means from 0 to 2
+       upper = c(0, upper_swashdiff) # explore H1 SDs from 0 to 2
+    ), precision = 0.001, 
+)
+summary(rr_swash2)
+sprintf("%.2e", rr_swash2$BF) #BF to scientific for reporting
+round(rr_swash2$RR$upper, digits=2) #round rr
+
+set.seed(myseed) #this needs to be repeated before each figure with jittered dots
+#plot mean swash for non aph and aph (Figure 3)
+plot_swash2<-ggbetweenstats(
+    data = data_swash_2,
+    x = Group,
+    results.subtitle = FALSE, 
+    y = SWASH,
+    grouping.var = group,type = "p", 
+    p.adjust.method="none",
+    title =, 
+    point.path.args = list(alpha = 0.3, linetype = "dotted"), 
+    bf.message=TRUE, 
+    xlab = "",
+    ylab = "SWASH", ggplot.component = list(ggplot2::scale_y_continuous(breaks = seq(0, 5, 1), limits=c(0, 5))))+
+    ggpubr::theme_pubr(legend="none")
+ggsave(plot =plot_swash2, paste("figure3_", Sys.Date(), ".tiff", sep = ""), width = 190, height =130, units="mm") #this helps generating a figure without overwriting the one already present
+```
+
+# self-reported aphantasics vs  swash ~ vviq linear model intercept (from Experiment 1)
+```{r set55990}
+output_swash1 #run this to see the model where we take the intercept from
+swash_intercept=output_swash1$coefficients["(Intercept)", "Estimate"] #extract model intercept
+round(swash_intercept, digits=2)  #round intercept for reporting
+se_intercept1=output_swash1$coefficients["(Intercept)", "Std. Error"] #extract intercept se
+round(se_intercept1, digits=2) #round intercept se for reporting
+mean_swash_selfaph<-summary_swash22$mean[3] #extract self-reported aphantasics mean swash
+#t test with intercept of linear model vviq x SWASH and self-reported aphants.
+SE_aphants=summary_swash22$sd[3]/sqrt(summary_swash22$n[3]) #divide sd self-reporte df aphantasics by number of self-reported aphantasics
+dfi<- nrow(data_swash_1)-2 # df of VVIQ x SWASH linear model
+dfaph<- summary_swash22$n[3] #number of self-reported aphantasics
+#df = dfintercept + dfaph
+dftot<-dfi+dfaph
+#Mean difference  = Intercept-mean self-reportedaphantasics 
+Meandifference= swash_intercept-mean_swash_selfaph
+#SEdiff = sqrt((SE_Intercept)^2+(SE_aphantasics)^2)
+SEdiff = sqrt((se_intercept1)^2+(SE_aphants)^2)
+round(SEdiff, digits=2) #round for reporting
+#t = (mean difference) / SEdiff
+t = Meandifference / SEdiff
+round(t, digits=2)
+#Calculate 95% Ci for the t test
+SD_intercept=se_intercept1*sqrt(dfi)
+sd2=summary_swash22$sd[3] #sd of aphantasics
+sd1=SD_intercept
+num1<-dfi #df swash intercept
+num2<-dfaph #aphants
+m1=swash_intercept #intercept estimate
+m2=mean_swash_selfaph #mean self-reported aphantasics
+se <- sqrt(sd1*sd1/num1+sd2*sd2/num2)#calculate se of sample for BF
+round(se, digits=2)
+error <- qt(0.975,df=pmin(num1,num2)-1)*se #calculate error for 95% CI 
+left <- (m1-m2)-error #lower 95% CI
+round(left, digits=2)  #round lower 95% CI
+right <- (m1-m2)+error #upper 95% CI
+round(right, digits=2) #round upper 95% CI
+pvalue1=pt(q=t, df=dftot, lower.tail=FALSE)
+round(pvalue1, digits=3)
+#bf for intercept test
+rr_inter <- bfrr(
+    sample_mean = Meandifference, # mean difference
+    sample_se = se, # SE of the sample
+    model = "uniform", #or normal 
+    lower = 0, # mean of the H1 distribution
+    upper = m1, # SD of the H1 distribution
+    criterion = 3, rr_interval = list( # ranges to vary H1 parameters for robustness regions
+       lower = c(0, 0), # explore H1 means from 0 to 2
+       upper = c(0, m1) # explore H1 SDs from 0 to 2
+    ), precision = 0.001, 
+)
+summary(rr_inter)
+round(rr_inter$RR$upper, digits=2) #round rr
+
+```
+
+
+## Experiment 2: comparisons PCS Exp2 in the non-aphantasics vs self-reported aphantasics
+```{r set556}
+#summary descriptives pcs+vviq per group
+summary_pcs22 <- data_pc %>%
+    group_by(Group) %>%
+    summarise(mean=mean(Pcscore), sd=sd(Pcscore), mean_vviq=mean(VVIQ_rescaled), sd_vviq=sd(VVIQ_rescaled), n=n())
+
+# rounding ONLY for reporting!!
+data_pc %>%
+    group_by(Group) %>%
+    summarise(mean=round(mean(Pcscore), digits=2), sd=round(sd(Pcscore), digits=2), mean_vviq=round(mean(VVIQ_rescaled), digits=2), sd_vviq=round(sd(VVIQ_rescaled), digits=2))
+
+#comparison PCS between Exp1 non-aphantasics and Exp2 self-reported aphantasics
+data_pc_2 <- filter (data_pc, 
+                   !Group == "Blinded aphantasics") #remove blinded aphantasics for the comparison non-aphantasics Study 1 vs self-reported aphantasics Study 2
+
+summary_pcs22 #this is the tibble where we get the data from
+
+mean_pc_selfaph<-summary_pcs22$mean[3] 
+mean_pc_noaph<-summary_pcs22$mean[2]
+
+
+data_pc_2$Group<-as.factor(as.character(data_pc_2$Group))
+pcs33<- t.test(data_pc_2$Pcscore~ data_pc_2$Group)
+round(pcs33$parameter, digits=2) #round df
+round(pcs33$statistic, digits=2) #round t value
+abs(round((mean_pc_noaph-mean_pc_selfaph)/as.double(pcs33$statistic),digits=2)) #round se
+round(pcs33$conf.int, digits=2) #round confidence
+round(pcs33$p.value, digits=3) #round confidence
+hedges_g(data_pc_2$Pcscore~ data_pc_2$Group)
+
+mean_difference_pcs<-mean_pc_noaph-mean_pc_selfaph #difference between mean non-aphantsics - mean self-reported aphantasics
+se_difference_pcs<-mean_difference_pcs/as.double(pcs33$statistic) #divide mean difference by t-statistics
+#bf for comparison PCS  between unaware aphantasics and self-reported aphantasics
+rr_aphnoap_pc <- bfrr(
+    sample_mean = mean_difference_pcs, # mean of the sample
+    sample_se = se_difference_pcs, # SE of the sample
+    model = "uniform", #or normal 
+    lower = 0, # mean of the H1 distribution
+    upper = mean_pc_noaph, # menan non-aphants
+    criterion = 3, rr_interval = list( # ranges to vary H1 parameters for robustness regions
+       lower = c(0, 0), # explore H1 means from 0 to 2
+       upper = c(0, mean_pc_noaph) # explore H1 SDs from 0 to 2
+    ), precision = 0.001, 
+)
+summary(rr_aphnoap_pc)
+sprintf("%.2e", rr_aphnoap_pc$BF) #BF to scientific for reporting
+round(rr_aphnoap_pc$RR$upper, digits=2) #round rr
+```
+
+## Exp2: comparison between intercept of Experiment 1 linear model  PCS ~ VVIQ (PCS when VVIQ=0) and self-reported aphantasics
+```{r set55f6}
+output_pc1 #this is Experiment 1 model where we take the intercept from
+pc_intercept=output_pc1$coefficients["(Intercept)", "Estimate"]
+round(pc_intercept, digits=2)
+se_intercept=output_pc1$coefficients["(Intercept)", "Std. Error"]
+round(se_intercept, digits=2)
+#t test with intercept of linear model  PCS ~ VVIQ (VVIQ=0) and self-reported aphants
+dfi_pc<-  nrow(data_pc_1)-2 #df VVIQ ~ PCS linear model
+dfaph_pc<- summary_pcs22$n[3] #n self-reported pahants
+SE_aphants=summary_pcs22$sd[3]/sqrt(summary_pcs22$n[3]) #se self-reported aphantasics
+#df = dfintercept + dfaph
+dftot_pc<-dfi_pc+dfaph_pc
+Mean_difference_pc  = pc_intercept-mean_pc_selfaph  #difference between  PCS  ~ VVIQ model intercept and mean PCS self-reported aphants
+SEdiff_pc = sqrt((se_intercept)^2+(SE_aphants)^2) #SEdiff = sqrt((SE_Intercept)^2+(SE_aphantasics)^2)
+round(SEdiff_pc, digits=2) #round SE for reporting
+t_pc = Mean_difference_pc / SEdiff_pc #t = (mean difference) / SEdiff
+round(t_pc, digits=2) #round t value for reporting
+#Calculate 95% Ci for the t test
+SD_intercept_pc=se_intercept*sqrt(dfi_pc)
+sd2_pc=summary_pcs22$sd[3] #sd of aphantasics
+sd1_pc=SD_intercept_pc
+num1_pc<-dfi_pc
+num2_pc<-dfaph_pc
+m1_pc=pc_intercept
+m2_pc=mean_pc_selfaph 
+se_pc <- sqrt(sd1_pc*sd1_pc/num1_pc+sd2_pc*sd2_pc/num2_pc)
+error_pc <- qt(0.975,df=pmin(num1_pc,num2_pc)-1)*se_pc
+left_pc <- (m1_pc-m2_pc)-error_pc #calculate 95% CI (left)
+round(left_pc, digits=2) #round left 95% CI
+right_pc <- (m1_pc-m2_pc)+error_pc #calculate 95% CI (right)
+round(right_pc, digits=2) #low right 95% CI for reporting
+pvalue=pt(q=t_pc, df=dftot_pc, lower.tail=FALSE) #no need to round pvalue as it's clear less than 001
+
+#bf for comparison intercept unaware and self-reported aphants, PCS
+rr_inter2 <- bfrr(
+    sample_mean = Mean_difference_pc, # mean of the sample
+    sample_se = SEdiff_pc, # SE of the sample
+    model = "uniform", #or normal 
+    lower = 0, # mean of the H1 distribution
+    upper = m1_pc, # SD of the H1 distribution
+    criterion = 3, rr_interval = list( # ranges to vary H1 parameters for robustness regions
+       lower = c(0, 0), 
+       upper = c(0, m1_pc) 
+    ), precision = 0.001, 
+)
+summary(rr_inter2)
+sprintf("%.2e", rr_inter2$BF) #BF to scientific for reporting
+round(rr_inter2$RR$upper, digits=2) #round rr
+
+```
+
+
+## Comparison of PCS with unaware aphantasics based on cut-off of rescaled VVIQ <=1
+```{r set5586}
+data_pc_3 <- filter (data_pc, 
+                   !Group == "Non-aphantasics") #remove non-aphantasics group to compare unaware and self-reported aphantasics
+mean_pc_unaware<-summary_pcs22$mean[1] #extract blinded aphantasics mean
+data_pc_3$Group<-as.factor(as.character(data_pc_3$Group)) 
+t_extreeme<- t.test(data_pc_3$Pcscore~ data_pc_3$Group) #t-test to compare unaware and self-reported
+round(t_extreeme$parameter, digits=2) #round df
+round(t_extreeme$statistic, digits=2) #round t value
+round((mean_pc_unaware-mean_pc_selfaph)/as.double(t_extreeme$statistic), digits=2) #calculate and round se
+round(t_extreeme$conf.int, digits=2) #round confidence
+hedges_g(data_pc_3$Pcscore ~ data_pc_3$Group) #effect size
+
+
+#summary_pcs22 #run this to check the tibble where we take the means from
+mean_diff_aph<-mean_pc_unaware-mean_pc_selfaph #calculate diff mean blinded - self-reported aphantasics
+se_diff_aph<-mean_diff_aph/as.double(t_extreeme$statistic) #divide mean by t.statistic
+#bf for comparison PCS  between blinded aphantasics and self-reported aphantasics
+abs(round(se_diff_aph, digits=2))
+rr_aphnoap2 <- bfrr(
+    sample_mean = mean_diff_aph, # mean of the sample
+    sample_se = se_diff_aph, # SE of the sample
+    model = "uniform", #or normal 
+    lower = 0, # mean of the H1 distribution
+    upper = mean_pc_unaware, # SD of the H1 distribution
+    criterion = 3, rr_interval = list( # ranges to vary H1 parameters for robustness regions
+       lower = c(0, 0), # explore H1 means from 0 to 2
+       upper = c(0, mean_pc_unaware) # explore H1 SDs from 0 to 2
+    ), precision = 0.001, 
+)
+summary(rr_aphnoap2)
+sprintf("%.2e", rr_aphnoap2$BF) #BF to scientific for reporting
+round(rr_aphnoap2$RR$upper, digits=2) #round rr
+
+# Generate Figure 4
+#let's re-order the group variable prior to plotting -> please note this is done just for generating the figure
+data_pc2<- data_pc #save data_pc into new dataframe to avoid confusion with order
+data_pc2$Group <- factor(data_pc2$Group, levels = c("Non-aphantasics", "Blinded aphantasics", "Self-reported aphantasics"))
+
+#plot mean pc for non aphantasics, unaware and self-reported aphantasics (Figure 4)
+set.seed(myseed) #this needs to be repeated before each figure with jittered dots
+plot_aphnoaph_pc<- ggbetweenstats(
+    data = data_pc2,
+    x = Group,
+    results.subtitle = FALSE, 
+    pairwise.comparisons = FALSE,
+    y = Pcscore,
+    grouping.var = group,
+    title ="", 
+    point.path.args = list(alpha = 0.3, linetype = "dotted"), 
+    bf.message=FALSE, 
+    xlab = "",
+    ylab = "PCS", ggplot.component = list(ggplot2::scale_y_continuous(breaks = seq(0, 5, 1), limits=c(0, 5))))+
+    ggpubr::theme_pubr(legend="none")
+ggsave(plot =plot_aphnoaph_pc, paste("figure4_", Sys.Date(), ".tiff", sep = ""), width = 270, height =150, units="mm") #this helps generating a figure without overwriting the one already present
+```
+
+

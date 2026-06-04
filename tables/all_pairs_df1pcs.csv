@@ -1,0 +1,46 @@
+Pair,r_full,R2_full,r_rest,Rank
+Arm rigidity + Arm immobilisation,0.783,0.613,0.565,1
+Mosquito + Arm immobilisation,0.759,0.576,0.538,2
+Mosquito + Arm rigidity,0.756,0.572,0.537,3
+Hand lowering + Arm immobilisation,0.747,0.558,0.543,4
+Arm immobilisation + Post-hypnotic,0.745,0.555,0.526,5
+Arm immobilisation + Music,0.741,0.549,0.581,6
+Taste + Arm rigidity,0.74,0.548,0.523,7
+Hand lowering + Mosquito,0.737,0.544,0.552,8
+Taste + Arm immobilisation,0.735,0.54,0.508,9
+Arm rigidity + Music,0.728,0.531,0.564,10
+Arm immobilisation + Amnesia,0.725,0.525,0.496,11
+Arm rigidity + Post-hypnotic,0.723,0.522,0.487,12
+Arm rigidity + Amnesia,0.718,0.515,0.488,13
+Hands together + Arm immobilisation,0.713,0.509,0.485,14
+Hands together + Arm rigidity,0.71,0.505,0.484,15
+Hand lowering + Arm rigidity,0.706,0.498,0.469,16
+Hands together + Mosquito,0.704,0.495,0.497,17
+Hand lowering + Taste,0.696,0.484,0.495,18
+Arm immobilisation + Neg. visual,0.69,0.476,0.486,19
+Taste + Amnesia,0.684,0.468,0.469,20
+Arm rigidity + Neg. visual,0.684,0.468,0.481,21
+Mosquito + Amnesia,0.678,0.46,0.437,22
+Hand lowering + Post-hypnotic,0.67,0.449,0.447,23
+Hands together + Taste,0.66,0.436,0.438,24
+Taste + Post-hypnotic,0.656,0.431,0.407,25
+Mosquito + Post-hypnotic,0.654,0.428,0.38,26
+Mosquito + Taste,0.646,0.418,0.366,27
+Hand lowering + Amnesia,0.64,0.41,0.403,28
+Hand lowering + Music,0.635,0.403,0.463,29
+Amnesia + Post-hypnotic,0.635,0.403,0.376,30
+Hands together + Post-hypnotic,0.63,0.397,0.381,31
+Hands together + Amnesia,0.629,0.395,0.391,32
+Mosquito + Music,0.615,0.379,0.393,33
+Hand lowering + Hands together,0.611,0.373,0.363,34
+Taste + Music,0.609,0.371,0.406,35
+Music + Post-hypnotic,0.59,0.348,0.371,36
+Hands together + Music,0.589,0.347,0.396,37
+Taste + Neg. visual,0.586,0.343,0.359,38
+Hand lowering + Neg. visual,0.584,0.341,0.372,39
+Music + Amnesia,0.584,0.341,0.373,40
+Mosquito + Neg. visual,0.574,0.329,0.311,41
+Neg. visual + Post-hypnotic,0.552,0.305,0.298,42
+Hands together + Neg. visual,0.538,0.29,0.303,43
+Neg. visual + Amnesia,0.523,0.274,0.259,44
+Music + Neg. visual,0.445,0.198,0.221,45

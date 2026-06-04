@@ -1,0 +1,61 @@
+PCS (Phenomenological Control Scale)
+-----
+PCSscore: mean of response to 10 PCS scale items:
+
+ 1handlowersubj: Hand lowering suggestion subjective response 
+ 2handtogethersubj: Hands together suggestion subjective response 
+ 3mosquitosubj: Mosquito suggestion subjective response 
+ 4TasteAverage: Mean subjective response to sweet and sour taste suggestions.
+ 5rigidsubj: Arm rigidity suggestion subjective response 
+ 6immobilizationsubj: Arm immobilisation suggestion subjective response 
+ 7musicsubj: Music suggestion subjective response 
+ 8ballssubj: Negative visual hallucination suggestion subjective response 
+ 9amnesiasubj: Amnesia suggestion subjective response 
+ 10spaceGeoMean: Mean subjective response to post-session suggestion urge and memory items.
+
+10spacebarsubj1: post-session suggestion urge subjective response
+10spacebarsubj2: post-session suggestion memory subjective response
+4Tastesweetsubj: sweet taste suggestion subjective response
+4Tastesoursubj: sour taste suggestion subjective response
+
+-----------------------------
+
+anomalous experience/belief
+---------------------------
+Q1_1 to Q11_1: Response to experience questionnaire items
+Belief questions_1 to Belief questions_8: Response to  belief questionnaire items
+
+past_life_experience: mean of Q1_1 to Q3_1
+out_of_body_experience: mean of Q4_1 to Q6_1
+spirit_world_experience: mean of Q7_1 to Q11_1
+
+past_life_belief: mean of Belief questions_1 and Belief questions_2
+out_of_body_belief: mean of Belief questions_3 and Belief questions_4
+spirit_world_belief: mean of Belief questions_5 to Belief questions_8
+
+Combined_anomalous_experience: mean of past_life_experience, out_of_body_experience and spirit_world_experience
+
+------------------------------------
+DES (Dissociative Experiences Scale)
+
+Q25_1 to Q25_28: Response to 28 DES items
+
+DES_score: Mean response to Q25_1 to Q25_28
+DES_mean_centred: mean centred DES_score
+PCS_meancentred: mean centred PCS_score
+DESxPCS: product of DES_mean_centred and PCS_meancentred
+
+----------------------------------
+Flow scale
+
+Flow questionnaire 1_1 to Flow questionnaire 1_10 response to flow scale vacuuming questions
+
+Flow questionnaire 2_1 to Flow questionnaire 2_10 response to flow scale essay writing questions
+
+Flow questionnaire 3_1 to Flow questionnaire 3_10 response to flow scale exercise questions
+
+Flow_vacuuming: Mean of Flow questionnaire 1_1 to Flow questionnaire 1_10
+Flow_essay_writing: Mean of Flow questionnaire 2_1 to Flow questionnaire 2_10
+Flow_exercise: Flow questionnaire 3_1 to Flow questionnaire 3_10
+Flow_combined: mean of Flow_vacuuming, Flow_essay_writing and Flow_exercise
+

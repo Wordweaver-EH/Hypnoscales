@@ -1,0 +1,15 @@
+dataset,T1_var,T2_var,n,pearson_r,p_value,spearman_r,ci_lo,ci_hi,r2
+df1 PCS retest,motor_pair_T1,motor_pair_T2,61,0.338,0.007635185989371459,0.305,0.051,0.585,0.115
+df1 PCS retest,full_total_T1,full_total_T2,61,0.523,1.5299366716865293e-05,0.432,0.271,0.708,0.274
+df1 PCS retest,motor_pair_T1,full_total_T2,61,0.281,0.028198145257423722,0.251,0.026,0.507,0.079
+df1 PCS retest,full_total_T1,motor_pair_T2,61,0.402,0.0013210135110476035,0.335,0.132,0.602,0.162
+df1 PCS retest,rest_score_T1,rest_score_T2,61,0.567,1.887818555526902e-06,0.444,0.304,0.749,0.322
+df1 PCS retest,motor_pair_T1,rest_score_T2,61,0.222,0.0858418343170325,0.193,-0.031,0.447,0.049
+df1 SWASH retest,motor_pair_T1,motor_pair_T2,62,0.497,4.028031416890881e-05,0.503,0.242,0.695,0.247
+df1 SWASH retest,full_total_T1,full_total_T2,62,0.56,2.1980513396946047e-06,0.525,0.336,0.729,0.314
+df1 SWASH retest,motor_pair_T1,full_total_T2,62,0.511,2.1753349697286123e-05,0.5,0.317,0.67,0.261
+df1 SWASH retest,full_total_T1,motor_pair_T2,62,0.428,0.0005232053865557696,0.43,0.172,0.637,0.183
+df1 SWASH retest,rest_score_T1,rest_score_T2,62,0.544,4.878539768509431e-06,0.536,0.332,0.72,0.296
+df1 SWASH retest,motor_pair_T1,rest_score_T2,62,0.46,0.00016670122960441976,0.444,0.272,0.61,0.212
+df3 SWASH retest,motor_pair_T1,full_total_T2,66,0.694,1.01497236936771e-10,0.666,0.564,0.797,0.482
+df3 SWASH retest,full_total_T1,full_total_T2,66,0.772,3.314413474059485e-14,0.709,0.606,0.875,0.596

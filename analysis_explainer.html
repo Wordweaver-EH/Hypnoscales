@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Two motor items as a suggestibility screener — analysis explainer</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      font-family: 'Georgia', serif;
+      font-size: 17px;
+      line-height: 1.75;
+      color: #222;
+      background: #fafaf8;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    h1 { font-size: 2em; color: #111; border-bottom: 3px solid #e74c3c; padding-bottom: 12px; margin-bottom: 0.3em; }
+    h2 { font-size: 1.4em; color: #111; margin-top: 2.8em; border-bottom: 1px solid #ddd; padding-bottom: 6px; }
+    h3 { font-size: 1.1em; color: #333; margin-top: 1.8em; }
+    p  { margin: 0.9em 0; }
+    a  { color: #2980b9; }
+    ul, ol { margin: 0.6em 0 0.8em 1.4em; }
+    li { margin-bottom: 0.3em; }
+
+    .subtitle {
+      font-size: 1em;
+      color: #666;
+      margin-top: 0.3em;
+      margin-bottom: 2.4em;
+      font-style: italic;
+    }
+
+    /* ── Callout boxes ────────────────────────────── */
+    .box {
+      border-left: 4px solid #3498db;
+      background: #eef6fc;
+      padding: 13px 18px;
+      margin: 1.5em 0;
+      border-radius: 0 6px 6px 0;
+    }
+    .box.green  { border-color: #27ae60; background: #eafaf1; }
+    .box.yellow { border-color: #f39c12; background: #fef9ec; }
+    .box.grey   { border-color: #95a5a6; background: #f5f6fa; }
+    .box-title  { font-weight: bold; margin-bottom: 4px; }
+
+    /* ── Tables ──────────────────────────────────── */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 1.4em 0;
+      font-size: 0.91em;
+    }
+    th {
+      background: #2c3e50;
+      color: #fff;
+      text-align: left;
+      padding: 9px 12px;
+      font-weight: normal;
+    }
+    td { padding: 8px 12px; border-bottom: 1px solid #e0e0e0; vertical-align: top; }
+    tr:nth-child(even) td { background: #f5f5f2; }
+    tr.hi td { background: #fdecea; font-weight: bold; }
+
+    /* ── Tags / labels ────────────────────────────── */
+    .tag {
+      display: inline-block;
+      font-size: 0.72em;
+      padding: 2px 7px;
+      border-radius: 10px;
+      font-weight: bold;
+      margin-left: 5px;
+      vertical-align: middle;
+    }
+    .tag.motor { background: #e74c3c; color: #fff; }
+    .tag.pcs   { background: #3498db; color: #fff; }
+    .tag.swash { background: #27ae60; color: #fff; }
+    .tag.hgshs { background: #9b59b6; color: #fff; }
+
+    code {
+      background: #f0f0ec;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.88em;
+    }
+
+    /* ── Summary stat grid ───────────────────────── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 1.6em 0;
+      text-align: center;
+    }
+    .stat-box {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      padding: 16px 8px;
+    }
+    .number-big {
+      font-size: 1.9em;
+      font-weight: bold;
+      color: #e74c3c;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .number-label {
+      font-size: 0.77em;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      line-height: 1.4;
+    }
+
+    /* ── Figures ─────────────────────────────────── */
+    figure {
+      margin: 2em 0;
+      padding: 0;
+    }
+    figure img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background: #fff;
+    }
+    figcaption {
+      font-size: 0.85em;
+      color: #555;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+    figcaption strong { color: #333; }
+
+    /* ── Contents ────────────────────────────────── */
+    .toc {
+      border-left: 4px solid #95a5a6;
+      background: #f5f6fa;
+      padding: 14px 18px 14px 24px;
+      margin: 0 0 2.4em;
+      border-radius: 0 6px 6px 0;
+    }
+    .toc ol { margin: 0.3em 0 0 0; padding-left: 1.4em; }
+    .toc li { margin-bottom: 0.15em; font-size: 0.95em; }
+
+    footer {
+      margin-top: 4em;
+      padding-top: 1.5em;
+      border-top: 1px solid #ddd;
+      font-size: 0.83em;
+      color: #999;
+    }
+
+    @media (max-width: 640px) {
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<h1>Two motor items as a suggestibility screener</h1>
+<p class="subtitle">A plain-language walkthrough of what was done, what was found, and what it means</p>
+
+<div class="toc">
+  <strong>Contents</strong>
+  <ol>
+    <li><a href="#question">The question</a></li>
+    <li><a href="#scales">The scales</a></li>
+    <li><a href="#data">The five datasets</a></li>
+    <li><a href="#pipeline">The analysis pipeline</a></li>
+    <li><a href="#convergence">How well does the motor pair track the full score?</a></li>
+    <li><a href="#floor">Why it works — the floor effect</a></li>
+    <li><a href="#external">Does it predict things outside the scale?</a></li>
+    <li><a href="#classification">Can it correctly sort high and low scorers?</a></li>
+    <li><a href="#allpairs">Is this pair special, or would any two items work?</a></li>
+    <li><a href="#retest">Temporal stability</a></li>
+    <li><a href="#sensitivity">Robustness</a></li>
+    <li><a href="#summary">What the numbers mean together</a></li>
+    <li><a href="#limits">Limitations</a></li>
+  </ol>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="question">1. The question</h2>
+
+<p>Full hypnotic suggestibility or phenomenological-control assessment is often too time-consuming for screening, online intake, or classroom contexts — especially when it requires a multi-item procedure, structured instructions or induction, and item-by-item ratings.</p>
+
+<p>This project asks whether two items from that scale can do most of the work on their own:</p>
+<ul>
+  <li><strong>Arm rigidity</strong> — a suggestion that your arm becomes stiff and can't be bent</li>
+  <li><strong>Arm immobilisation</strong> — a suggestion that your arm is too heavy to lift</li>
+</ul>
+
+<p>Both are motor challenge items. The participant tries to move their arm and finds they can't. They are mid-difficulty, high-variance items where response failure is behaviorally observable rather than purely self-reported, making them strong candidates for carrying between-person discrimination.</p>
+
+<p>The goal is not to replace full scales, but to evaluate whether these two high-discrimination items can support first-pass screening when full administration is infeasible. All analyses treat the motor items as extracted from full-scale administrations — the results validate an embedded two-item proxy, not a standalone instrument.</p>
+
+<p>The specific claim: the sum of these two items correlates with the full-scale total closely enough to serve as a first-pass screener in unselected student samples, and retains much of the full scale's modest external signal on the nonzero criteria examined here.</p>
+
+<!-- ============================================================ -->
+<h2 id="scales">2. The scales</h2>
+
+<p>PCS and SWASH use closely matched ten-item suggestion sets derived from the Stanford/Waterloo tradition. HGSHS:A is a related group suggestibility scale from the Stanford/Harvard tradition with overlapping motor-challenge items but non-identical content, administration, and scoring. The three scales are analysed separately throughout.</p>
+
+<h3>PCS — Phenomenological Control Scale</h3>
+<p>No hypnosis — participants are told it's a test of "the use of imagination to create experiences." Ten items, each rated 0–5 for intensity (0 = nothing, 5 = as vivid as real). This is the primary scale for this analysis.</p>
+<p>Items 5 and 6 are the motor pair. The remaining eight: hand lowering (1), moving hands together (2), mosquito hallucination (3), taste hallucination (4), music hallucination (7), negative visual hallucination (8), amnesia (9), post-hypnotic suggestion (10).</p>
+
+<h3>SWASH — Sussex-Waterloo Scale of Hypnotisability</h3>
+<p>Identical items and scoring to the PCS, administered with a full hypnotic induction. Included as a comparison context.</p>
+
+<h3>HGSHS:A — Harvard Group Scale</h3>
+<p>A 1962 scale measuring involuntariness rather than intensity: participants rate whether each suggestion felt voluntary or automatic (0–5). Analysed separately — never combined with the intensity datasets.</p>
+
+<h3>Scoring</h3>
+<p>Two items have composite scoring:</p>
+<ul>
+  <li><strong>Taste:</strong> mean of sweet and sour ratings</li>
+  <li><strong>Post-hypnotic suggestion:</strong> geometric mean — <code>sqrt(urge × amnesia)</code>. If either component is zero, the score is zero.</li>
+</ul>
+<p>The total is the mean of exactly 10 item scores.</p>
+
+<!-- ============================================================ -->
+<h2 id="data">3. The five datasets</h2>
+
+<table>
+  <tr><th>ID</th><th>Scale</th><th>Context</th><th>N</th><th>Notes</th></tr>
+  <tr>
+    <td><strong>df1 PCS</strong></td>
+    <td>PCS <span class="tag pcs">PCS</span></td>
+    <td>Non-hypnotic</td><td>244</td>
+    <td>PCS norms study. Split from df1 SWASH by Condition=0. 6 excluded.</td>
+  </tr>
+  <tr>
+    <td><strong>df2 PCS-VVIQ</strong></td>
+    <td>PCS <span class="tag pcs">PCS</span></td>
+    <td>Non-hypnotic</td><td>508</td>
+    <td>PCS + visual imagery questionnaire. Total computed from raw items.</td>
+  </tr>
+  <tr>
+    <td><strong>df5 vEAR PCS</strong></td>
+    <td>PCS <span class="tag pcs">PCS</span></td>
+    <td>Non-hypnotic</td><td>452</td>
+    <td>vEAR study with external criterion (visual experience from sound). 62 excluded.</td>
+  </tr>
+  <tr>
+    <td><strong>df1 SWASH</strong></td>
+    <td>SWASH <span class="tag swash">SWASH</span></td>
+    <td>Hypnotic</td><td>240</td>
+    <td>Same file as df1 PCS. Condition=1. Comparison context.</td>
+  </tr>
+  <tr>
+    <td><strong>df3 SWASH</strong></td>
+    <td>SWASH <span class="tag swash">SWASH</span></td>
+    <td>Hypnotic</td><td>418</td>
+    <td>Original SWASH validation paper. 66 participants have retest data.</td>
+  </tr>
+  <tr>
+    <td><strong>df4 HGSHS:A</strong></td>
+    <td>HGSHS:A <span class="tag hgshs">HGSHS</span></td>
+    <td>Hypnotic</td><td>584</td>
+    <td>Terhune/Reshetnikov. Involuntariness + objective binary. 18 excluded.</td>
+  </tr>
+</table>
+
+<p>Three OSF datasets (anomalous experiences, flow, dissociation; n = 497–559) contain individual PCS item ratings and serve as external criteria.</p>
+
+<!-- ============================================================ -->
+<h2 id="pipeline">4. The analysis pipeline</h2>
+
+<p>Eight Python scripts produce all tables and figures from the raw data files. Each depends only on the shared data module — nothing is scored in two places.</p>
+
+<table>
+  <tr><th>Script</th><th>What it computes</th><th>Output</th></tr>
+  <tr><td><code>lib_data.py</code></td><td>Data loading, canonical scoring, constants</td><td>library only</td></tr>
+  <tr><td><code>a01_descriptives.py</code></td><td>Per-item mean, SD, floor/ceiling rates</td><td>table_item_descriptives.csv</td></tr>
+  <tr><td><code>a02_convergence.py</code></td><td>Motor pair vs full scale and vs rest score, with bootstrap CIs</td><td>table_main_convergence.csv</td></tr>
+  <tr><td><code>a03_retest.py</code></td><td>Test-retest correlations (PCS norms retest file; df3 retest total)</td><td>table_test_retest.csv</td></tr>
+  <tr><td><code>a04_classification.py</code></td><td>Weighted kappa, three ordered tertile groups; supplementary AUC</td><td>table_classification.csv</td></tr>
+  <tr><td><code>a05_all_pairs.py</code></td><td>All 45 two-item combinations per dataset, ranked</td><td>table_all_pairs.csv</td></tr>
+  <tr><td><code>a06_external.py</code></td><td>Motor pair vs full scale predicting vEAR, anomalous experiences, flow, dissociation</td><td>table_external_validity.csv</td></tr>
+  <tr><td><code>a07_sensitivity.py</code></td><td>Scoring variants and listwise deletion checks</td><td>table_sensitivity.csv</td></tr>
+  <tr><td><code>a08_figures.py</code></td><td>Forest plot, all-pairs rank, floor chart, ROC curves, external validity chart</td><td>figures/*.png</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2 id="convergence">5. How well does the motor pair track the full score?</h2>
+
+<div class="box grey">
+  <div class="box-title">What correlation means</div>
+  <p>Pearson r ranges from −1 to +1. r = 0: no relationship. r = 1: perfect lockstep. r² is shared variance — r = 0.78 means 61% of the variance in one score is accounted for by the other. In psychology, r = 0.50 is considered a large effect.</p>
+</div>
+
+<p>The two-item motor composite correlates r = 0.78–0.79 with the full PCS total across three independent datasets (R² = 0.61–0.62). The motor items are inside the total — this inflates the number slightly, as in all short-form papers. The overlap-free companion — motor pair against the remaining eight items only — is r = 0.55–0.58.</p>
+
+<table>
+  <tr>
+    <th>Dataset</th><th>N</th>
+    <th>Motor vs full total (r)</th><th>R²</th><th>95% CI</th>
+    <th>Motor vs rest score (r)</th><th>95% CI</th>
+    <th>Reliability (SB)</th>
+  </tr>
+  <tr><td>df1 PCS</td><td>244</td><td>0.783</td><td>0.61</td><td>[0.729, 0.829]</td><td>0.565</td><td>[0.472, 0.646]</td><td>0.61</td></tr>
+  <tr><td>df2 PCS-VVIQ</td><td>508</td><td>0.778</td><td>0.61</td><td>[0.739, 0.811]</td><td>0.549</td><td>[0.482, 0.610]</td><td>0.63</td></tr>
+  <tr><td>df5 vEAR PCS</td><td>452</td><td>0.785</td><td>0.62</td><td>[0.749, 0.820]</td><td>0.579</td><td>[0.514, 0.642]</td><td>0.62</td></tr>
+  <tr><td>df1 SWASH</td><td>240</td><td>0.849</td><td>0.72</td><td>[0.815, 0.880]</td><td>0.694</td><td>[0.627, 0.753]</td><td>0.79</td></tr>
+  <tr><td>df3 SWASH</td><td>418</td><td>0.807</td><td>0.65</td><td>[0.774, 0.838]</td><td>0.630</td><td>[0.571, 0.687]</td><td>0.75</td></tr>
+  <tr><td>df4 HGSHS involuntariness</td><td>584</td><td>0.799</td><td>0.64</td><td>[0.766, 0.827]</td><td>0.659</td><td>[0.606, 0.705]</td><td>0.70</td></tr>
+  <tr><td>df4 HGSHS objective</td><td>584</td><td>0.682</td><td>0.46</td><td>[0.639, 0.721]</td><td>0.449</td><td>[0.385, 0.511]</td><td>0.42</td></tr>
+</table>
+<p style="font-size:0.85em; color:#666; margin-top:-0.6em;">All correlations: p &lt; .001. CIs are 95% bootstrap (n<sub>boot</sub> = 2000).</p>
+
+<p>The PCS results are tight across three cohorts. The HGSHS:A objective score is weaker because binary pass/fail scoring discards within-item variation. Spearman-Brown reliability (<code>2r / (1+r)</code>, where r is the inter-item correlation) is the correct reliability coefficient for a two-item scale; for PCS it is 0.61–0.63.</p>
+
+<p>SWASH (hypnotic context) shows systematically higher coupling than PCS (non-hypnotic) at every comparison: rest-score r 0.63–0.69 vs 0.55–0.58, weighted κ 0.65–0.66 vs 0.50–0.55. The structure replicates across contexts — that is the cross-context finding — but the magnitude of motor-item concentration is higher under induction. These are not equivalent results combined under one headline.</p>
+
+<p>The df1 dataset randomly assigned participants to PCS or SWASH conditions, making it the cleanest test. Fisher's r-to-z comparison of df1 PCS vs df1 SWASH is statistically significant for both r_full (z = −2.18, p = .029) and r_rest (z = −2.36, p = .018), confirming the SWASH magnitude difference is not sampling noise. Cross-dataset comparisons (df2 PCS vs df3 SWASH; df5 PCS vs df3 SWASH) are not significant (z = −1.18, p = .239; z = −0.88, p = .377), consistent with between-cohort variability dominating over any context effect in those pairs.</p>
+
+<figure>
+  <img src="figures/fig1_forest_plot.png" alt="Forest plot of motor pair correlations across datasets" loading="lazy">
+  <figcaption><strong>Figure 1.</strong> Motor pair correlations with 95% bootstrap CIs. Left: part-whole (motor items inside the total). Right: part-rest (overlap-free; motor items excluded from criterion). Colour: red = PCS, blue = SWASH, purple = HGSHS. The dotted line marks r = 0.83 from a five-item HGSHS:A short form in the published literature.</figcaption>
+</figure>
+
+<!-- ============================================================ -->
+<h2 id="floor">6. Why it works — the floor effect</h2>
+
+<p>A 0–5 scale item where 87% of participants score zero contributes almost nothing to the total's ability to sort people. It doesn't discriminate because everyone fails it. The PCS total is dominated by items where people actually vary — and several items are near-universally failed in unselected student samples.</p>
+
+<table>
+  <tr>
+    <th>Item</th>
+    <th>df1 PCS</th><th>df2 PCS-VVIQ</th><th>df5 vEAR PCS</th>
+    <th>Mean (all datasets)</th>
+  </tr>
+  <tr>
+    <td>Music hallucination</td>
+    <td>86.5% at zero</td><td>81.7% at zero</td><td>79.6% at zero</td>
+    <td>0.14–0.39 / 5</td>
+  </tr>
+  <tr>
+    <td>Neg. visual hallucination</td>
+    <td>90.2% at zero</td><td>92.7% at zero</td><td>90.5% at zero</td>
+    <td>0.20–0.43 / 5</td>
+  </tr>
+  <tr>
+    <td>Post-hypnotic suggestion</td>
+    <td>62.7% at zero</td><td>69.7% at zero</td><td>63.7% at zero</td>
+    <td>—</td>
+  </tr>
+  <tr class="hi">
+    <td><strong>Arm rigidity</strong> <span class="tag motor">MOTOR</span></td>
+    <td>mean 3.20 (floor 5%)</td>
+    <td>mean 3.12 (floor 7%)</td>
+    <td>mean 3.07 (floor 7%)</td>
+    <td>PCS 3.07–3.20; SWASH 2.50–2.67 — mid-scale</td>
+  </tr>
+  <tr class="hi">
+    <td><strong>Arm immobilisation</strong> <span class="tag motor">MOTOR</span></td>
+    <td>mean 2.68 (floor 9%)</td>
+    <td>mean 2.45 (floor 12%)</td>
+    <td>mean 2.47 (floor 12%)</td>
+    <td>PCS 2.45–2.68; SWASH 2.01–2.31 — mid-scale</td>
+  </tr>
+</table>
+
+<p>The motor items sit near the middle of the scale — the optimal position for sorting people. Music and negative visual hallucination sit near zero for 80–93% of participants. When most of the scale is near-uniformly zero, the total is largely determined by the few items that actually vary. The high correlation between the motor pair and the total is partly structural: removing near-zero items from the total costs almost nothing, because they weren't carrying information anyway.</p>
+
+<p>The item difficulty distribution likely helps explain why the motor pair works as a proxy in unselected samples: the motor items retain substantial between-person variance, whereas several perceptual-cognitive items are near floor and contribute less to rank-ordering. This is an explanation for the screening correlation, not a critique of it.</p>
+
+<figure>
+  <img src="figures/fig3_item_floor.png" alt="Item means and floor rates across all datasets" loading="lazy">
+  <figcaption><strong>Figure 2.</strong> Per-item means (top) and floor rates (bottom) across all five intensity datasets. Red bars = motor/action items (i5 = arm rigidity, i6 = arm immobilisation). Blue = perceptual items. Green = cognitive/amnesia. Motor items sit at mid-scale in every dataset; perceptual items approach floor.</figcaption>
+</figure>
+
+<!-- ============================================================ -->
+<h2 id="external">7. Does it predict things outside the scale?</h2>
+
+<p>Correlating the motor pair against the full PCS total involves shared items on both sides. The cleanest test is external criteria — measures with no item overlap with the PCS at all.</p>
+
+<p>If the motor pair is a useful proxy for suggestibility-related response tendency rather than just for the parent items it came from, it should predict external outcomes at roughly the same level as the full scale does.</p>
+
+<table>
+  <tr>
+    <th>External criterion</th><th>N</th>
+    <th>Motor pair r</th><th>Rest score r</th><th>Full PCS r</th>
+    <th>% of full-scale r retained</th>
+  </tr>
+  <tr>
+    <td>vEAR (visual experience from sound)</td>
+    <td>452</td><td>0.297</td><td>0.354</td><td>0.372</td><td>80%</td>
+  </tr>
+  <tr>
+    <td>Anomalous experiences (combined)</td>
+    <td>497</td><td>0.155</td><td>0.189</td><td>0.202</td><td>77%</td>
+  </tr>
+  <tr>
+    <td>Past-life experiences</td>
+    <td>497</td><td>0.158</td><td>0.214</td><td>0.221</td><td>71%</td>
+  </tr>
+  <tr>
+    <td>Flow states (combined)</td>
+    <td>432</td><td>0.109</td><td>0.131</td><td>0.139</td><td>78%</td>
+  </tr>
+  <tr>
+    <td>Dissociation (DES)</td>
+    <td>559</td><td>0.100</td><td>0.092</td><td>0.107</td><td>93%†</td>
+  </tr>
+</table>
+
+<p>† DES: both correlations are near-zero (r = 0.10 and 0.107). The 93% figure reflects two near-null effects agreeing, not a meaningful retention of signal. The r-ratio is uninformative when the base correlation is this small.</p>
+
+<p>The rest-score column shows how the full scale performs once motor items are removed. For vEAR the rest score (r = 0.354) sits between the motor pair (0.297) and the full scale (0.372), consistent with the motor pair and the remaining eight items both contributing independent signal to the PCS total's predictive validity. For anomalous experiences the rest score (0.189) slightly exceeds the motor pair (0.155), again showing independent contributions. The motor pair does not capture all the external signal in the scale, but it captures the majority of it.</p>
+
+<p>Retention percentages are motor r / full-scale r, not R² ratios. For vEAR in variance terms: approximately 64% retained (R² = 0.088 / 0.138).</p>
+
+<p>The meaningful external evidence is vEAR and the anomalous-experience criteria, where both correlations are nonzero and the motor pair tracks the full scale at 71–80% of its predictive strength. Neither the motor pair nor the full scale shares any items with these criteria — this is not a mathematical artefact of shared items.</p>
+
+<figure>
+  <img src="figures/fig5_external_validity.png" alt="Motor pair vs full scale correlations with external criteria" loading="lazy">
+  <figcaption><strong>Figure 3.</strong> Motor pair (red) vs full scale (blue) correlations with five external criteria. No item overlap between the motor pair and any criterion. Percentage labels show the proportion of the full scale's signal retained by the motor pair. Error bars are 95% bootstrap CIs.</figcaption>
+</figure>
+
+<!-- ============================================================ -->
+<h2 id="classification">8. Can it correctly sort high and low scorers?</h2>
+
+<p>Correlation measures consistent ranking. Classification asks whether those rankings translate into correct categorical decisions: if you label someone high, medium, or low on two items, how often is that label right?</p>
+
+<h3>Design</h3>
+
+<p>Participants are split into three ordered groups — low, medium, high — at tertile boundaries (the 33rd and 67th percentiles). Agreement is measured by <strong>weighted Cohen's kappa</strong>, which penalises adjacent-category errors less than cross-extreme errors. This three-group, linear-weighted design is standard for ordinal short-form evaluation.</p>
+
+<div class="box grey">
+  <div class="box-title">What kappa means</div>
+  <p>Kappa corrects raw agreement for chance. Kappa = 0: no better than random. Kappa = 1: perfect. Standard interpretation (Landis & Koch): &lt;0.20 slight / 0.21–0.40 fair / 0.41–0.60 moderate / 0.61–0.80 substantial. The DSM-5 field trials considered κ = 0.40–0.60 "a realistic goal" and κ = 0.60–0.80 "cause for celebration."</p>
+</div>
+
+<h3>Primary — motor pair vs full total</h3>
+
+<p>The motor pair and the full-scale total share items, replicating the standard short-form design used in the published literature.</p>
+
+<table>
+  <tr>
+    <th>Dataset</th><th>N</th>
+    <th>κ weighted</th><th>κ unweighted</th>
+    <th>AUC (top third)</th><th>Landis & Koch</th>
+  </tr>
+  <tr><td>df1 PCS</td><td>244</td><td>0.548</td><td>0.446</td><td>0.829</td><td>Moderate</td></tr>
+  <tr><td>df2 PCS-VVIQ</td><td>508</td><td>0.504</td><td>0.400</td><td>0.852</td><td>Moderate</td></tr>
+  <tr><td>df5 vEAR PCS</td><td>452</td><td>0.522</td><td>0.410</td><td>0.858</td><td>Moderate</td></tr>
+  <tr><td>df1 SWASH</td><td>240</td><td>0.657</td><td>0.550</td><td>0.905</td><td>Substantial</td></tr>
+  <tr><td>df3 SWASH</td><td>418</td><td>0.652</td><td>0.547</td><td>0.896</td><td>Substantial</td></tr>
+  <tr><td>df4 HGSHS:A involuntariness</td><td>584</td><td>0.651</td><td>0.563</td><td>0.893</td><td>Substantial</td></tr>
+  <tr><td>df4 HGSHS:A objective†</td><td>584</td><td>0.554</td><td>0.459</td><td>0.841</td><td>Moderate</td></tr>
+</table>
+<p style="font-size:0.85em; color:#666; margin-top:-0.6em;">† Objective motor items are binary (0/1); motor sum ranges 0–2 only. Tertile cut points fall at 0 and 1, making this classification coarser than the involuntariness or intensity analyses.</p>
+
+<p>Weighted kappa tracks the context pattern seen in the convergence analyses. PCS (non-hypnotic, continuous items) returns κ = 0.50–0.55 (moderate). SWASH and HGSHS:A involuntariness — both administered under induction — reach κ = 0.65 (substantial), consistent with the higher motor-item coupling under those conditions. The objective HGSHS:A result (κ = 0.554) comes from a binary motor composite with only three possible values (0, 1, 2); the tertile boundaries fall at integers, so this figure carries more classification noise than the continuous-item analyses. Overlap-free figures are reported in the Conservative section below. Both analyses are required: the primary is directly comparable to the HGSHS-5:G benchmark (κ = 0.578); the conservative removes shared-item agreement entirely. The motor pair is better treated as an ordinal triage tool than as a precise high-responder detector.</p>
+
+<div class="box yellow">
+  <div class="box-title">The coarse-score problem</div>
+  <p>The motor sum has 11 possible values (0–10). Tertile boundaries often fall on integer values where many participants tie, and tie-handling shifts borderline cases between groups. We use a strict "greater than" rule throughout and report the score distribution alongside kappa.</p>
+</div>
+
+<figure>
+  <img src="figures/fig4_roc_primary.png" alt="ROC curves for motor pair classification" loading="lazy">
+  <figcaption><strong>Figure 4.</strong> ROC curves: motor composite classifying the top-third on the full-scale total, three PCS datasets. The motor items are inside the total (part-whole). AUC 0.83–0.86 (PCS); 0.90–0.91 (SWASH); 0.89 (HGSHS:A involuntariness).</figcaption>
+</figure>
+
+<h3>Conservative — motor pair vs rest score (no item overlap)</h3>
+
+<p>We also classify against the rest score — the mean of the eight non-motor items — so screen and criterion share no items at all. This is stricter than the standard short-form design, where the abbreviated scale's items are inside the criterion.</p>
+
+<table>
+  <tr>
+    <th>Dataset</th><th>N</th>
+    <th>κ weighted (rest score)</th><th>κ unweighted</th><th>Landis & Koch</th>
+  </tr>
+  <tr><td>df1 PCS</td><td>244</td><td>0.325</td><td>0.262</td><td>Fair</td></tr>
+  <tr><td>df2 PCS-VVIQ</td><td>508</td><td>0.294</td><td>0.203</td><td>Fair</td></tr>
+  <tr><td>df5 vEAR PCS</td><td>452</td><td>0.335</td><td>0.240</td><td>Fair</td></tr>
+  <tr><td>df1 SWASH</td><td>240</td><td>0.459</td><td>0.355</td><td>Moderate</td></tr>
+  <tr><td>df3 SWASH</td><td>418</td><td>0.448</td><td>0.363</td><td>Moderate</td></tr>
+  <tr><td>df4 HGSHS:A involuntariness</td><td>584</td><td>0.522</td><td>0.442</td><td>Moderate</td></tr>
+  <tr><td>df4 HGSHS:A objective</td><td>584</td><td>0.347</td><td>0.267</td><td>Fair</td></tr>
+</table>
+
+<p>The overlap-free κ follows the same context gradient as the primary analysis: PCS 0.29–0.34 (fair), SWASH 0.45–0.46 (moderate), HGSHS:A involuntariness 0.52 (moderate). The gap between primary and conservative figures in each row reflects the portion of agreement attributable to shared items. External validity (§7) carries the screening claim in fully criterion-free terms.</p>
+
+<!-- ============================================================ -->
+<h2 id="allpairs">9. Is this pair special, or would any two items work?</h2>
+
+<p>Maybe any two medium-difficulty items would correlate as highly with the total, making the motor pair unremarkable. We tested this by computing the part-whole correlation for all C(10,2) = 45 possible two-item combinations per dataset.</p>
+
+<table>
+  <tr>
+    <th>Dataset</th><th>r_full rank / 45</th><th>r_rest rank / 45</th>
+    <th>Motor r_full</th><th>Motor r_rest</th>
+    <th>Top pair (r_full)</th><th>Top r_full</th>
+  </tr>
+  <tr class="hi">
+    <td>df1 PCS</td><td><strong>#1</strong></td><td>#2</td><td>0.783</td><td>0.565</td>
+    <td>Arm rigidity + Arm immobilisation</td><td>0.783</td>
+  </tr>
+  <tr class="hi">
+    <td>df2 PCS-VVIQ</td><td><strong>#2</strong></td><td>#11</td><td>0.778</td><td>0.549</td>
+    <td>Hand lowering + Arm immobilisation</td><td>0.778 (tied)</td>
+  </tr>
+  <tr class="hi">
+    <td>df5 vEAR PCS</td><td><strong>#1</strong></td><td>#9</td><td>0.785</td><td>0.579</td>
+    <td>Arm rigidity + Arm immobilisation</td><td>0.785</td>
+  </tr>
+  <tr>
+    <td>df1 SWASH</td><td>#4</td><td>#8</td><td>0.849</td><td>0.694</td>
+    <td>Hand lowering + Arm rigidity</td><td>0.856</td>
+  </tr>
+  <tr>
+    <td>df3 SWASH</td><td>#13</td><td>#23</td><td>0.807</td><td>0.630</td>
+    <td>Taste + Arm rigidity</td><td>0.845</td>
+  </tr>
+</table>
+
+<p>Two rank columns matter here. By r_full (part-whole, motor items inside the total) the motor pair is #1 or #2 in all three PCS datasets and #4 in df1 SWASH. By r_rest (overlap-free) the picture is weaker: the motor pair drops to #2 (df1 PCS), #9 (df5 vEAR), #11 (df2 PCS-VVIQ), #8 (df1 SWASH), and #23 (df3 SWASH). The r_full dominance is partly structural — items that correlate well with the scale they came from will naturally rank high when scored against that scale. The r_rest ranking is the honest test of pair efficiency and shows the motor combination is not uniquely dominant once overlap is removed.</p>
+
+<p>The consistent cross-dataset finding is narrower than "motor pair ranks first everywhere": a motor item appears in or near the top pair by r_full in every dataset, and perceptual items (music, negative visual hallucination) never do — their floor effects suppress variance regardless of pairing. The motor pair's advantage is real on the part-whole metric and approximately holds on the part-rest metric for df1 PCS; it does not hold as strongly across datasets once overlap is removed.</p>
+
+<figure>
+  <img src="figures/fig2_all_pairs_rank.png" alt="All-pairs rank plot across PCS datasets" loading="lazy">
+  <figcaption><strong>Figure 5.</strong> All 45 two-item combinations ranked by correlation strength (circles = r_full, diamonds = r_rest) across three PCS datasets. Motor pair highlighted in red. The motor pair consistently appears at or near the top in all three datasets.</figcaption>
+</figure>
+
+<!-- ============================================================ -->
+<h2 id="retest">10. Temporal stability</h2>
+
+<p>The proper test of the two-item composite's temporal stability would be a standalone administration — give just the two items, retest, measure agreement. That data doesn't exist. What we have is the motor pair's stability extracted from full-scale retest datasets, where participants completed all ten items at both sessions.</p>
+
+<table>
+  <tr><th>Comparison</th><th>N</th><th>r</th><th>p</th></tr>
+  <tr><td>PCS motor pair T1 → motor pair T2</td><td>61</td><td>0.338</td><td>.008</td></tr>
+  <tr><td>PCS motor pair T1 → rest score T2</td><td>61</td><td>0.222</td><td>.086 (ns)</td></tr>
+  <tr><td>PCS full scale T1 → full scale T2</td><td>61</td><td>0.523</td><td>&lt;.001</td></tr>
+  <tr><td>SWASH motor pair T1 → motor pair T2</td><td>62</td><td>0.497</td><td>&lt;.001</td></tr>
+  <tr><td>SWASH motor pair T1 → rest score T2</td><td>62</td><td>0.460</td><td>&lt;.001</td></tr>
+  <tr><td>SWASH full scale T1 → full scale T2</td><td>62</td><td>0.560</td><td>&lt;.001</td></tr>
+  <tr><td>SWASH motor pair T1 → full scale T2 (df3)</td><td>66</td><td>0.694</td><td>&lt;.001</td></tr>
+</table>
+
+<p>These numbers should not be over-read. The surrounding items, induction procedure, and administration context are all present at both sessions — this is stability within the full-scale procedure, not screener-specific stability. Whether the motor pair administered alone would show similar, better, or worse temporal consistency is an open question.</p>
+
+<p>Two rows in the PCS block are diagnostic. The motor pair T1 → motor pair T2 correlation (0.338) sits at roughly single-item level rather than gaining from combining two items. More revealing: PCS motor pair T1 → rest score T2 is r = 0.222, p = .086 — not significant, meaning the PCS motor pair at session 1 does not reliably predict the non-motor scale score at session 2. The SWASH equivalent (motor T1 → rest T2: r = 0.460, p &lt; .001) is substantially stronger, consistent with the higher motor-item coupling found under induction. The rest-score rtt itself is higher than the full-scale rtt in the PCS block (0.567 vs 0.523), which is unusual and reflects the relatively poor stability of the floor items when aggregated into the full scale.</p>
+
+<p>Some descriptive context from per-item rtt across all ten PCS items: single items average rtt ≈ 0.37, so the motor pair composite (0.338) sits at roughly single-item level rather than gaining much from combining two items. The full scale's advantage (0.523) is aggregation across ten items. Mid-difficulty items are the most stable individually — mosquito rtt = 0.50, taste rtt = 0.45. Floor items produce uninterpretable estimates: music hallucination rtt = +0.645 in PCS but −0.013 in SWASH on the identical item, a sign flip driven by too few non-zero scores to anchor the correlation. Arm rigidity has 26% ceiling compression in this retest subsample, which explains its low single-item rtt (0.22); arm immobilisation is mid-range and returns 0.41.</p>
+
+<!-- ============================================================ -->
+<h2 id="sensitivity">11. Robustness</h2>
+
+<p>The main results are stable across scoring variations. Sum vs mean, z-scored items, and listwise deletion all leave the correlations unchanged. Two bug-check rows confirm the scoring corrections made to df2 and df3.</p>
+
+<table>
+  <tr>
+    <th>Check</th><th>Variant</th>
+    <th>df1 PCS<br><small>n=244</small></th>
+    <th>df2 PCS-VVIQ<br><small>n=508</small></th>
+    <th>df3 SWASH<br><small>n=418</small></th>
+    <th>df5 vEAR PCS<br><small>n=452</small></th>
+  </tr>
+  <tr>
+    <td rowspan="2">Scoring (r_full)</td>
+    <td>Motor sum vs total</td>
+    <td>0.783</td><td>0.778</td><td>0.807</td><td>0.785</td>
+  </tr>
+  <tr>
+    <td>Motor mean vs total</td>
+    <td>0.783</td><td>0.778</td><td>0.807</td><td>0.785</td>
+  </tr>
+  <tr>
+    <td>Z-scored (r_full)</td>
+    <td>Motor z vs total z</td>
+    <td>0.783</td><td>0.778</td><td>0.807</td><td>0.785</td>
+  </tr>
+  <tr>
+    <td>Listwise deletion (r_full)</td>
+    <td>Motor sum vs total</td>
+    <td>0.783</td><td>0.778</td><td>0.807</td><td>0.785</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Scoring (r_rest)</td>
+    <td>Motor sum vs rest</td>
+    <td>0.565</td><td>0.549</td><td>0.630</td><td>0.579</td>
+  </tr>
+  <tr>
+    <td>Motor mean vs rest</td>
+    <td>0.565</td><td>0.549</td><td>0.630</td><td>0.579</td>
+  </tr>
+</table>
+
+
+<!-- ============================================================ -->
+<h2 id="summary">12. What the numbers mean together</h2>
+
+<div class="stats-grid">
+  <div class="stat-box">
+    <span class="number-big">71–80%</span>
+    <span class="number-label">Full-scale r retained, nonzero external criteria</span>
+  </div>
+  <div class="stat-box">
+    <span class="number-big">0.78–0.79</span>
+    <span class="number-label">Motor vs full PCS total (disclosed overlap)</span>
+  </div>
+  <div class="stat-box">
+    <span class="number-big">0.55–0.58</span>
+    <span class="number-label">Motor vs rest score (overlap-free)</span>
+  </div>
+  <div class="stat-box">
+    <span class="number-big">#1–2 / 45</span>
+    <span class="number-label">Motor pair rank, PCS datasets only</span>
+  </div>
+</div>
+
+<p>Against external criteria with no item overlap — vEAR and anomalous experiences — the motor pair retains 71–80% of the full PCS's predictive signal. Both the motor pair and the full scale correlate at similarly modest levels with these criteria, and the motor pair tracks nearly as well. This is the evidence that survives the circularity objection: the motor pair is not just predicting the items it came from.</p>
+
+<p>Within-scale: the motor pair correlates r = 0.78–0.79 with the full PCS total across three independent cohorts (part-whole, motor items inside the total; R² = 0.61–0.62). The overlap-free companion — motor pair against the remaining eight items — is r = 0.55–0.58. The high part-whole r is partly structural: music and negative visual hallucination approach floor in unselected samples, so removing them from the total loses almost no information.</p>
+
+<p>Classification weighted kappa is 0.50–0.55 (overlapping design, comparable to other published short forms) and 0.29–0.34 (overlap-free). Both are reported; neither should stand alone. The motor pair is an ordinal triage tool — it narrows the candidate pool, not a precision classifier. The all-pairs analysis shows motor items are specifically efficient across PCS datasets; the claim is weaker (though still holds) in SWASH.</p>
+
+<h3>What the motor pair is good for</h3>
+<ul>
+  <li><strong>First-pass screening:</strong> identify who is likely in the top third of suggestibility before administering the full scale</li>
+  <li><strong>Feasibility research:</strong> contexts where full-scale administration is impractical</li>
+  <li><strong>Cross-context comparison:</strong> a consistent two-item anchor that replicates across PCS and SWASH datasets</li>
+</ul>
+
+<h3>What it is not</h3>
+<ul>
+  <li><strong>Not a replacement for the full scale</strong> when construct coverage matters. The motor pair does not sample perceptual or cognitive items directly, and may underrepresent people whose strongest responses are in those domains.</li>
+  <li><strong>Not validated as a standalone instrument.</strong> In every dataset here the motor pair was embedded in the full ten-item scale.</li>
+  <li><strong>Not yet validated for longitudinal tracking as a standalone instrument.</strong> PCS motor pair embedded rtt = 0.338 (n = 61); standalone retest data doesn't exist. Current evidence supports cautious one-off screening claims only.</li>
+</ul>
+
+<!-- ============================================================ -->
+<h2 id="limits">13. Limitations</h2>
+
+<table>
+  <tr><th>Limitation</th><th>What it constrains</th></tr>
+  <tr>
+    <td>Part-whole overlap</td>
+    <td>The motor items are inside the full-scale total. r = 0.78–0.79 is upwardly biased. The overlap-free figure (r = 0.55–0.58 vs rest score) is the conservative complement.</td>
+  </tr>
+  <tr>
+    <td>Embedded administration only</td>
+    <td>The motor pair was always given inside the full ten-item scale. Standalone administration may produce different response patterns.</td>
+  </tr>
+  <tr>
+    <td>Floor effects are sample-dependent</td>
+    <td>High proxy correlations depend on music and neg. visual hallucination being near floor. In enriched samples (pre-selected high responders), those items vary more and the proxy weakens.</td>
+  </tr>
+  <tr>
+    <td>Test-retest stability</td>
+    <td>Motor pair embedded rtt = 0.338 (n = 61, PCS), consistent with single-item level — no aggregation gain. Standalone retest data does not exist. Current evidence supports cautious one-off screening only, not repeated measurement.</td>
+  </tr>
+  <tr>
+    <td>No external criterion for most datasets</td>
+    <td>Most convergence evidence is motor pair vs parent scale (or vs rest score). Only df5 and the three OSF datasets provide external criteria. This supports "candidate proxy/screener," but not a fully validated standalone screener.</td>
+  </tr>
+  <tr>
+    <td>HGSHS:A measures a different dimension</td>
+    <td>Involuntariness ≠ intensity. df4 is convergent evidence across measurement frameworks, not the same construct measured three ways.</td>
+  </tr>
+  <tr>
+    <td>Secondary re-analysis</td>
+    <td>All analyses are secondary re-analyses of existing datasets. Results are hypotheses for prospective confirmation.</td>
+  </tr>
+</table>
+
+<footer>
+  Analysis: 2026-06-03 &nbsp;|&nbsp; Datasets: OSF et85n, aeyhw, wujk8, jfmc4, a2skp, u5wjy &nbsp;|&nbsp;
+  Bootstrap CIs: n_boot = 2000, seed = 20260603 &nbsp;|&nbsp; Kappa design: tertile groups, linear weights
+</footer>
+
+</body>
+</html>

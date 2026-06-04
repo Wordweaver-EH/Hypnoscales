@@ -1,0 +1,6 @@
+dataset,n_pairs_total,motor_rank_r_full,motor_rank_r_rest,motor_r_full,motor_r_rest,motor_sb,top1_pair,top1_r_full
+df1 PCS,45,1,2,0.783,0.565,0.612,Arm rigidity + Arm immobilisation,0.783
+df1 SWASH,45,4,8,0.849,0.694,0.791,Hand lowering + Arm rigidity,0.856
+df2 PCS-VVIQ,45,2,11,0.778,0.549,0.626,Hand lowering + Arm immobilisation,0.778
+df3 SWASH,45,13,23,0.807,0.63,0.746,Taste + Arm rigidity,0.845
+df5 vEAR PCS,45,1,9,0.785,0.579,0.619,Arm rigidity + Arm immobilisation,0.785

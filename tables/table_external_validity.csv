@@ -1,0 +1,34 @@
+dataset,predictor,criterion,n,pearson_r,p_value,r2,ci_lo,ci_hi
+df5 vEAR PCS,motor_pair,vEAR_score,452,0.297,1.123830344710517e-10,0.088,0.215,0.369
+df5 vEAR PCS,full_scale,vEAR_score,452,0.372,2.8585127420537954e-16,0.138,0.293,0.445
+df5 vEAR PCS,rest_score,vEAR_score,452,0.354,7.946896421686386e-15,0.126,0.267,0.434
+df5 vEAR PCS,motor_pair,vEAR_avg_self_report,452,0.122,0.009177046934969462,0.015,0.034,0.208
+df5 vEAR PCS,full_scale,vEAR_avg_self_report,452,0.179,0.0001338356109272416,0.032,0.088,0.269
+df5 vEAR PCS,rest_score,vEAR_avg_self_report,452,0.18,0.00012282783582325752,0.032,0.091,0.273
+anomalous_PCS,motor_pair,anomalous_combined,497,0.155,0.0005253217631949461,0.024,0.055,0.245
+anomalous_PCS,full_scale,anomalous_combined,497,0.202,5.656808686913722e-06,0.041,0.098,0.296
+anomalous_PCS,rest_score,anomalous_combined,497,0.189,2.1799324128485173e-05,0.036,0.087,0.285
+anomalous_PCS,motor_pair,OBE_experience,497,0.098,0.028613996526134867,0.01,0.008,0.183
+anomalous_PCS,full_scale,OBE_experience,497,0.131,0.003375667445148845,0.017,0.034,0.225
+anomalous_PCS,rest_score,OBE_experience,497,0.124,0.0055255799677270375,0.015,0.025,0.216
+anomalous_PCS,motor_pair,past_life_experience,497,0.158,0.0004226476537898295,0.025,0.064,0.249
+anomalous_PCS,full_scale,past_life_experience,497,0.221,6.232245365582739e-07,0.049,0.118,0.317
+anomalous_PCS,rest_score,past_life_experience,497,0.214,1.4794580925869972e-06,0.046,0.112,0.31
+anomalous_PCS,motor_pair,spirit_world_experience,497,0.121,0.0067210067516443,0.015,0.029,0.21
+anomalous_PCS,full_scale,spirit_world_experience,497,0.138,0.001969617792147139,0.019,0.041,0.235
+anomalous_PCS,rest_score,spirit_world_experience,497,0.121,0.006696720740954053,0.015,0.026,0.216
+flow_PCS,motor_pair,flow_combined,432,0.109,0.022877639032808355,0.012,0.004,0.21
+flow_PCS,full_scale,flow_combined,432,0.139,0.0038288739237084604,0.019,0.039,0.237
+flow_PCS,rest_score,flow_combined,432,0.131,0.006249513976564312,0.017,0.036,0.227
+flow_PCS,motor_pair,flow_vacuuming,432,0.137,0.004420762944898265,0.019,0.039,0.235
+flow_PCS,full_scale,flow_vacuuming,432,0.134,0.005125764916336105,0.018,0.037,0.231
+flow_PCS,rest_score,flow_vacuuming,432,0.111,0.021436486275595704,0.012,0.016,0.205
+flow_PCS,motor_pair,flow_essay_writing,432,0.037,0.4478245267236939,0.001,-0.075,0.14
+flow_PCS,full_scale,flow_essay_writing,432,0.085,0.0786564915376856,0.007,-0.02,0.185
+flow_PCS,rest_score,flow_essay_writing,432,0.096,0.04531662307625634,0.009,-0.003,0.197
+flow_PCS,motor_pair,flow_exercise,432,0.071,0.1410007439715481,0.005,-0.03,0.164
+flow_PCS,full_scale,flow_exercise,432,0.094,0.050385946950964995,0.009,-0.005,0.187
+flow_PCS,rest_score,flow_exercise,432,0.091,0.05904506954789778,0.008,-0.006,0.184
+DES_PCS,motor_pair,DES_dissociation,559,0.1,0.017717464130830862,0.01,0.022,0.175
+DES_PCS,full_scale,DES_dissociation,559,0.107,0.011073783168409061,0.012,0.029,0.185
+DES_PCS,rest_score,DES_dissociation,559,0.092,0.030377890482392356,0.008,0.016,0.172

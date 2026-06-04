@@ -1,0 +1,226 @@
+dataset,item1,item2,pair_label,r_full,r2_full,r_rest,interitem_r,sb,item1_mean,item2_mean,is_prespecified_motor_pair,rank_by_r_full,rank_by_r_rest
+df1 PCS,Arm rigidity,Arm immobilisation,Arm rigidity + Arm immobilisation,0.783,0.613,0.565,0.44,0.612,3.201,2.676,True,1,2
+df1 PCS,Mosquito,Arm immobilisation,Mosquito + Arm immobilisation,0.759,0.576,0.538,0.28,0.437,1.656,2.676,False,2,6
+df1 PCS,Mosquito,Arm rigidity,Mosquito + Arm rigidity,0.756,0.572,0.537,0.239,0.386,1.656,3.201,False,3,7
+df1 PCS,Hand lowering,Arm immobilisation,Hand lowering + Arm immobilisation,0.747,0.558,0.543,0.335,0.502,3.643,2.676,False,4,5
+df1 PCS,Arm immobilisation,Post-hypnotic,Arm immobilisation + Post-hypnotic,0.745,0.555,0.526,0.196,0.328,2.676,1.025,False,5,8
+df1 PCS,Arm immobilisation,Music,Arm immobilisation + Music,0.741,0.549,0.581,0.163,0.281,2.676,0.266,False,6,1
+df1 PCS,Taste,Arm rigidity,Taste + Arm rigidity,0.74,0.548,0.523,0.26,0.413,1.75,3.201,False,7,9
+df1 PCS,Hand lowering,Mosquito,Hand lowering + Mosquito,0.737,0.544,0.552,0.052,0.098,3.643,1.656,False,8,4
+df1 PCS,Taste,Arm immobilisation,Taste + Arm immobilisation,0.735,0.54,0.508,0.333,0.499,1.75,2.676,False,9,10
+df1 PCS,Arm rigidity,Music,Arm rigidity + Music,0.728,0.531,0.564,0.137,0.241,3.201,0.266,False,10,3
+df1 PCS,Arm immobilisation,Amnesia,Arm immobilisation + Amnesia,0.725,0.525,0.496,0.257,0.409,2.676,1.648,False,11,12
+df1 PCS,Arm rigidity,Post-hypnotic,Arm rigidity + Post-hypnotic,0.723,0.522,0.487,0.219,0.359,3.201,1.025,False,12,15
+df1 PCS,Arm rigidity,Amnesia,Arm rigidity + Amnesia,0.718,0.515,0.488,0.227,0.37,3.201,1.648,False,13,14
+df1 PCS,Hands together,Arm immobilisation,Hands together + Arm immobilisation,0.713,0.509,0.485,0.301,0.463,3.094,2.676,False,14,17
+df1 PCS,Hands together,Arm rigidity,Hands together + Arm rigidity,0.71,0.505,0.484,0.255,0.406,3.094,3.201,False,15,18
+df1 PCS,Hand lowering,Arm rigidity,Hand lowering + Arm rigidity,0.706,0.498,0.469,0.43,0.602,3.643,3.201,False,16,20
+df1 PCS,Hands together,Mosquito,Hands together + Mosquito,0.704,0.495,0.497,0.028,0.054,3.094,1.656,False,17,11
+df1 PCS,Hand lowering,Taste,Hand lowering + Taste,0.696,0.484,0.495,0.141,0.246,3.643,1.75,False,18,13
+df1 PCS,Arm immobilisation,Neg. visual,Arm immobilisation + Neg. visual,0.69,0.476,0.486,0.061,0.115,2.676,0.373,False,19,16
+df1 PCS,Taste,Amnesia,Taste + Amnesia,0.684,0.468,0.469,0.047,0.09,1.75,1.648,False,20,21
+df1 PCS,Arm rigidity,Neg. visual,Arm rigidity + Neg. visual,0.684,0.468,0.481,0.025,0.049,3.201,0.373,False,21,19
+df1 PCS,Mosquito,Amnesia,Mosquito + Amnesia,0.678,0.46,0.437,0.118,0.212,1.656,1.648,False,22,25
+df1 PCS,Hand lowering,Post-hypnotic,Hand lowering + Post-hypnotic,0.67,0.449,0.447,0.119,0.213,3.643,1.025,False,23,23
+df1 PCS,Hands together,Taste,Hands together + Taste,0.66,0.436,0.438,0.115,0.207,3.094,1.75,False,24,24
+df1 PCS,Taste,Post-hypnotic,Taste + Post-hypnotic,0.656,0.431,0.407,0.153,0.265,1.75,1.025,False,25,26
+df1 PCS,Mosquito,Post-hypnotic,Mosquito + Post-hypnotic,0.654,0.428,0.38,0.216,0.355,1.656,1.025,False,26,33
+df1 PCS,Mosquito,Taste,Mosquito + Taste,0.646,0.418,0.366,0.348,0.516,1.656,1.75,False,27,38
+df1 PCS,Hand lowering,Amnesia,Hand lowering + Amnesia,0.64,0.41,0.403,0.214,0.352,3.643,1.648,False,28,28
+df1 PCS,Hand lowering,Music,Hand lowering + Music,0.635,0.403,0.463,0.132,0.233,3.643,0.266,False,29,22
+df1 PCS,Amnesia,Post-hypnotic,Amnesia + Post-hypnotic,0.635,0.403,0.376,0.122,0.218,1.648,1.025,False,30,34
+df1 PCS,Hands together,Post-hypnotic,Hands together + Post-hypnotic,0.63,0.397,0.381,0.123,0.219,3.094,1.025,False,31,32
+df1 PCS,Hands together,Amnesia,Hands together + Amnesia,0.629,0.395,0.391,0.108,0.194,3.094,1.648,False,32,31
+df1 PCS,Mosquito,Music,Mosquito + Music,0.615,0.379,0.393,0.232,0.376,1.656,0.266,False,33,30
+df1 PCS,Hand lowering,Hands together,Hand lowering + Hands together,0.611,0.373,0.363,0.327,0.493,3.643,3.094,False,34,39
+df1 PCS,Taste,Music,Taste + Music,0.609,0.371,0.406,0.191,0.32,1.75,0.266,False,35,27
+df1 PCS,Music,Post-hypnotic,Music + Post-hypnotic,0.59,0.348,0.371,0.126,0.224,0.266,1.025,False,36,37
+df1 PCS,Hands together,Music,Hands together + Music,0.589,0.347,0.396,0.098,0.178,3.094,0.266,False,37,29
+df1 PCS,Taste,Neg. visual,Taste + Neg. visual,0.586,0.343,0.359,0.013,0.026,1.75,0.373,False,38,40
+df1 PCS,Hand lowering,Neg. visual,Hand lowering + Neg. visual,0.584,0.341,0.372,0.021,0.041,3.643,0.373,False,39,36
+df1 PCS,Music,Amnesia,Music + Amnesia,0.584,0.341,0.373,0.129,0.228,0.266,1.648,False,40,35
+df1 PCS,Mosquito,Neg. visual,Mosquito + Neg. visual,0.574,0.329,0.311,0.137,0.24,1.656,0.373,False,41,41
+df1 PCS,Neg. visual,Post-hypnotic,Neg. visual + Post-hypnotic,0.552,0.305,0.298,0.04,0.077,0.373,1.025,False,42,43
+df1 PCS,Hands together,Neg. visual,Hands together + Neg. visual,0.538,0.29,0.303,0.032,0.062,3.094,0.373,False,43,42
+df1 PCS,Neg. visual,Amnesia,Neg. visual + Amnesia,0.523,0.274,0.259,0.127,0.226,0.373,1.648,False,44,44
+df1 PCS,Music,Neg. visual,Music + Neg. visual,0.445,0.198,0.221,0.197,0.329,0.266,0.373,False,45,45
+df1 SWASH,Hand lowering,Arm rigidity,Hand lowering + Arm rigidity,0.856,0.733,0.712,0.503,0.669,3.171,2.496,False,1,4
+df1 SWASH,Arm rigidity,Amnesia,Arm rigidity + Amnesia,0.854,0.729,0.724,0.398,0.57,2.496,1.617,False,2,1
+df1 SWASH,Mosquito,Arm rigidity,Mosquito + Arm rigidity,0.849,0.721,0.721,0.417,0.589,0.975,2.496,False,3,2
+df1 SWASH,Arm rigidity,Arm immobilisation,Arm rigidity + Arm immobilisation,0.849,0.72,0.694,0.654,0.791,2.496,2.013,True,4,8
+df1 SWASH,Hand lowering,Arm immobilisation,Hand lowering + Arm immobilisation,0.843,0.711,0.696,0.499,0.666,3.171,2.013,False,5,7
+df1 SWASH,Hand lowering,Taste,Hand lowering + Taste,0.837,0.701,0.718,0.269,0.424,3.171,1.117,False,6,3
+df1 SWASH,Mosquito,Arm immobilisation,Mosquito + Arm immobilisation,0.835,0.697,0.705,0.411,0.583,0.975,2.013,False,7,5
+df1 SWASH,Hands together,Arm rigidity,Hands together + Arm rigidity,0.834,0.695,0.676,0.484,0.652,2.558,2.496,False,8,15
+df1 SWASH,Hands together,Arm immobilisation,Hands together + Arm immobilisation,0.833,0.694,0.687,0.433,0.604,2.558,2.013,False,9,11
+df1 SWASH,Arm immobilisation,Amnesia,Arm immobilisation + Amnesia,0.832,0.693,0.692,0.42,0.591,2.013,1.617,False,10,9
+df1 SWASH,Taste,Arm immobilisation,Taste + Arm immobilisation,0.831,0.69,0.703,0.419,0.591,1.117,2.013,False,11,6
+df1 SWASH,Hand lowering,Mosquito,Hand lowering + Mosquito,0.827,0.684,0.692,0.315,0.479,3.171,0.975,False,12,10
+df1 SWASH,Taste,Arm rigidity,Taste + Arm rigidity,0.826,0.683,0.685,0.49,0.658,1.117,2.496,False,13,12
+df1 SWASH,Arm rigidity,Post-hypnotic,Arm rigidity + Post-hypnotic,0.824,0.678,0.682,0.235,0.38,2.496,0.949,False,14,14
+df1 SWASH,Hand lowering,Amnesia,Hand lowering + Amnesia,0.818,0.668,0.667,0.351,0.52,3.171,1.617,False,15,19
+df1 SWASH,Hands together,Mosquito,Hands together + Mosquito,0.81,0.657,0.672,0.263,0.416,2.558,0.975,False,16,17
+df1 SWASH,Hands together,Taste,Hands together + Taste,0.807,0.652,0.674,0.255,0.406,2.558,1.117,False,17,16
+df1 SWASH,Arm immobilisation,Post-hypnotic,Arm immobilisation + Post-hypnotic,0.793,0.629,0.638,0.269,0.424,2.013,0.949,False,18,22
+df1 SWASH,Hands together,Amnesia,Hands together + Amnesia,0.791,0.626,0.629,0.333,0.5,2.558,1.617,False,19,24
+df1 SWASH,Taste,Amnesia,Taste + Amnesia,0.79,0.623,0.651,0.29,0.45,1.117,1.617,False,20,20
+df1 SWASH,Arm rigidity,Music,Arm rigidity + Music,0.789,0.622,0.684,0.192,0.322,2.496,0.138,False,21,13
+df1 SWASH,Arm immobilisation,Music,Arm immobilisation + Music,0.774,0.599,0.671,0.163,0.28,2.013,0.138,False,22,18
+df1 SWASH,Hand lowering,Hands together,Hand lowering + Hands together,0.772,0.597,0.57,0.537,0.699,3.171,2.558,False,23,29
+df1 SWASH,Mosquito,Amnesia,Mosquito + Amnesia,0.77,0.592,0.606,0.377,0.548,0.975,1.617,False,24,26
+df1 SWASH,Arm rigidity,Neg. visual,Arm rigidity + Neg. visual,0.77,0.593,0.639,0.157,0.271,2.496,0.238,False,25,21
+df1 SWASH,Hand lowering,Post-hypnotic,Hand lowering + Post-hypnotic,0.76,0.577,0.579,0.271,0.427,3.171,0.949,False,26,28
+df1 SWASH,Arm immobilisation,Neg. visual,Arm immobilisation + Neg. visual,0.758,0.574,0.632,0.121,0.216,2.013,0.238,False,27,23
+df1 SWASH,Hands together,Post-hypnotic,Hands together + Post-hypnotic,0.757,0.573,0.587,0.172,0.293,2.558,0.949,False,28,27
+df1 SWASH,Mosquito,Taste,Mosquito + Taste,0.737,0.544,0.569,0.474,0.643,0.975,1.117,False,29,30
+df1 SWASH,Hand lowering,Music,Hand lowering + Music,0.734,0.539,0.614,0.096,0.176,3.171,0.138,False,30,25
+df1 SWASH,Mosquito,Post-hypnotic,Mosquito + Post-hypnotic,0.722,0.521,0.545,0.233,0.378,0.975,0.949,False,31,33
+df1 SWASH,Hand lowering,Neg. visual,Hand lowering + Neg. visual,0.716,0.513,0.567,0.117,0.209,3.171,0.238,False,32,31
+df1 SWASH,Taste,Post-hypnotic,Taste + Post-hypnotic,0.711,0.505,0.536,0.241,0.388,1.117,0.949,False,33,34
+df1 SWASH,Amnesia,Post-hypnotic,Amnesia + Post-hypnotic,0.702,0.493,0.498,0.325,0.491,1.617,0.949,False,34,40
+df1 SWASH,Hands together,Music,Hands together + Music,0.681,0.464,0.546,0.134,0.237,2.558,0.138,False,35,32
+df1 SWASH,Hands together,Neg. visual,Hands together + Neg. visual,0.68,0.462,0.524,0.095,0.174,2.558,0.238,False,36,39
+df1 SWASH,Neg. visual,Amnesia,Neg. visual + Amnesia,0.678,0.459,0.531,0.061,0.115,0.238,1.617,False,37,37
+df1 SWASH,Music,Amnesia,Music + Amnesia,0.666,0.443,0.532,0.16,0.276,0.138,1.617,False,38,35
+df1 SWASH,Mosquito,Music,Mosquito + Music,0.655,0.429,0.528,0.194,0.325,0.975,0.138,False,39,38
+df1 SWASH,Taste,Music,Taste + Music,0.65,0.422,0.531,0.18,0.306,1.117,0.138,False,40,36
+df1 SWASH,Mosquito,Neg. visual,Mosquito + Neg. visual,0.646,0.418,0.493,0.145,0.253,0.975,0.238,False,41,41
+df1 SWASH,Taste,Neg. visual,Taste + Neg. visual,0.616,0.38,0.459,0.216,0.356,1.117,0.238,False,42,42
+df1 SWASH,Neg. visual,Post-hypnotic,Neg. visual + Post-hypnotic,0.566,0.321,0.385,0.068,0.127,0.238,0.949,False,43,44
+df1 SWASH,Music,Post-hypnotic,Music + Post-hypnotic,0.557,0.31,0.397,0.075,0.139,0.138,0.949,False,44,43
+df1 SWASH,Music,Neg. visual,Music + Neg. visual,0.378,0.143,0.252,0.093,0.17,0.138,0.238,False,45,45
+df2 PCS-VVIQ,Hand lowering,Arm immobilisation,Hand lowering + Arm immobilisation,0.778,0.605,0.575,0.397,0.568,3.608,2.445,False,1,3
+df2 PCS-VVIQ,Arm rigidity,Arm immobilisation,Arm rigidity + Arm immobilisation,0.778,0.605,0.549,0.455,0.626,3.116,2.445,True,2,11
+df2 PCS-VVIQ,Mosquito,Arm rigidity,Mosquito + Arm rigidity,0.776,0.602,0.571,0.247,0.397,1.374,3.116,False,3,4
+df2 PCS-VVIQ,Taste,Arm immobilisation,Taste + Arm immobilisation,0.776,0.602,0.566,0.283,0.441,1.759,2.445,False,4,6
+df2 PCS-VVIQ,Taste,Arm rigidity,Taste + Arm rigidity,0.775,0.601,0.567,0.28,0.437,1.759,3.116,False,5,5
+df2 PCS-VVIQ,Hand lowering,Taste,Hand lowering + Taste,0.772,0.596,0.585,0.222,0.363,3.608,1.759,False,6,2
+df2 PCS-VVIQ,Hand lowering,Mosquito,Hand lowering + Mosquito,0.771,0.594,0.586,0.194,0.325,3.608,1.374,False,7,1
+df2 PCS-VVIQ,Hands together,Arm immobilisation,Hands together + Arm immobilisation,0.764,0.584,0.555,0.279,0.436,3.14,2.445,False,8,10
+df2 PCS-VVIQ,Hands together,Mosquito,Hands together + Mosquito,0.753,0.567,0.559,0.103,0.186,3.14,1.374,False,9,8
+df2 PCS-VVIQ,Arm rigidity,Post-hypnotic,Arm rigidity + Post-hypnotic,0.75,0.562,0.562,0.122,0.218,3.116,0.755,False,10,7
+df2 PCS-VVIQ,Hand lowering,Arm rigidity,Hand lowering + Arm rigidity,0.748,0.559,0.517,0.507,0.673,3.608,3.116,False,11,19
+df2 PCS-VVIQ,Arm immobilisation,Post-hypnotic,Arm immobilisation + Post-hypnotic,0.742,0.551,0.545,0.152,0.264,2.445,0.755,False,12,12
+df2 PCS-VVIQ,Hands together,Taste,Hands together + Taste,0.741,0.549,0.534,0.167,0.287,3.14,1.759,False,13,15
+df2 PCS-VVIQ,Arm immobilisation,Amnesia,Arm immobilisation + Amnesia,0.74,0.547,0.53,0.148,0.258,2.445,1.671,False,14,17
+df2 PCS-VVIQ,Mosquito,Arm immobilisation,Mosquito + Arm immobilisation,0.74,0.547,0.494,0.38,0.55,1.374,2.445,False,15,20
+df2 PCS-VVIQ,Arm rigidity,Amnesia,Arm rigidity + Amnesia,0.74,0.548,0.534,0.14,0.245,3.116,1.671,False,16,14
+df2 PCS-VVIQ,Hand lowering,Post-hypnotic,Hand lowering + Post-hypnotic,0.724,0.524,0.541,0.12,0.214,3.608,0.755,False,17,13
+df2 PCS-VVIQ,Arm rigidity,Music,Arm rigidity + Music,0.723,0.522,0.558,0.07,0.131,3.116,0.352,False,18,9
+df2 PCS-VVIQ,Hands together,Arm rigidity,Hands together + Arm rigidity,0.721,0.519,0.472,0.43,0.601,3.14,3.116,False,19,23
+df2 PCS-VVIQ,Arm immobilisation,Music,Arm immobilisation + Music,0.708,0.501,0.53,0.127,0.226,2.445,0.352,False,20,16
+df2 PCS-VVIQ,Mosquito,Taste,Mosquito + Taste,0.7,0.49,0.441,0.33,0.496,1.374,1.759,False,21,30
+df2 PCS-VVIQ,Hand lowering,Amnesia,Hand lowering + Amnesia,0.696,0.484,0.479,0.197,0.329,3.608,1.671,False,22,21
+df2 PCS-VVIQ,Hand lowering,Hands together,Hand lowering + Hands together,0.695,0.483,0.452,0.452,0.622,3.608,3.14,False,23,24
+df2 PCS-VVIQ,Hand lowering,Music,Hand lowering + Music,0.684,0.468,0.52,0.106,0.192,3.608,0.352,False,24,18
+df2 PCS-VVIQ,Taste,Post-hypnotic,Taste + Post-hypnotic,0.676,0.456,0.447,0.17,0.291,1.759,0.755,False,25,26
+df2 PCS-VVIQ,Hands together,Amnesia,Hands together + Amnesia,0.673,0.453,0.446,0.114,0.205,3.14,1.671,False,26,29
+df2 PCS-VVIQ,Mosquito,Amnesia,Mosquito + Amnesia,0.668,0.446,0.422,0.163,0.28,1.374,1.671,False,27,33
+df2 PCS-VVIQ,Taste,Amnesia,Taste + Amnesia,0.667,0.445,0.418,0.196,0.328,1.759,1.671,False,28,34
+df2 PCS-VVIQ,Hands together,Post-hypnotic,Hands together + Post-hypnotic,0.666,0.444,0.446,0.142,0.249,3.14,0.755,False,29,28
+df2 PCS-VVIQ,Mosquito,Post-hypnotic,Mosquito + Post-hypnotic,0.664,0.441,0.429,0.177,0.301,1.374,0.755,False,30,32
+df2 PCS-VVIQ,Arm rigidity,Neg. visual,Arm rigidity + Neg. visual,0.653,0.426,0.475,-0.021,-0.043,3.116,0.199,False,31,22
+df2 PCS-VVIQ,Arm immobilisation,Neg. visual,Arm immobilisation + Neg. visual,0.639,0.409,0.449,0.039,0.075,2.445,0.199,False,32,25
+df2 PCS-VVIQ,Hands together,Music,Hands together + Music,0.627,0.393,0.434,0.091,0.167,3.14,0.352,False,33,31
+df2 PCS-VVIQ,Taste,Music,Taste + Music,0.624,0.39,0.412,0.181,0.307,1.759,0.352,False,34,35
+df2 PCS-VVIQ,Hand lowering,Neg. visual,Hand lowering + Neg. visual,0.615,0.379,0.446,-0.018,-0.036,3.608,0.199,False,35,27
+df2 PCS-VVIQ,Mosquito,Music,Mosquito + Music,0.611,0.373,0.392,0.193,0.324,1.374,0.352,False,36,36
+df2 PCS-VVIQ,Amnesia,Post-hypnotic,Amnesia + Post-hypnotic,0.582,0.339,0.322,0.199,0.332,1.671,0.755,False,37,41
+df2 PCS-VVIQ,Mosquito,Neg. visual,Mosquito + Neg. visual,0.572,0.327,0.371,-0.037,-0.077,1.374,0.199,False,38,37
+df2 PCS-VVIQ,Taste,Neg. visual,Taste + Neg. visual,0.57,0.325,0.364,0.015,0.03,1.759,0.199,False,39,38
+df2 PCS-VVIQ,Hands together,Neg. visual,Hands together + Neg. visual,0.556,0.309,0.361,-0.026,-0.054,3.14,0.199,False,40,39
+df2 PCS-VVIQ,Music,Amnesia,Music + Amnesia,0.555,0.308,0.343,0.051,0.097,0.352,1.671,False,41,40
+df2 PCS-VVIQ,Music,Post-hypnotic,Music + Post-hypnotic,0.524,0.275,0.308,0.18,0.305,0.352,0.755,False,42,42
+df2 PCS-VVIQ,Neg. visual,Amnesia,Neg. visual + Amnesia,0.458,0.21,0.234,0.031,0.06,0.199,1.671,False,43,43
+df2 PCS-VVIQ,Neg. visual,Post-hypnotic,Neg. visual + Post-hypnotic,0.437,0.191,0.219,0.1,0.183,0.199,0.755,False,44,44
+df2 PCS-VVIQ,Music,Neg. visual,Music + Neg. visual,0.344,0.118,0.163,0.067,0.125,0.352,0.199,False,45,45
+df3 SWASH,Taste,Arm rigidity,Taste + Arm rigidity,0.845,0.715,0.717,0.389,0.56,1.4,2.672,False,1,1
+df3 SWASH,Taste,Arm immobilisation,Taste + Arm immobilisation,0.841,0.708,0.71,0.417,0.589,1.4,2.313,False,2,2
+df3 SWASH,Arm immobilisation,Amnesia,Arm immobilisation + Amnesia,0.83,0.689,0.701,0.385,0.556,2.313,1.438,False,3,3
+df3 SWASH,Arm rigidity,Amnesia,Arm rigidity + Amnesia,0.829,0.688,0.699,0.373,0.544,2.672,1.438,False,4,4
+df3 SWASH,Mosquito,Arm rigidity,Mosquito + Arm rigidity,0.822,0.676,0.686,0.326,0.492,0.957,2.672,False,5,7
+df3 SWASH,Hand lowering,Taste,Hand lowering + Taste,0.819,0.67,0.693,0.325,0.49,3.443,1.4,False,6,5
+df3 SWASH,Arm immobilisation,Post-hypnotic,Arm immobilisation + Post-hypnotic,0.818,0.669,0.689,0.292,0.452,2.313,0.927,False,7,6
+df3 SWASH,Arm rigidity,Post-hypnotic,Arm rigidity + Post-hypnotic,0.814,0.663,0.681,0.291,0.451,2.672,0.927,False,8,9
+df3 SWASH,Hands together,Taste,Hands together + Taste,0.812,0.66,0.675,0.275,0.431,2.945,1.4,False,9,10
+df3 SWASH,Mosquito,Arm immobilisation,Mosquito + Arm immobilisation,0.81,0.655,0.663,0.382,0.553,0.957,2.313,False,10,12
+df3 SWASH,Hand lowering,Mosquito,Hand lowering + Mosquito,0.807,0.651,0.686,0.213,0.351,3.443,0.957,False,11,8
+df3 SWASH,Hands together,Arm immobilisation,Hands together + Arm immobilisation,0.807,0.651,0.652,0.37,0.54,2.945,2.313,False,12,15
+df3 SWASH,Arm rigidity,Arm immobilisation,Arm rigidity + Arm immobilisation,0.807,0.652,0.63,0.595,0.746,2.672,2.313,True,13,23
+df3 SWASH,Hand lowering,Arm immobilisation,Hand lowering + Arm immobilisation,0.801,0.641,0.649,0.463,0.633,3.443,2.313,False,14,17
+df3 SWASH,Hand lowering,Amnesia,Hand lowering + Amnesia,0.8,0.64,0.674,0.31,0.473,3.443,1.438,False,15,11
+df3 SWASH,Hand lowering,Arm rigidity,Hand lowering + Arm rigidity,0.795,0.633,0.638,0.467,0.637,3.443,2.672,False,16,22
+df3 SWASH,Hands together,Amnesia,Hands together + Amnesia,0.791,0.626,0.651,0.271,0.426,2.945,1.438,False,17,16
+df3 SWASH,Taste,Amnesia,Taste + Amnesia,0.789,0.623,0.641,0.453,0.623,1.4,1.438,False,18,20
+df3 SWASH,Arm rigidity,Neg. visual,Arm rigidity + Neg. visual,0.788,0.621,0.657,0.189,0.318,2.672,0.426,False,19,13
+df3 SWASH,Hands together,Mosquito,Hands together + Mosquito,0.786,0.617,0.641,0.222,0.363,2.945,0.957,False,20,21
+df3 SWASH,Hands together,Arm rigidity,Hands together + Arm rigidity,0.783,0.614,0.607,0.439,0.611,2.945,2.672,False,21,30
+df3 SWASH,Arm immobilisation,Neg. visual,Arm immobilisation + Neg. visual,0.781,0.61,0.645,0.226,0.368,2.313,0.426,False,22,19
+df3 SWASH,Hands together,Post-hypnotic,Hands together + Post-hypnotic,0.774,0.599,0.629,0.2,0.333,2.945,0.927,False,23,24
+df3 SWASH,Arm immobilisation,Music,Arm immobilisation + Music,0.773,0.598,0.656,0.213,0.352,2.313,0.23,False,24,14
+df3 SWASH,Mosquito,Amnesia,Mosquito + Amnesia,0.773,0.597,0.625,0.352,0.521,0.957,1.438,False,25,25
+df3 SWASH,Mosquito,Taste,Mosquito + Taste,0.771,0.595,0.608,0.437,0.608,0.957,1.4,False,26,29
+df3 SWASH,Taste,Post-hypnotic,Taste + Post-hypnotic,0.768,0.59,0.612,0.378,0.549,1.4,0.927,False,27,28
+df3 SWASH,Arm rigidity,Music,Arm rigidity + Music,0.768,0.589,0.647,0.214,0.352,2.672,0.23,False,28,18
+df3 SWASH,Hand lowering,Post-hypnotic,Hand lowering + Post-hypnotic,0.766,0.587,0.625,0.277,0.434,3.443,0.927,False,29,26
+df3 SWASH,Amnesia,Post-hypnotic,Amnesia + Post-hypnotic,0.737,0.542,0.57,0.415,0.586,1.438,0.927,False,30,37
+df3 SWASH,Mosquito,Post-hypnotic,Mosquito + Post-hypnotic,0.735,0.541,0.568,0.343,0.511,0.957,0.927,False,31,38
+df3 SWASH,Hand lowering,Music,Hand lowering + Music,0.734,0.538,0.625,0.101,0.183,3.443,0.23,False,32,27
+df3 SWASH,Hand lowering,Neg. visual,Hand lowering + Neg. visual,0.734,0.538,0.599,0.165,0.284,3.443,0.426,False,33,31
+df3 SWASH,Taste,Neg. visual,Taste + Neg. visual,0.734,0.538,0.581,0.288,0.447,1.4,0.426,False,34,34
+df3 SWASH,Taste,Music,Taste + Music,0.726,0.527,0.597,0.285,0.444,1.4,0.23,False,35,32
+df3 SWASH,Neg. visual,Amnesia,Neg. visual + Amnesia,0.719,0.517,0.572,0.25,0.4,0.426,1.438,False,36,35
+df3 SWASH,Hand lowering,Hands together,Hand lowering + Hands together,0.712,0.506,0.511,0.537,0.699,3.443,2.945,False,37,43
+df3 SWASH,Music,Amnesia,Music + Amnesia,0.706,0.499,0.582,0.246,0.394,0.23,1.438,False,38,33
+df3 SWASH,Hands together,Music,Hands together + Music,0.703,0.494,0.57,0.113,0.204,2.945,0.23,False,39,36
+df3 SWASH,Hands together,Neg. visual,Hands together + Neg. visual,0.701,0.492,0.536,0.217,0.357,2.945,0.426,False,40,40
+df3 SWASH,Mosquito,Neg. visual,Mosquito + Neg. visual,0.699,0.489,0.54,0.239,0.386,0.957,0.426,False,41,39
+df3 SWASH,Neg. visual,Post-hypnotic,Neg. visual + Post-hypnotic,0.679,0.461,0.515,0.24,0.388,0.426,0.927,False,42,42
+df3 SWASH,Mosquito,Music,Mosquito + Music,0.66,0.436,0.511,0.324,0.489,0.957,0.23,False,43,44
+df3 SWASH,Music,Post-hypnotic,Music + Post-hypnotic,0.659,0.435,0.521,0.218,0.358,0.23,0.927,False,44,41
+df3 SWASH,Music,Neg. visual,Music + Neg. visual,0.56,0.313,0.411,0.272,0.427,0.23,0.426,False,45,45
+df5 vEAR PCS,Arm rigidity,Arm immobilisation,Arm rigidity + Arm immobilisation,0.785,0.617,0.579,0.448,0.619,3.071,2.469,True,1,9
+df5 vEAR PCS,Taste,Arm immobilisation,Taste + Arm immobilisation,0.779,0.607,0.589,0.299,0.46,1.758,2.469,False,2,4
+df5 vEAR PCS,Mosquito,Arm rigidity,Mosquito + Arm rigidity,0.778,0.605,0.589,0.276,0.432,1.407,3.071,False,3,3
+df5 vEAR PCS,Taste,Arm rigidity,Taste + Arm rigidity,0.772,0.596,0.574,0.355,0.524,1.758,3.071,False,4,11
+df5 vEAR PCS,Hand lowering,Mosquito,Hand lowering + Mosquito,0.77,0.592,0.597,0.203,0.338,3.515,1.407,False,5,1
+df5 vEAR PCS,Hand lowering,Arm rigidity,Hand lowering + Arm rigidity,0.77,0.594,0.573,0.447,0.618,3.515,3.071,False,6,12
+df5 vEAR PCS,Hand lowering,Taste,Hand lowering + Taste,0.769,0.592,0.593,0.266,0.421,3.515,1.758,False,7,2
+df5 vEAR PCS,Arm immobilisation,Post-hypnotic,Arm immobilisation + Post-hypnotic,0.769,0.592,0.588,0.184,0.31,2.469,0.937,False,8,5
+df5 vEAR PCS,Arm rigidity,Post-hypnotic,Arm rigidity + Post-hypnotic,0.768,0.59,0.585,0.217,0.356,3.071,0.937,False,9,7
+df5 vEAR PCS,Arm rigidity,Amnesia,Arm rigidity + Amnesia,0.767,0.589,0.579,0.27,0.425,3.071,1.496,False,10,8
+df5 vEAR PCS,Hands together,Arm immobilisation,Hands together + Arm immobilisation,0.762,0.581,0.569,0.257,0.409,3.166,2.469,False,11,13
+df5 vEAR PCS,Hand lowering,Arm immobilisation,Hand lowering + Arm immobilisation,0.761,0.579,0.555,0.447,0.618,3.515,2.469,False,12,15
+df5 vEAR PCS,Hand lowering,Post-hypnotic,Hand lowering + Post-hypnotic,0.757,0.573,0.588,0.149,0.259,3.515,0.937,False,13,6
+df5 vEAR PCS,Mosquito,Arm immobilisation,Mosquito + Arm immobilisation,0.756,0.571,0.547,0.319,0.483,1.407,2.469,False,14,17
+df5 vEAR PCS,Arm immobilisation,Amnesia,Arm immobilisation + Amnesia,0.749,0.56,0.544,0.301,0.462,2.469,1.496,False,15,18
+df5 vEAR PCS,Hand lowering,Amnesia,Hand lowering + Amnesia,0.747,0.558,0.566,0.233,0.378,3.515,1.496,False,16,14
+df5 vEAR PCS,Hands together,Mosquito,Hands together + Mosquito,0.738,0.544,0.549,0.132,0.233,3.166,1.407,False,17,16
+df5 vEAR PCS,Hands together,Arm rigidity,Hands together + Arm rigidity,0.737,0.543,0.519,0.378,0.549,3.166,3.071,False,18,27
+df5 vEAR PCS,Arm rigidity,Music,Arm rigidity + Music,0.732,0.536,0.577,0.108,0.195,3.071,0.392,False,19,10
+df5 vEAR PCS,Hands together,Taste,Hands together + Taste,0.73,0.533,0.531,0.215,0.355,3.166,1.758,False,20,22
+df5 vEAR PCS,Taste,Amnesia,Taste + Amnesia,0.728,0.53,0.529,0.22,0.361,1.758,1.496,False,21,25
+df5 vEAR PCS,Taste,Post-hypnotic,Taste + Post-hypnotic,0.728,0.529,0.532,0.171,0.291,1.758,0.937,False,22,21
+df5 vEAR PCS,Mosquito,Amnesia,Mosquito + Amnesia,0.726,0.527,0.529,0.167,0.286,1.407,1.496,False,23,24
+df5 vEAR PCS,Hands together,Amnesia,Hands together + Amnesia,0.72,0.519,0.528,0.14,0.246,3.166,1.496,False,24,26
+df5 vEAR PCS,Arm immobilisation,Music,Arm immobilisation + Music,0.711,0.505,0.542,0.14,0.245,2.469,0.392,False,25,20
+df5 vEAR PCS,Mosquito,Post-hypnotic,Mosquito + Post-hypnotic,0.703,0.494,0.492,0.19,0.319,1.407,0.937,False,26,29
+df5 vEAR PCS,Arm rigidity,Neg. visual,Arm rigidity + Neg. visual,0.7,0.491,0.543,-0.01,-0.021,3.071,0.263,False,27,19
+df5 vEAR PCS,Hands together,Post-hypnotic,Hands together + Post-hypnotic,0.697,0.486,0.492,0.162,0.278,3.166,0.937,False,28,30
+df5 vEAR PCS,Mosquito,Taste,Mosquito + Taste,0.694,0.482,0.453,0.392,0.563,1.407,1.758,False,29,36
+df5 vEAR PCS,Hand lowering,Music,Hand lowering + Music,0.689,0.474,0.53,0.125,0.222,3.515,0.392,False,30,23
+df5 vEAR PCS,Hand lowering,Hands together,Hand lowering + Hands together,0.688,0.473,0.454,0.458,0.628,3.515,3.166,False,31,35
+df5 vEAR PCS,Arm immobilisation,Neg. visual,Arm immobilisation + Neg. visual,0.677,0.459,0.506,0.026,0.05,2.469,0.263,False,32,28
+df5 vEAR PCS,Taste,Music,Taste + Music,0.65,0.422,0.464,0.166,0.285,1.758,0.392,False,33,32
+df5 vEAR PCS,Hand lowering,Neg. visual,Hand lowering + Neg. visual,0.649,0.421,0.487,0.012,0.024,3.515,0.263,False,34,31
+df5 vEAR PCS,Amnesia,Post-hypnotic,Amnesia + Post-hypnotic,0.643,0.414,0.394,0.361,0.53,1.496,0.937,False,35,39
+df5 vEAR PCS,Hands together,Music,Hands together + Music,0.634,0.402,0.455,0.078,0.144,3.166,0.392,False,36,34
+df5 vEAR PCS,Music,Amnesia,Music + Amnesia,0.634,0.403,0.457,0.072,0.135,0.392,1.496,False,37,33
+df5 vEAR PCS,Taste,Neg. visual,Taste + Neg. visual,0.621,0.386,0.439,0.02,0.039,1.758,0.263,False,38,37
+df5 vEAR PCS,Mosquito,Music,Mosquito + Music,0.611,0.373,0.404,0.237,0.383,1.407,0.392,False,39,38
+df5 vEAR PCS,Music,Post-hypnotic,Music + Post-hypnotic,0.589,0.347,0.387,0.176,0.3,0.392,0.937,False,40,41
+df5 vEAR PCS,Mosquito,Neg. visual,Mosquito + Neg. visual,0.586,0.344,0.388,0.065,0.122,1.407,0.263,False,41,40
+df5 vEAR PCS,Hands together,Neg. visual,Hands together + Neg. visual,0.575,0.33,0.381,0.038,0.073,3.166,0.263,False,42,42
+df5 vEAR PCS,Neg. visual,Amnesia,Neg. visual + Amnesia,0.557,0.31,0.354,0.103,0.187,0.263,1.496,False,43,43
+df5 vEAR PCS,Neg. visual,Post-hypnotic,Neg. visual + Post-hypnotic,0.518,0.269,0.297,0.193,0.324,0.263,0.937,False,44,44
+df5 vEAR PCS,Music,Neg. visual,Music + Neg. visual,0.396,0.156,0.208,0.173,0.295,0.392,0.263,False,45,45

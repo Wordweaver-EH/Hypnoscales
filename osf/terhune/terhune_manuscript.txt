@@ -1,0 +1,267 @@
+
+RUNNING HEAD: Assessing the dimensionality of hypnotic suggestibility
+Taxometric evidence for a dimensional latent structure of hypnotic suggestibility
+Mikhail Reshetnikov
+National Research University Higher School of Economics, Moscow
+Institute for Cognitive Neuroscience
+Devin B. Terhune
+Department of Psychology
+Goldsmiths, University of London
+Correspondence address:
+Mikhail Reshetnikov
+Institute for Cognitive Neuroscience
+HSE University
+20 Myasnitskaya street
+Moscow, 101000
+Russia
+mi.reshetnikov@yandex.ru
+Devin B. Terhune
+Department of Psychology
+Goldsmiths, University of London
+8 Lewisham Way
+New Cross, London SE14 6NW
+UK
+d.terhune@gold.ac.uk
+Abstract
+Hypnotic suggestibility denotes a capacity to respond to direct verbal suggestions in an involuntary manner. Most research on responsiveness to hypnotic suggestions has focused on highly suggestible individuals but it remains unclear whether these individuals constitute a discrete subgroup (taxon) characterized by a distinct mode of responding from the remainder of the population or whether hypnotic suggestibility is better modelled as a dimensional ability. In this study, we applied taxometric analysis, a method for distinguishing between dimensional and categorical models of a psychological ability, to behavioural and involuntariness subscale scores of the Harvard Group Scale of Hypnotic Susceptibility Scale: Form A (HGSHS:A) in a non-clinical sample (N=584). Analyses of HGSHS:A subscale scores with different a priori taxon base rates yielded consistent evidence for a dimensional structure. These results suggest that hypnotic suggestibility is dimensional and have implications for current understanding of individual differences in responsiveness to direct verbal suggestions.
+Keywords: heterogeneity; hypnosis; hypnotizability; psychopathology; suggestion
+Introduction
+The capacity to experience direct verbal suggestions in an involuntary manner following a hypnotic induction (hypnotic suggestibility) represents a unique and poorly understood ability (Dell, 2021; Laurence et al., 2008; Woody &amp; Barnier, 2008). Hypnotic suggestibility is a stable psychological trait (Piccione et al., 1989) that is normally distributed in the general population, as measured by standardized behavioural scales (Woody &amp; Barnier, 2008). Hypnotic suggestibility has been repeatedly shown to reliably predict responsiveness to hypnotic suggestions in laboratory studies including for analgesia (Thompson et al., 2019) as well for treatment outcome in response to therapeutic applications of hypnosis (Montgomery et al., 2011). Individual differences in hypnotic suggestibility covary with variability in a variety of cognitive, personality, and neurophysiological characteristics (Oakley &amp; Halligan, 2013; Terhune et al., 2017) and can inform our understanding of a diverse array of psychological and psychiatric phenomena including the impact of expectancies on perception (Lynn et al., 2008), the sense of agency (Lush et al., 2017; Polito et al., 2015, 2018), delusional ideation (Connors, 2015), and dissociative psychopathology (Bell et al., 2011; Butler et al., 1996; Dell, 2017; Terhune &amp; Cardeña, 2015; Wieder et al., 2021). 
+A perennial question regarding the structure of hypnotic suggestibility is whether highly suggestible individuals represent a discrete subgroup or whether hypnotic suggestibility is better conceptualized as dimensional ability (Balthazard &amp; Woody, 1989; Hilgard, 1965; Oakman &amp; Woody, 1996); for a recent review see (Sadler &amp; Woody, 2021). The question is not specific for this construct, as recent research on psychopathological, and other trait, variables consistently demonstrates evidence for the dimensionality of most psychological traits (Haslam et al., 2012; Haslam et al., 2020), with implications for DSM-V diagnostic criteria for psychiatric disorders (Harkavy-Friedman, 2009; Widiger &amp; Samuel, 2005). This question has significant implications for the mechanisms underlying responsiveness to verbal suggestions in a variety of contexts as evidence for a discrete subgroup in the upper end of hypnotic responding might reflect the operation of dissimilar processes or strategies in a putative highly suggestible taxon relative to the remainder of the population (complement). The possibility of a categorical shift in the mode of responding also has bearing onr clinical applications of hypnosis if a small subset of the population has a unique response profile. Relatedly, hypnotic suggestibility has been proposed to confer risk for dissociative psychopathology (Butler et al., 1996; Dell, 2017), with mounting evidence for this hypothesis (Bell et al., 2011; Terhune &amp; Cardeña, 2015; Wieder et al., 2021). Identifying a putative highly suggestible taxon thus may aid attempts to elucidate the characteristics of this hypothesized prodrome in a parallel fashion to research on schizotypy (Everett &amp; Linscott, 2015; Lenzenweger et al., 2007; Meehl, 1989; see also Borsboom et al., 2016). Potential taxonicity of hypnotic suggestibility also has practical implications for estimates of the prevalence of high hypnotic suggestibility in the general population, which is typically suggested to be 10-15% (Laurence et al., 2008), as well as standard criteria for identifying highly suggestible individuals (Barnier &amp; McConkey, 2004; Woody &amp; Barnier, 2008). 
+Despite these motivations, whether hypnotic suggestibility is best modelled as a dimensional or categorical ability has received relatively little attention (Balthazard &amp; Woody, 1989; Oakman &amp; Woody, 1996; Terhune, 2015). One previous study (Oakman &amp; Woody, 1996) submitted hypnotic suggestibility scores to taxometric analysis, a statistical technique developed by Meehl and colleagues (Meehl, 1999) for distinguishing dimensional and categorical population structures for a psychological variable (Ruscio et al., 2011). Across multiple large data sets of response patterns on the Harvard Group Scale of Hypnotic Susceptibility: Form A (HGSHS:A; Shor &amp; Orne, 1962) and the Waterloo-Stanford Group Scale of Hypnotic Susceptibility: Form C (WSGC; K. S. Bowers, 1993), Oakman &amp; Woody (Oakman &amp; Woody, 1996) found evidence that hypnotic suggestibility displayed a categorical structure, thereby suggesting the presence of a highly suggestible taxon (Oakman &amp; Woody, 1996). Although this study used the most robust methods for taxometric analysis for the time period, recent evidence suggests that methods using comparative fit indices based on simulated data are more reliable (Haslam et al., 2020). Aside from the use of more contemporary methods, including multiple fit indices, this research can be improved upon in multiple ways. First, the previous analyses were applied to dichotomous individual hypnotic suggestibility scale items (Oakman &amp; Woody, 1996), whereas subscales capturing componential hypnotic suggestibility abilities may be superior in illuminating individual differences in hypnotic suggestibility. For example, there is emerging consensus that hypnotic suggestibility is best understood as reflecting a constellation of inter-related, but quasi-distinct, abilities comprising a core superordinate ability and ancillary subordinate componential abilities (Barnier et al., 2021; Woody et al., 2005; Woody &amp; McConkey, 2003). This is very much in keeping with contemporary taxometric research, which typically utilizes multiple indicators (e.g. Liu, 2016). In addition, nearly all investigations of the latent structure of hypnotic suggestibility have been restricted to behavioural hypnotic suggestibility scores (Näring et al., 2004; Oakman &amp; Woody, 1996; Terhune, 2015; Woody et al., 2005). Despite their utility, these scales are limited in the extent to which they capture the classic suggestion effect, an attenuation in the sense of agency pertaining to one’s response to hypnotic suggestions (P. Bowers et al., 1988; Polito et al., 2015, 2018; Weitzenhoffer, 1974, 1980). For example, “pass” responses to individual suggestions on these scale are frequently partly driven by compliant responding (Bowers, 1981; Bowers et al., 1988). The experience of involuntariness is widely recognized as the core phenomenological feature of hypnotic responding (Kihlstrom, 2008; Polito et al., 2018; Woody &amp; Szechtman, 2007) and variability in patterns of involuntariness can yield important insights into latent dimensions of hypnotic responding (Terhune et al., 2016). Finally, recent meta-analytic reviews have highlighted how most psychological functions tend to be dimensional rather than categorical (Haslam et al., 2020), thereby warranting further consideration of this question.
+The present study sought to leverage recent advances in taxometric analysis (Meehl, 1999; Ruscio et al., 2011) in order to determine whether hypnotic suggestibility is best modeled as a categorical or dimensional capacity (Oakman &amp; Woody, 1996). Toward this end, we applied taxometric analyses to scores on the Harvard Group Scale of Hypnotic Susceptibility: Form A (HGSHS:A; Shor &amp; Orne, 1962), the most widely-used measure of hypnotic suggestibility (Barnier &amp; McConkey, 2004). In order to capture the diversity of different componential abilities subserving hypnotic responding (Barnier et al., 2021; Woody et al., 2005), we included subsets of HGSHS:A items, rather than total HGSHS:A scores, as indicators in the analysis. We further supplemented this approach with additional taxometric analyses of involuntariness scores for HGSHS:A suggestions in order to assess whether the structure of involuntariness during hypnotic responding converges or not with that of behavioural response to hypnotic suggestions. We anticipated that behavioural and involuntariness indicator sets would provide complementary and convergent data bearing on the structure of hypnotic suggestibility. 
+Method
+Participants
+The initial sample consisted of 602 participants, who provided informed consent in accordance with local ethical approval to participate in this study. After the exclusion of participants with missing data (n=18; see below), the final sample comprised 584 participants (322 female [55%], age: M=22.9, SD=6.2).
+Materials
+Harvard Group Scale of Hypnotic Susceptibility: Form A (HGSHS:A). The HGSHS:A (Shor &amp; Orne, 1962) is a work-sample measure of hypnotic suggestibility that consists of a standardized relaxation-based hypnotic induction followed by 12 verbal suggestions for alterations in motor control (e.g., motor paralysis), perception (e.g., auditory hallucination), and memory (e.g., posthypnotic amnesia). The HGSHS:A was unaltered except for the removal of all references to sleep and similar terms, which were replaced by references to relaxation. After the set of suggestions, participants judged whether they responded or not to each suggestion with the help of objective descriptions using a binary response format. The HGSHS:A is the most widely used group measure of hypnotic suggestibility (Barnier &amp; McConkey, 2004) and displayed acceptable internal consistency in the present sample (KR-20=0.68).
+Bowers Involuntariness Scale. The 12-item Bowers Involuntariness Scale (K. S. Bowers, 1981) was used to index involuntariness during response to the 12 suggestions of the HGSHS:A (Shor &amp; Orne, 1962).. The scale included the instructions: “For each suggestion, please rate the extent to which each of the responses was experienced as something you did purposefully and voluntarily on one hand, or on the other, as something that seemed to happen on its own (i.e., it was experienced as automatic or involuntary), irrespective of what an outside observer would have seen.” The scale consists of the names of the 12 HGSHS:A suggestions followed by Likert scale (0-5) response options with anchors at 0 (“Did not experience at all”), 1 (“Voluntary”), and 5 (“Involuntary-automatic”). This scale has been repeatedly used to index involuntariness during response to verbal suggestions (Terhune et al., 2011) and to correct responses to suggestions for compliance (Wieder &amp; Terhune, 2019). The scale displayed good internal consistency in the present sample (Cronbach’s α=0.83).
+Procedure
+Participants were administered the HGSHS:A by the second author in variable group sizes in a large auditorium. After a brief description of hypnosis that involved dispelling multiple myths of hypnosis (Lynn et al., 2020), the HGSHS:A was administered followed by a de-induction and the subsequent completion of the HGSHS:A behavioural and involuntariness scales. There were no reported adverse effects and no participants withdrew their consent during the procedure.
+Statistical analyses
+All data are available on the Open Science Framework: osf.io/jfmc4. Statistical analyses were performed using the RTaxometrics package v.2.4 (Ruscio &amp; Wang, 2020) in R v.4.0.2 (R Core Team, 2020). The raw data consisted of binary scores (behavioural) and Likert scores (involuntariness) for the 12 HGSHS:A suggestions. After the removal of 18 participants with one or more missing values (3%), the data were aggregated to create four indicators for behavioural and involuntariness data, corresponding to different suggestion subtypes: direct ideomotor (HGSHS:A items 1, 2, 3, 7), inhibitory ideomotor (items 4, 5, 6, 8, 10), cognitive-perceptual (items 9, 11), and posthypnotic amnesia (item 12) (Woody et al., 2005).  For each set of 4 indicators, base rate classification was performed using the ClassifyCases function with two a priori base rate values of .10 and .15, which correspond to common estimates that highly suggestible individuals comprise approximately 10-15% of the population (Woody &amp; Barnier, 2008). This approach was repeated with alternative indicator sets corresponding to individual HGSHS:A items, but these sets did not satisfy multiple inclusion criteria for Taxometric analysis (see below) and are not reported here. Accordingly, the analyses were performed on four data subsets denoted by behavioural or involuntariness indicator sets and base rate values of .15 or .10. 
+The four data subsets were first evaluated against six criteria regarding data suitability for taxometric analysis determined on the basis of simulations (Ruscio et al., 2011): total sample size (N ≥ 300); size of a putative taxon (n &gt; 50 with base rate P ≥ 0.05); number of indicators (k ≥ 3 for the general case or k ≥ 5 for ordered categorical response scales); number of response categories scales (C ≥ 5); mean effect size for the comparison of the taxon and complement on the set of indicator variables (mean validity; Cohen’s d ≥ 1.25); and inter-indicator correlations in the taxon and complement (mean r ≤ 0.30). 
+Four standard comparison curve fit indices (CCFI) were computed for each data subset: MAMBAC (Mean Above Minus Below a Cut; Meehl &amp; Yonce, 1994), MAXEIG (Maximum Eigenvalue) and L-Mode (Latent Mode; Waller &amp; Meehl, 1998) and the mean CCFI for these three indices. CCFI is a relative fit index for two competing curve fits (CCFI = FitErrorDim / (FitErrorDim + FitErrorCat) where FitError is the root-mean-square distance between data points of the empirical curve and a comparison curve for dimensional and categorical theoretical models). Lower CCFI values (&lt; .500) reflect evidence in favour of a dimensional structure, whereas higher values (&gt;.500) are interpreted as providing evidence for categorical structure. CCFI values falling in the range between .450 and .550 are considered ambiguous (Ruscio et al., 2010). Alongside the formal fit indices, for each model, we present empirical data curves against theoretical models for dimensional and categorical structure (Ruscio et al., 2011). 
+Additionally, a CCFI Profile was generated for each data subset. This procedure calculates CCFI values for all base rates between .025 and .975 (in steps of .025). The CCFI Profile consists of weighted means of MAMBAC, MAXEIG, and L-Mode CCFI values for all simulated base rates and is useful for taxon size estimation when there is evidence for a categorical structure (Ruscio et al., 2018). Insofar as the analyses consistently identified a dimensional structure (see below), CCFI profile construction was not undertaken.
+Due to sampling procedures used in the RTaxometrics package, sampling error should be expected. This sampling error leads to the possibility that a single base rate CCFI calculation produces results that differ from CCFI Profile results for the same base rate (e.g., the CCFI for the .15 base rate will differ from the CCFI for .15 base rate derived from the CCFI profile analysis. To provide a more robust estimate reduce sampling error, we repeated each analysis nine times with nine different seeds for pseudo-random generation (0 to 8) and report median CCFI values for each data configuration, with nine analyses selected as a reasonable means of approximating variability across analyses given the significant amount of time to perform CCFI calculations. Data for each seed are available here: osf.io/jfmc4. In each case, we report median, minimum and maximum values across the seed set.
+Results
+Sample characteristics
+Descriptive statistics and subscale correlations are presented in Table 1. These results are broadly commensurate with the extant research literature on this scale (e.g. Woody et al., 2005) (e.g., Woody et al., 2005). All of the HGSHS:A subscales weakly to highly correlated except the direct ideomotor and posthypnotic amnesia behavioural subscales. 
+Table 1.
+Descriptive statistics and Spearman correlation matrix for HGSHS:A behavioural and involuntariness total and subscale scores (N=584). 
+Variable
+M (SD)
+1
+2
+3
+4
+5
+6
+7
+8
+9
+1. HGSHS:A total
+5.75 (2.51)
+2. HGSHS:A direct idemotor
+2.92 (1.02)
+.59***
+3. HGSHS:A inhibitory ideomotor
+2.29 (1.71)
+.89***
+.27**
+4. HGSHS:A cognitive-perceptual
+0.40 (0.61)
+.42***
+.13**
+.29***
+5. HGSHS:A posthypnotic amnesia (rpb)
+ 0.12 (0.33)
+.33***
+.08
+.19***
+.21***
+6. HGSHS:A involuntariness total
+2.38 (0.97)
+.76***
+.43***
+.69***
+.43***
+.24***
+7. HGSHS:A involuntariness direct idemotor
+3.36 (1.03)
+.49***
+.53***
+.34***
+.18***
+.15***
+.70***
+8. HGSHS:A involuntariness inhibitory ideomotor
+2.40 (1.46)
+.72***
+.31***
+.74***
+.28***
+.18***
+.92***
+.48***
+9. HGSHS:A involuntariness cognitive-perceptual
+0.67 (1.02)
+.42***
+.13**
+.29***
+.70***
+.21***
+.43***
+.18***
+.28***
+10. HGSHS:A involuntariness posthypnotic amnesia (rpb)
+1.79 (1.84)
+.34***
+.17***
+.29***
+.28***
+.20***
+.49***
+.23***
+.32***
+.28***
+Note. All coefficients involving posthypnotic amnesia were computed using point biserial correlations. 
+* p&lt;.05
+** p&lt;.01
+*** p&lt;.001
+Indicator suitability
+Table 2 presents data regarding indicator suitability for the four data subsets (a priori base rate values of .15 and .10 for the HGSHS:A behavioural and involuntariness subscales). All four data subsets met criteria for sample size (N &gt; 300), number of indicators (all ks = 4), mean validity (all ds &gt; 1.26) and inter-indicator correlations in both taxa and complements (rs &lt; |.21|). However, the HGSHS:A behavioural subscales indicator set with a base rate of .10 didn’t meet the criterion for taxon size (n = 37) although this criterion was met by the other three data subsets (all ns &gt; 54). In addition, the number of response categories was below the recommended minimum of five for the two behavioural indicator sets: two indicators met this criterion whereas two did not. By contrast, both involuntariness indicator sets (.15 and .10) met this criterion (all Cs &gt; 5). These data indicate that the two involuntariness subsets met all criteria whereas the behavioural subsets met all but one or two criteria. 
+Table 2.
+Indicator suitability and taxometric analysis of hypnotic suggestibility using four data subsets (indicator set and base rate pair) (N = 584).
+Statistic
+HGSHS:A subscales
+Behavioural
+Involuntariness
+a priori base rate
+.15
+.10
+.15
+.10
+Base rate estimate
+.15
+.06
+.15
+.09
+Mean validity (Cohen’s d)
+1.27
+1.51
+1.42
+1.51
+Within-group mean indicator correlation
+Taxon
+-.16
+-.18
+-.12
+-.16
+Complement
+.02
+.06
+.17
+.20
+CCFI median [min, max]
+MAMBAC
+.388 [.351, .406]
+.404 [.368, .482]
+.413 [.391, .434]
+.406 [.378, .416]
+MAXEIG
+.390 [.300, .499]
+.296 [.259, .360]
+.263 [.231, .299]
+.281 [.271, .311]
+L-MODE
+.434 [.410, .461]
+.497 [.470, .525]
+.515 [.505, .535]
+.535 [.527, .562]
+Mean CCFI
+.389 [.375, .443]
+.396 [.369, .443]
+.398 [.388, .414]
+.408 [.396, .424]
+Note. Bold CCFI values denote evidence for dimensional structure (&lt;.450) whereas unbolded values denote ambiguous structure (.450 &lt; CCFI &lt; .550). HGSHS:A: Harvard Group Scale of Hypnotic Susceptibility, Form A (Shor &amp; Orne, 1962); CCFI: Comparison Curve Fit Index; BRE: Base Rate Estimate; MAMBAC: mean above minus below a cut; MAXEIG: maximum eigenvalue; L-Mode: latent mode. 
+Taxometric analyses
+As can be seen in Table 2, the CCFI values for all four data subsets were generally consistent with a dimensional structure underlying HGSHS:A behavioural and involuntariness scores.
+HGSHS:A behavioural indicators
+For the behavioural indicator set with a base rate of .15, all three CCFI values and the mean CCFI were below .450, demonstrating clear evidence for dimensionality. This is also apparent in Figure 1, where the curves for empirical data fit a dimensional model better than a categorical model. This pattern also held for the behavioural indicator set with a base rate of .10 with MAMBAC, MAXEIG, and mean CCFI values below .450, although the L-Mode CCFI value was ambiguous (.450 &lt; CCFI &lt; .550). Dimensionality is further evidenced in Figure 1.
+Figure 1. Taxometric results for HGSHS:A behavioural indicator sets. MAMBAC, MAXEIG and L-Mode curves for behavioural subscale indicators as a function of a priori base rate (left: base rate = .15, right: base rate = .10) and simulated values for competing theoretical distributions (categorical or dimensional). Black lines represent the average curve for the sample. Colored lines denote simulated values: the middle area represents the middle 50% of the simulated data and the outer colored lines reflect ± 1 SD from the mean. HGSHS:A: Harvard Group Scale of Hypnotic Susceptibility: Form A; MAMBAC: mean above minus below a cut; MAXEIG: maximum eigenvalue; L-Mode: latent mode. 
+HGSHS:A involuntariness indicators
+The analyses similarly revealed that the two involuntariness indicator sets displayed dimensional structure. This held for both base rates, with MAMBAC, MAXEIG, and mean CCFI values below .45, albeit with ambiguous L-MODE values (.450 &lt; CCFI &lt; .550) (Table 2). Additionally, of all 9 seeds for every indicator set all mean CCFI values were below .450 except  one CCFI value that appeared above .550 (L-Mode CCFI value for involuntariness indicator set with .10 base rate). The dimensional, rather than categorical, structure of these data is further evidenced in Figure 2 where average data curves more closely fit dimensional rather than categorical models, although fit tended to be poorer for the base rate .10 data subset. 
+Figure 2. Taxometric results for HGSHS:A involuntariness indicator sets. MAMBAC, MAXEIG and L-Mode curves for involuntariness subscale indicators as a function of a priori base rate (left: base rate = .15, right: base rate = .10) and simulated values for competing theoretical distributions (categorical or dimensional). Black lines represent the average curve for the sample. Colored lines denote simulated values: the middle area represents the middle 50% of the simulated data and the outer colored lines reflect ± 1 SD from the mean. HGSHS:A: Harvard Group Scale of Hypnotic Susceptibility: Form A; MAMBAC: mean above minus below a cut; MAXEIG: maximum eigenvalue; L-Mode: latent mode. 
+CCFI profile analysis
+The foregoing analyses included a priori taxon base rates of .10 and .15 based on the widespread assumption that highly suggestible individuals comprise 10-15% of the population (e.g., Woody &amp; Barnier, 2008). Nevertheless, it remains possible that the taxon rate deviates from our estimates. For example, taxometric analyses for both the behavioural and involuntariness scales and a base rate of .10 generated data-driven base rate estimates that differ from ours (see Table 2). Accordingly, we performed an exploratory CCFI profile analysis (Ruscio et al., 2018) in which all base rates (in 2.5% steps) are contrasted using behavioural and involuntariness indicator sets separately, as above. As can be seen in Figure 3, the analysis of the behavioural HGSHS:A subscale indicators yielded clear evidence for dimensionality (CCFIs&lt;.450) for all base rates except those of .025, .010, and  .975, which were all ambiguous (.450&gt;CCFI&lt;.550). By contrast, the analysis of involuntariness subscale indicators (see Figure 4) yield evidence for dimensionality for around half of the base rates (.075-.575) or ambiguous CCFI values for most of the other base rates except those of .875-.925, which yield modest evidence in favor of taxonicity (.550&gt;CCFI&lt;.600). These results present weak, preliminary evidence in favour of an involuntariness taxon representing around 90% of the sample, potentially reflecting participants who experienced at least some level of involuntariness during response to suggestion. However, these results cumulatively align with the a priori base rate analyses and suggest that hypnotic suggestibility is dimensional.
+Figure 3. CCFI Profile for HGSHS:A behavioural indicator sets comprising median CCFI values among nine runs with different random seeds. Coloured lines and markers represent median CCFI values for MAMBAC, MAXEIG and L-Mode analyses. The black line and markers represent median Mean (seed-wise) CCFI values. The dashed line represents the 0.50 value and the gray area represents ambiguous values (.45-.55). HGSHS:A: Harvard Group Scale of Hypnotic Susceptibility: Form A; MAMBAC: mean above minus below a cut; MAXEIG: maximum eigenvalue; L-Mode: latent mode. 
+Figure 4. CCFI Profile for HGSHS:A involuntariness indicator sets comprising median CCFI values among nine runs with different random seeds. Coloured lines and markers represent median CCFI values for MAMBAC, MAXEIG and L-Mode analyses. The black line and markers represent median Mean (seed-wise) CCFI values. The dashed line represents the 0.50 value and the gray area represents ambiguous values (.45-.55). HGSHS:A: Harvard Group Scale of Hypnotic Susceptibility: Form A; MAMBAC: mean above minus below a cut; MAXEIG: maximum eigenvalue; L-Mode: latent mode. 
+Discussion
+We applied taxometric analyses to behavioural and involuntariness subscales of the most widely used group measure of hypnotic suggestibility (Barnier &amp; McConkey, 2004), the HGSHS:A (Shor &amp; Orne, 1962), in order to determine whether hypnotic suggestibility is best modeled as a dimensional or categorical variable. Four analyses with different indicator sets and different a priori base rate values, as well as exploratory analyses considering an array of base rates, provided consistent evidence for a dimensional structure. This suggests that hypnotic suggestibility, at least as measured by the HGSHS:A, is a dimensional variable and has implications for current understanding of individual differences in responsiveness to hypnotic suggestions.
+All four primary analyses converged to show evidence for dimensional structure for both HGSHS:A behavioural and involuntariness scales, thereby demonstrating strong consistency across indicator sets and base rates. In particular, for all four analyses, at least two of the three CCFI values, which index whether the data shows more evidence towards dimensional or categorical structure, were below the cut-off criterion (.450) for dimensionality (Ruscio et al., 2011). Moreover, the mean CCFI value was below this criterion for all four data subsets. In three of the four analyses, the L-Mode CCFI was ambiguous (.450 &lt; CCFI &lt; .550). This ambiguity is potentially attributable to poorer accuracy of the L-Mode CCFI in certain contexts (Ruscio &amp; Walters, 2009). The results are somewhat limited because the HGSHS:A behavioural indicator sets, but not the involuntariness sets, did not meet one or two indicator suitability criteria for taxometric analysis (Ruscio et al., 2011). However, insofar as the analyses of the behavioural and involuntariness indicator sets yielded convergent results, these violations are unlikely to represent a significant limitation or confound. Moreover, CCFI profile analyses with base rate estimates varying from .025 to .975 yielded clear evidence for dimensionality or ambiguous evidence for dimensionality versus taxonicity. However, there was weak evidence for an involuntariness taxon comprising around 90% of the sample, plausibly reflecting a categorical demarcation between those participants who experienced the classic suggestion effect (P. Bowers et al., 1988; Polito et al., 2015, 2018; Weitzenhoffer, 1974, 1980) to some extent and those who did not. Collectively, the analyses provide convergent evidence for the dimensional structure of hypnotic suggestibility, as measured by the HGSHS:A. More broadly, the present data align with the results of a recent meta-analysis showing that most psychological variables subjective to taxometric analysis are dimensional (Haslam et al., 2020).
+The results diverge from those of the only previous study, to our knowledge, that applied taxometric analysis to hypnotic suggestibility scores on the HGSHS:A and the WSGC (Oakman &amp; Woody, 1996), which yielded evidence for categorical structure. This divergence is potentially attributable to our reliance on more contemporary methods, including the mean of a set of simulation-based analyses, which appear to be less biased toward categorical outcomes (Haslam et al., 2020), our inclusion of multiple HGSHS:A item subsets as indicators (as opposed to individual items), and/or our application of taxometric analyses to a different scale (see below). Sample size differences between our study and Oakman and Woody (1996) may also be a source of the discrepancies between the results of the two studies; insofar as Ruscio et. al. (2011) suggest sample sizes of N &gt; 300 for taxometric analysis and our sample was nearly twice this recommendation, it seems unlikely that our sample size was insufficient to detect a latent taxon although this cannot be ruled out at this stage. 
+Most investigations of the latent structure of hypnotic suggestibility have been restricted to behavioural hypnotic suggestibility scales (for recent reviews, see Barnier et al., 2021; Sadler &amp; Woody, 2021). Such analyses are potentially compromised by compliant responding (Polczyk &amp; Pasek, 2006) and sub-optimal indexing of the classic suggestion effect (Bowers et al., 1988; Woody &amp; Szechtman, 2007). Accordingly, a value of the present study is the corroboration of the central result (dimensionality of hypnotic suggestibility) with similar results for involuntariness subscales (Bowers, 1981), which provide a more graded index of the phenomenology of response to suggestion. Although analyses of behavioural and involuntariness indicators yielded convergent results, the latter can aid in the identification of hidden dimensions of hypnotic responding (Polito et al., 2018; Terhune et al., 2016) and thus warrant further attention in research on the latent structure of hypnotic suggestibility. A notable result is that the present analyses failed to yield support for categorical .10 or .15 base rate assumptions, which are widely referenced in the literature (Laurence et al., 2008; Terhune et al., 2017). Accordingly, 10-15% estimates for high hypnotic suggestibility on the HGSHS:A should be interpreted as practical cut-off criteria for group allocation rather than prevalence rates for high hypnotic suggestibility. The current results also have implications for suggestibility research pertaining to psychopathology. If high hypnotic suggestibility confers predisposition to dissociative psychopathology, as has been proposed (Butler et al., 1996; Dell, 2017), the present results suggest that this risk does not amount to a qualitative criterion shift but rather a dimensional one (see also Wieder &amp; Terhune, 2019). 
+Despite the consistency of the results across the four data subsets, the present results should be interpreted in the context of the measurement limitations of the HGSHS:A (for a recent review see Acunzo &amp; Terhune, 2021). The most salient limitation of the HGSHS:A in the present context is the underrepresentation of cognitive-perceptual suggestions relative to facilitative and inhibitory motor suggestions (Woody &amp; Barnier, 2008). Cognitive-perceptual suggestions are superior to typical ideomotor suggestions in the discrimination of highly suggestible and low-medium suggestible individuals (Barnier &amp; McConkey, 2004; Hilgard, 1965; Terhune, 2015). Accordingly, the relatively small proportion of cognitive-perceptual suggestions (25%) in the HGSHS:A suggestion pool may have reduced our ability to capture a highly suggestible taxon characterized by elevated responsiveness to these suggestions. For this reason, the present results might not generalize to other hypnotic suggestibility scales with a greater representation of these difficult suggestions (e.g. Bowers, 1993) and categorical structure might be easier to detect with such scales (Oakman &amp; Woody, 1996). A similar limitation pertains to the limited suggestion content of the HGSHS:A (Shor &amp; Orne, 1962). The HGSHS:A includes multiple suggestions with poor psychometric properties (Näring et al., 2004; Sadler &amp; Woody, 2004), suggestions that appear to involve greater compliant responding (Bowers et al., 1988), suggestions that lack ecological validity (Acunzo &amp; Terhune, 2021; Barnier et al., 2021), and numerous other confounds (Acunzo &amp; Terhune, 2021). Most of these limitations are not unique to the HGSHS:A and warrant greater attention to the optimization of hypnotic suggestibility measurement more broadly. Nevertheless, future research aiming to investigate the latent structure of hypnotic suggestibility would be well-served to include a greater proportion of cognitive-perceptual suggestions and employ more robust measurement methodologies that circumvent common limitations of standard hypnotic suggestibility scales (Acunzo &amp; Terhune, 2021). A latent taxon in the upper range of hypnotic suggestibility may not only be characterized by high hypnotic suggestibility but also by other characteristics, such as atypical metacognition (Lush et al., 2016; Terhune &amp; Hedman, 2017) and/or pronounced dissociative tendencies (Cardeña &amp; Marcusson-Clavertz, 2016; King &amp; Council, 1998; Terhune et al., 2011). Thus, further research should address the foregoing limitations and also include diverse indicators that could potentially more sensitively capture features of a hypothesized highly suggestible subgroup at risk for dissociative psychopathology (Bell et al., 2011; Butler et al., 1996; Dell, 2017; Terhune &amp; Cardeña, 2015). 
+Acknowledgements
+Data collection was supported by a postdoctoral fellowship from the Cogito Foundation and a Marie Skłodowska-Curie Intra-European Fellowship within the 7th European Community Framework Programme to DBT. We also thank Dr. John Ruscio for information and guidance regarding the implementation of the analyses. 
+Author Contributions
+MR and DBT conceived the project; DBT collected the data and funded the data collection; MR and DBT analysed the data; MR and DBT drafted the manuscript.
+References
+Acunzo, D. J., &amp; Terhune, D. B. (2021). A Critical Review of Standardized Measures of Hypnotic Suggestibility. International Journal of Clinical and Experimental Hypnosis, 69(1), 50–71. https://doi.org/10.1080/00207144.2021.1833209
+ HYPERLINK "https://www.zotero.org/google-docs/?7rXW5c" \h Balthazard, C. G., &amp; Woody, E. Z. (1989). Bimodality, dimensionality, and the notion of hypnotic types. International Journal of Clinical and Experimental Hypnosis, 37(1), 70–89. https://doi.org/10.1080/00207148908410534
+Barnier, A. J., &amp; McConkey, K. M. (2004). Defining and identifying the highly hypnotizable person. The highly hypnotizable person: Theoretical, experimental and clinical issues, 15, 30-61.
+Barnier, A. J., Terhune, D. B., Polito, V., &amp; Woody, E. Z. (2021). A componential approach to individual differences in hypnotizability. Psychology of Consciousness: Theory, Research, and Practice.
+Bell, V., Oakley, D. A., Halligan, P. W., &amp; Deeley, Q. (2011). Dissociation in hysteria and hypnosis: Evidence from cognitive neuroscience. Journal of Neurology, Neurosurgery &amp; Psychiatry, 82(3), 332–339. https://doi.org/10.1136/jnnp.2009.199158
+Bowers, K. S. (1981). Do the Stanford scales tap the “classic suggestion effect”? International Journal of Clinical and Experimental Hypnosis, 29(1), 42–53. https://doi.org/10.1080/00207148108409142
+Bowers, P., Laurence, J.-R., &amp; Hart, D. (1988). The experience of hypnotic suggestions. International Journal of Clinical and Experimental Hypnosis, 36(4), 336–349. https://doi.org/10.1080/00207148808410523
+Butler, L. D., Duran, R. E. F., Jasiukaitis, P., Koopman, C., &amp; et al. (1996). Hypnotizability and traumatic experience: A diathesis-stress model of dissociative symptomatology. The American Journal of Psychiatry, 153(Suppl), 42–63.
+Cardeña, E., &amp; Marcusson-Clavertz, D. (2016). The relation of hypnotizability and dissociation to everyday mentation: An experience-sampling study. Psychology of Consciousness: Theory, Research, and Practice, 3(1), 61–79. https://doi.org/10.1037/cns0000080
+Connors, M. H. (2015). Hypnosis and belief: A review of hypnotic delusions. Consciousness and Cognition, 36, 27–43. https://doi.org/10.1016/j.concog.2015.05.015
+Dell, P. F. (2017). Is high hypnotizability a necessary diathesis for pathological dissociation? Journal of Trauma &amp; Dissociation, 18(1), 58–87. https://doi.org/10.1080/15299732.2016.1191579
+Dell, P. F. (2021). Hypnotizability and the Natural Human Ability to Alter Experience. International Journal of Clinical and Experimental Hypnosis, 69(1), 7–26. https://doi.org/10.1080/00207144.2021.1834859
+Harkavy-Friedman, J. M. (2009). Dimensional Approaches in Diagnostic Classification: Refining the Research Agenda for DSM-V. American Journal of Psychiatry, 166(1), 118–119. https://doi.org/10.1176/appi.ajp.2008.08060939
+Haslam, N., Holland, E., &amp; Kuppens, P. (2012). Categories versus dimensions in personality and psychopathology: A quantitative review of taxometric research. Psychological Medicine, 42(5), 903–920. https://doi.org/10.1017/S0033291711001966
+Haslam, N., McGrath, M., Viechtbauer, W., &amp; Kuppens, P. (2020). Dimensions over categories: A meta-analysis of taxometric research. Psychological Medicine, 50, 1–15. https://doi.org/10.1017/S003329172000183X
+Hilgard, E. R. (1965). Hypnotic susceptibility (pp. XIII, 434). Harcourt, Brace &amp; World.
+Kihlstrom, J. F. (2008). The domain of hypnosis, revisited. In The Oxford handbook of hypnosis: Theory, research, and practice (pp. 21–52). Oxford University Press.
+King, B. J., &amp; Council, J. R. (1998). Intentionality during hypnosis: An ironic process analysis. International Journal of Clinical and Experimental Hypnosis, 46(3), 295–313. https://doi.org/10.1080/00207149808410009
+Laurence, J.-R., Beaulieu-Prévost, D., &amp; Chéné, T. du. (2008). Measuring and understanding individual differences in hypnotizability. In The Oxford handbook of hypnosis: Theory, research, and practice (pp. 225–253). Oxford University Press.
+Lush, P., Caspar, E. A., Cleeremans, A., Haggard, P., Magalhães De Saldanha da Gama, P. A., &amp; Dienes, Z. (2017). The Power of Suggestion: Posthypnotically Induced Changes in the Temporal Binding of Intentional Action Outcomes. Psychological Science, 28(5), 661–669. https://doi.org/10.1177/0956797616687015
+Lush, P., Naish, P., &amp; Dienes, Z. (2016). Metacognition of intentions in mindfulness and hypnosis. Neuroscience of Consciousness, 2016(1), niw007–niw007. https://doi.org/10.1093/nc/niw007
+Lynn, S. J., Kirsch, I., &amp; Hallquist, M. N. (2008). Social cognitive theories of hypnosis. In The Oxford handbook of hypnosis: Theory, research, and practice (pp. 111–139). Oxford University Press.
+Lynn, S. J., Kirsch, I., Terhune, D. B., &amp; Green, J. P. (2020). Myths and misconceptions about hypnosis and suggestion: Separating fact and fiction. Applied Cognitive Psychology, n/a(n/a). https://doi.org/10.1002/acp.3730
+Meehl, P. E. (1999). Clarifications about taxometric method. Applied and Preventive Psychology, 8(3), 165–174. https://doi.org/10.1016/S0962-1849(05)80075-7
+Montgomery, G. H., Schnur, J. B., &amp; David, D. (2011). The Impact of Hypnotic Suggestibility In Clinical Care Settings. International Journal of Clinical and Experimental Hypnosis, 59(3), 294–309. https://doi.org/10.1080/00207144.2011.570656
+Näring, G. W. B., Hoogduin, K. A. L., &amp; Keijser, C. M. P. (2004). A Rasch Analysis of the Stanford Hypnotic Susceptibility Scale, Form C. International Journal of Clinical and Experimental Hypnosis, 52(3), 250–259. https://doi.org/10.1080/0020714049052350
+Oakley, D. A., &amp; Halligan, P. W. (2013). Hypnotic suggestion: Opportunities for cognitive neuroscience. Nature Reviews Neuroscience, 14(8), 565–576. https://doi.org/10.1038/nrn3538
+Oakman, J. M., &amp; Woody, E. Z. (1996). A taxometric analysis of hypnotic susceptibility. Journal of Personality and Social Psychology, 71(5), 980–991. https://doi.org/10.1037/0022-3514.71.5.980
+Piccione, C., Hilgard, E. R., &amp; Zimbardo, P. G. (1989). On the degree of stability of measured hypnotizability over a 25-year period. Journal of Personality and Social Psychology, 56(2), 289–295. https://doi.org/10.1037/0022-3514.56.2.289
+Polczyk, R., &amp; Pasek, T. (2006). Types of suggestibility: Relationships among compliance, indirect, and direct suggestibility. The International Journal of Clinical and Experimental Hypnosis, 54(4), 392–415. https://doi.org/10.1080/00207140600856764
+Polito, V., Barnier, A. J., &amp; Connors, M. H. (2018). Hypnotic clever hands: Agency and automatic responding. Journal of Experimental Psychology: General, 147(6), 815–828. https://doi.org/10.1037/xge0000451
+Polito, V., Langdon, R., &amp; Barnier, A. (2015). Sense of agency across contexts: Insights from schizophrenia and hypnosis. Psychology of Consciousness: Theory, Research, and Practice, 2, 301–314. https://doi.org/10.1037/cns0000053
+R Core Team. (2020). R: A Language and Environment for Statistical Computing (4.0.2) [Windows]. R Foundation for Statistical Computing. https://www.R-project.org
+Ruscio, J., Carney, L. M., Dever, L., Pliskin, M., &amp; Wang, S. B. (2018). Using the comparison curve fix index (CCFI) in taxometric analyses: Averaging curves, standard errors, and CCFI profiles. Psychological Assessment, 30(6), 744–754. https://doi.org/10.1037/pas0000522
+Ruscio, J., Ruscio, A. M., &amp; Carney, L. M. (2011). Performing Taxometric Analysis to Distinguish Categorical and Dimensional Variables. Journal of Experimental Psychopathology, 2(2), 170–196. https://doi.org/10.5127/jep.010910
+Ruscio, J., &amp; Walters, G. D. (2009). Using comparison data to differentiate categorical and dimensional data by examining factor score distributions: Resolving the mode problem. Psychological Assessment, 21(4), 578–594. https://doi.org/10.1037/a0016558
+Ruscio, J., Walters, G. D., Marcus, D. K., &amp; Kaczetow, W. (2010). Comparing the relative fit of categorical and dimensional latent variable models using consistency tests. Psychological Assessment, 22(1), 5–21. https://doi.org/10.1037/a0018259
+Ruscio, J., &amp; Wang, S. B. (2020). RTaxometrics: Taxometric analysis. R package version 2.4. https://CRAN.R-project.org/package=RTaxometrics
+Sadler, P., &amp; Woody, E. Z. (2004). Four Decades of Group Hypnosis Scales: What Does Item-Response Theory Tell Us About What We’ve Been Measuring? International Journal of Clinical and Experimental Hypnosis, 52(2), 132–158. https://doi.org/10.1076/iceh.52.2.132.28092
+Sadler, P., &amp; Woody, E. Z. (2021). Multicomponent Theories of Hypnotizability: History and Prospects. International Journal of Clinical and Experimental Hypnosis, 69(1), 27–49. https://doi.org/10.1080/00207144.2021.1833210
+Shor, R. E., &amp; Orne, E. C. (1961). Harvard Group Scale of Hypnotic Susceptibility, Form A [Database record]. APA PsycTests. https://doi.org/10.1037/t02246-000
+Terhune, D. B. (2015). Discrete response patterns in the upper range of hypnotic suggestibility: A latent profile analysis. Consciousness and Cognition, 33, 334–341. https://doi.org/10.1016/j.concog.2015.01.018
+Terhune, D. B., &amp; Cardeña, E. (2015). Dissociative Subtypes in Posttraumatic Stress Disorders and Hypnosis: Neurocognitive Parallels and Clinical Implications. Current Directions in Psychological Science, 24(6), 452–457. https://doi.org/10.1177/0963721415604611
+Terhune, D. B., Cardeña, E., &amp; Lindgren, M. (2011). Dissociative tendencies and individual differences in high hypnotic suggestibility. Cognitive Neuropsychiatry, 16(2), 113–135. https://doi.org/10.1080/13546805.2010.503048
+Terhune, D. B., Cleeremans, A., Raz, A., &amp; Lynn, S. J. (2017). Hypnosis and top-down regulation of consciousness. Neuroscience &amp; Biobehavioral Reviews, 81, 59–74. https://doi.org/10.1016/j.neubiorev.2017.02.002
+Terhune, D. B., &amp; Hedman, L. R. A. (2017). Metacognition of agency is reduced in high hypnotic suggestibility. Cognition, 168, 176–181. https://doi.org/10.1016/j.cognition.2017.06.026
+Terhune, D. B., Polito, V., Barnier, A. J., &amp; Woody, E. Z. (2016). Variations in the sense of agency during hypnotic responding: Insights from latent profile analysis. Psychology of Consciousness: Theory, Research, and Practice, 3(4), 293–302. https://doi.org/10.1037/cns0000107
+Thompson, T., Terhune, D. B., Oram, C., Sharangparni, J., Rouf, R., Solmi, M., Veronese, N., &amp; Stubbs, B. (2019). The effectiveness of hypnosis for pain relief: A systematic review and meta-analysis of 85 controlled experimental trials. Neuroscience &amp; Biobehavioral Reviews, 99, 298–310. https://doi.org/10.1016/j.neubiorev.2019.02.013
+Weitzenhoffer, A. M. (1974). When is an “instruction” an “instruction”? International Journal of Clinical and Experimental Hypnosis, 22(3), 258–269. https://doi.org/10.1080/00207147408413005
+Weitzenhoffer, A. M. (1980). Hypnotic Susceptibility Revisited. American Journal of Clinical Hypnosis, 22(3), 130–146. https://doi.org/10.1080/00029157.1980.10403217
+Widiger, T. A., &amp; Samuel, D. B. (2005). Diagnostic categories or dimensions? A question for the Diagnostic and statistical manual of mental disorders--fifth edition. Journal of Abnormal Psychology, 114(4), 494–504. https://doi.org/10.1037/0021-843X.114.4.494
+Wieder, L., Brown, R., Thompson, T., &amp; Terhune, D. B. (2021). Suggestibility in functional neurological disorder: A meta-analysis. Journal of Neurology, Neurosurgery &amp; Psychiatry, 92(2), 150–157. https://doi.org/10.1136/jnnp-2020-323706
+Wieder, L., &amp; Terhune, D. B. (2019). Trauma and anxious attachment influence the relationship between suggestibility and dissociation: A moderated-moderation analysis. Cognitive Neuropsychiatry, 24(3), 191–207. https://doi.org/10.1080/13546805.2019.1606705
+Woody, E. Z., &amp; Barnier, A. J. (2008). Hypnosis scales for the twenty-first century: What do we need and how should we use them? In The Oxford Handbook of Hypnosis (pp. 255–281). Oxford University Press.
+Woody, E. Z., Barnier, A. J., &amp; McConkey, K. M. (2005). Multiple Hypnotizabilities: Differentiating the Building Blocks of Hypnotic Response. Psychological Assessment, 17(2), 200–211. https://doi.org/10.1037/1040-3590.17.2.200
+Woody, E. Z., &amp; McConkey, K. M. (2003). What we don’t know about the brain and hypnosis, but need to: A view from the Buckhorn Inn. The International Journal of Clinical and Experimental Hypnosis, 51(3), 309–338. https://doi.org/10.1076/iceh.51.3.309.15523
+Woody, E. Z., &amp; Szechtman, H. (2007). To see feelingly: Emotion, motivation, and hypnosis. In G. A. Jamieson (Ed.), Hypnosis and conscious states: The cognitive neuroscience perspective (pp. 241–256). Oxford University Press.

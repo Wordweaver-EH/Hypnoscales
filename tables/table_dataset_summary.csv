@@ -1,0 +1,8 @@
+dataset,scale,dimension,n,total_mean,total_sd,procedure
+df1 PCS (cond=0),PCS,intensity,244,1.933,0.67,"Pre-2023 (~2019, end-of-session)"
+df1 SWASH (cond=1),SWASH,intensity,240,1.527,0.795,"Pre-2023 (~2019, end-of-session)"
+df2 PCS-VVIQ,PCS,intensity,508,1.842,0.671,"Pre-2023 (~2022, end-of-session)"
+df3 SWASH,SWASH,intensity,418,1.691,0.804,"Pre-2023 (~2017-2018, end-of-session)"
+df5 vEAR PCS,PCS,intensity,452,1.847,0.718,"Pre-2023 (~2022, end-of-session)"
+df4 HGSHS inv.,HGSHS:A,involuntariness,584,2.378,0.975,Pre-2023 (~2020-2021)
+df4 HGSHS obj.,HGSHS:A,objective,584,5.743,2.503,Pre-2023 (~2020-2021)

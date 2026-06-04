@@ -1,0 +1,8 @@
+dataset,scale,context,dimension,n_full,n_rest,r_full,p_full,r_full_spearman,r_full_ci_lo,r_full_ci_hi,r_full_r2,r_rest,p_rest,r_rest_spearman,r_rest_ci_lo,r_rest_ci_hi,interitem_r,sb_reliability,target_r_full,target_r_rest,delta_full,delta_rest,ok_full,ok_rest
+df1 PCS (cond=0),PCS,Non-hypnotic,intensity,244,244,0.783,7.413448633432534e-52,0.77,0.732,0.827,0.613,0.565,5.5476826762313645e-22,0.522,0.474,0.644,0.44,0.612,0.783,0.565,0.0,0.0,True,True
+df1 SWASH (cond=1),SWASH,Hypnotic,intensity,240,240,0.849,8.655153913724151e-68,0.85,0.814,0.88,0.72,0.694,7.918405991935386e-36,0.684,0.624,0.754,0.654,0.791,0.849,0.694,0.0,0.0,True,True
+df2 PCS-VVIQ,PCS,Non-hypnotic,intensity,508,508,0.778,4.035735419567301e-104,0.756,0.741,0.811,0.605,0.549,2.179344493041114e-41,0.52,0.483,0.612,0.455,0.626,0.778,0.549,0.0,0.0,True,True
+df3 SWASH,SWASH,Hypnotic,intensity,418,418,0.807,2.738785581013961e-97,0.82,0.774,0.838,0.652,0.63,1.0624450746165828e-47,0.637,0.57,0.687,0.595,0.746,0.807,0.63,0.0,0.0,True,True
+df5 vEAR PCS,PCS,Non-hypnotic,intensity,452,452,0.785,1.0560890175522389e-95,0.772,0.748,0.819,0.617,0.579,8.83228255551882e-42,0.553,0.514,0.641,0.448,0.619,0.785,0.579,0.0,0.0,True,True
+df4 HGSHS inv.,HGSHS:A,Classic,involuntariness,584,584,0.799,2.073996103863143e-130,0.805,0.768,0.827,0.638,0.659,4.64431491089021e-74,0.663,0.61,0.705,0.532,0.695,0.799,0.661,0.0,-0.002,True,True
+df4 HGSHS obj.,HGSHS:A,Classic,objective,584,584,0.682,5.777878311944217e-81,0.693,0.639,0.72,0.464,0.449,2.961230208733044e-30,0.454,0.384,0.511,0.269,0.424,,,,,True,True

@@ -1,0 +1,66 @@
+
+
+Flow
+-------------
+Remove incomplete responses
+
+Mean of Flow questionnaire 1_1(to ten) and Flow questionnaire 2_1 (to ten) and Flow questionnaire 3_1 (to ten)
+
+Four DVs - Flow 1 (vacuuming), Flow 2 (essay writing) and Flow 3 (exercise) plus the mean of these three as a combined flow store. 
+------------------------------------------------------------------------------------------------------------------------------------
+
+Anomalous experience and belief
+------------------------------
+Remove incomplete responses
+
+Calculate means of:
+
+Past life experience: Q1_1 to Q3_1
+Out of body experience: Q4_1 to Q6_1
+Spirit_world experience: Q7_1 to Q11_1
+
+Calculate mean of three experience types for mean combined anomalous experience score
+
+Calculate means of:
+
+Past life belief: Belief questions_1 and Belief questions_2
+
+
+Out of body belief: Belief questions_3 and Belief questions_4
+
+
+Spirit world belief:Belief questions_5 to 8.
+
+
+Interaction: 
+
+Calclate mean-centred PCS and DES (PCS-mean PCS and DES - mean DES)
+Calculate product of the mean-centred variables.(PCSxDES)
+
+-----------------------------------------------------------------------------------------------------------------------------------
+DES (Dissociative Experiences Scale)
+---------------------------------------
+
+Remove incompletes (including some NA for missed answers which won't be picked up by filtering by progress)
+
+Mean of DES questions (28)
+
+We use the age at time of DES questionnaire - 5 missing age for DES, for which the age on PCS database was used.
+-----------------------------------------------------------------------------------------------------------------------------------
+
+PCS (Phenomenological Control Scale)
+-------------------------------------
+Mean of 10 items: 1handlowersubj, 2handtogethersubj, 3mosquitosubj, 4TasteAverage, 5rigidsubj, 6immobilizationsubj, 7musicsubj, 8ballssubj, 9amnesiasubj, 10spaceGeoMean
+
+
+
+
+
+
+
+
+
+
+
+
+

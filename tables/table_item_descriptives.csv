@@ -1,0 +1,75 @@
+dataset,scale,item_num,item_col,item_label,item_type,n_valid,mean,sd,median,iqr,min,max,pct_floor,pct_ceiling,pct_missing,dimension
+df1 PCS (cond=0),PCS,1,HandLoweringSubjectiveRating,Hand lowering,motor,244,3.643,1.19,4.0,2.0,0.0,5.0,2.0,26.2,0.0,intensity
+df1 PCS (cond=0),PCS,2,HandsTogetherSubjectiveRating,Moving hands together,motor,244,3.094,1.291,3.0,2.0,0.0,5.0,4.5,11.1,0.0,intensity
+df1 PCS (cond=0),PCS,3,MosquitoSubjectiveRating,Mosquito hallucination,perceptual,244,1.656,1.478,2.0,3.0,0.0,5.0,31.1,4.1,0.0,intensity
+df1 PCS (cond=0),PCS,4,TasteSubjectiveRating,Taste hallucination,perceptual,244,1.75,1.348,1.5,2.5,0.0,5.0,16.4,1.2,0.0,intensity
+df1 PCS (cond=0),PCS,5,ArmRigiditySubjectiveRating,Arm rigidity*,motor,244,3.201,1.419,4.0,2.0,0.0,5.0,5.3,17.2,0.0,intensity
+df1 PCS (cond=0),PCS,6,ArmImmobilisationSubjectiveRating,Arm immobilisation*,motor,244,2.676,1.402,3.0,2.0,0.0,5.0,9.0,7.4,0.0,intensity
+df1 PCS (cond=0),PCS,7,MusicSubjectiveRating,Music hallucination,perceptual,244,0.266,0.845,0.0,0.0,0.0,5.0,86.5,1.2,0.0,intensity
+df1 PCS (cond=0),PCS,8,VisualHallucinationSubjectiveRating,Neg. visual hallucination,perceptual,244,0.373,1.229,0.0,0.0,0.0,5.0,90.2,5.7,0.0,intensity
+df1 PCS (cond=0),PCS,9,AmnesiaSubjectiveRating,Amnesia,cognitive,244,1.648,1.396,1.0,3.0,0.0,5.0,27.5,1.6,0.0,intensity
+df1 PCS (cond=0),PCS,10,PostHypnoticSubjectiveRating,Post-hypnotic suggestion,cognitive,244,1.025,1.47,0.0,2.236,0.0,5.0,62.7,1.2,0.0,intensity
+df1 SWASH (cond=1),SWASH,1,HandLoweringSubjectiveRating,Hand lowering,motor,240,3.171,1.522,4.0,2.0,0.0,5.0,7.1,21.7,0.0,intensity
+df1 SWASH (cond=1),SWASH,2,HandsTogetherSubjectiveRating,Moving hands together,motor,240,2.558,1.485,3.0,3.0,0.0,5.0,11.2,9.2,0.0,intensity
+df1 SWASH (cond=1),SWASH,3,MosquitoSubjectiveRating,Mosquito hallucination,perceptual,240,0.975,1.3,0.0,2.0,0.0,5.0,53.8,1.2,0.0,intensity
+df1 SWASH (cond=1),SWASH,4,TasteSubjectiveRating,Taste hallucination,perceptual,240,1.117,1.203,1.0,2.0,0.0,5.0,36.2,0.8,0.0,intensity
+df1 SWASH (cond=1),SWASH,5,ArmRigiditySubjectiveRating,Arm rigidity*,motor,240,2.496,1.528,3.0,3.0,0.0,5.0,12.9,9.6,0.0,intensity
+df1 SWASH (cond=1),SWASH,6,ArmImmobilisationSubjectiveRating,Arm immobilisation*,motor,240,2.013,1.433,2.0,2.0,0.0,5.0,18.3,5.4,0.0,intensity
+df1 SWASH (cond=1),SWASH,7,MusicSubjectiveRating,Music hallucination,perceptual,240,0.138,0.495,0.0,0.0,0.0,4.0,90.8,0.0,0.0,intensity
+df1 SWASH (cond=1),SWASH,8,VisualHallucinationSubjectiveRating,Neg. visual hallucination,perceptual,240,0.237,0.923,0.0,0.0,0.0,5.0,92.1,2.1,0.0,intensity
+df1 SWASH (cond=1),SWASH,9,AmnesiaSubjectiveRating,Amnesia,cognitive,240,1.617,1.406,1.0,3.0,0.0,5.0,30.8,1.2,0.0,intensity
+df1 SWASH (cond=1),SWASH,10,PostHypnoticSubjectiveRating,Post-hypnotic suggestion,cognitive,240,0.949,1.452,0.0,2.0,0.0,5.0,66.2,1.7,0.0,intensity
+df2 PCS-VVIQ,PCS,1,HandBecomesHeavy,Hand lowering,motor,508,3.608,1.251,4.0,2.0,0.0,5.0,3.0,25.8,0.0,intensity
+df2 PCS-VVIQ,PCS,2,MagneticHands,Moving hands together,motor,508,3.14,1.354,3.0,2.0,0.0,5.0,4.5,15.2,0.0,intensity
+df2 PCS-VVIQ,PCS,3,Mosquito,Mosquito hallucination,perceptual,508,1.374,1.44,1.0,2.0,0.0,5.0,38.6,3.0,0.0,intensity
+df2 PCS-VVIQ,PCS,4,Taste,Taste hallucination,perceptual,508,1.759,1.429,1.5,2.5,0.0,5.0,21.7,2.2,0.0,intensity
+df2 PCS-VVIQ,PCS,5,StiffArm,Arm rigidity*,motor,508,3.116,1.423,3.0,2.0,0.0,5.0,6.5,16.7,0.0,intensity
+df2 PCS-VVIQ,PCS,6,HandAndArmHeavy,Arm immobilisation*,motor,508,2.445,1.446,3.0,3.0,0.0,5.0,11.8,7.5,0.0,intensity
+df2 PCS-VVIQ,PCS,7,HappyBirthday,Music hallucination,perceptual,508,0.352,0.893,0.0,0.0,0.0,5.0,81.7,0.6,0.0,intensity
+df2 PCS-VVIQ,PCS,8,ColouredBalls,Neg. visual hallucination,perceptual,508,0.199,0.839,0.0,0.0,0.0,5.0,92.7,2.2,0.0,intensity
+df2 PCS-VVIQ,PCS,9,Amnesia,Amnesia,cognitive,508,1.671,1.383,1.0,3.0,0.0,5.0,25.4,2.0,0.0,intensity
+df2 PCS-VVIQ,PCS,10,PHS,Post-hypnotic suggestion,cognitive,508,0.755,1.261,0.0,1.732,0.0,5.0,69.7,0.8,0.0,intensity
+df3 SWASH,SWASH,1,Q1HANDLOWERSUBJ,Hand lowering,motor,418,3.443,1.25,4.0,1.0,0.0,5.0,2.2,19.1,0.0,intensity
+df3 SWASH,SWASH,2,Q2MAGNETICSUBJ,Moving hands together,motor,418,2.945,1.433,3.0,2.0,0.0,5.0,7.2,13.6,0.0,intensity
+df3 SWASH,SWASH,3,Q3MOSQUITOSUBJ,Mosquito hallucination,perceptual,418,0.957,1.353,0.0,1.0,0.0,5.0,55.0,2.6,0.0,intensity
+df3 SWASH,SWASH,4,TASTEMEAN,Taste hallucination,perceptual,418,1.4,1.3,1.0,2.5,0.0,5.0,29.4,1.2,0.0,intensity
+df3 SWASH,SWASH,5,Q5RIGIDITYSUBJ,Arm rigidity*,motor,418,2.672,1.472,3.0,3.0,0.0,5.0,9.1,10.5,0.0,intensity
+df3 SWASH,SWASH,6,Q6IMMOBILESUBJ,Arm immobilisation*,motor,418,2.313,1.464,2.0,2.0,0.0,5.0,12.4,7.4,0.0,intensity
+df3 SWASH,SWASH,7,Q7MUSICSUBJ,Music hallucination,perceptual,418,0.23,0.713,0.0,0.0,0.0,5.0,86.4,0.2,0.0,intensity
+df3 SWASH,SWASH,8,Q8BALLSSUBJ,Neg. visual hallucination,perceptual,418,0.426,1.14,0.0,0.0,0.0,5.0,82.8,3.1,0.0,intensity
+df3 SWASH,SWASH,9,Q9AMNESIASUBJ,Amnesia,cognitive,418,1.438,1.287,1.0,2.0,0.0,5.0,28.7,1.9,0.0,intensity
+df3 SWASH,SWASH,10,PHSSUBJECTIVEGEOMETRICMEAN,Post-hypnotic suggestion,cognitive,418,0.927,1.399,0.0,2.0,0.0,5.0,64.8,1.7,0.0,intensity
+df5 vEAR PCS,PCS,1,HandBecomesHeavy,Hand lowering,motor,452,3.515,1.295,4.0,1.0,0.0,5.0,3.8,23.9,0.0,intensity
+df5 vEAR PCS,PCS,2,MagneticHands,Moving hands together,motor,452,3.166,1.377,3.0,2.0,0.0,5.0,4.9,17.5,0.0,intensity
+df5 vEAR PCS,PCS,3,Mosquito,Mosquito hallucination,perceptual,452,1.407,1.423,1.0,2.0,0.0,5.0,36.7,2.2,0.0,intensity
+df5 vEAR PCS,PCS,4,TASTE,Taste hallucination,perceptual,452,1.758,1.403,1.5,2.5,0.0,5.0,21.2,1.5,0.0,intensity
+df5 vEAR PCS,PCS,5,StiffArm,Arm rigidity*,motor,452,3.071,1.447,3.0,2.0,0.0,5.0,6.6,17.5,0.0,intensity
+df5 vEAR PCS,PCS,6,HandAndArmHeavy,Arm immobilisation*,motor,452,2.469,1.47,3.0,3.0,0.0,5.0,12.2,8.2,0.0,intensity
+df5 vEAR PCS,PCS,7,HappyBirthday,Music hallucination,perceptual,452,0.392,0.927,0.0,0.0,0.0,5.0,79.6,0.7,0.0,intensity
+df5 vEAR PCS,PCS,8,ColouredBalls,Neg. visual hallucination,perceptual,452,0.263,0.946,0.0,0.0,0.0,5.0,90.5,2.0,0.0,intensity
+df5 vEAR PCS,PCS,9,DifficultyRecalling,Amnesia,cognitive,452,1.496,1.364,1.0,3.0,0.0,5.0,31.0,2.4,0.0,intensity
+df5 vEAR PCS,PCS,10,PHS,Post-hypnotic suggestion,cognitive,452,0.937,1.373,0.0,2.0,0.0,5.0,63.7,1.1,0.0,intensity
+df4 HGSHS inv.,HGSHS:A,1,INV.1,Head falling,motor,584,2.988,1.55,3.0,2.0,0.0,5.0,12.8,14.9,0.0,involuntariness
+df4 HGSHS inv.,HGSHS:A,2,INV.2,Eye closure,motor,584,2.95,1.418,3.0,2.0,0.0,5.0,5.1,14.4,0.0,involuntariness
+df4 HGSHS inv.,HGSHS:A,3,INV.3,Hand lowering,motor,584,3.837,1.33,4.0,2.0,0.0,5.0,3.6,38.9,0.0,involuntariness
+df4 HGSHS inv.,HGSHS:A,4,INV.4,Arm immobilisation*,motor,584,1.974,1.795,2.0,4.0,0.0,5.0,36.1,9.9,0.0,involuntariness
+df4 HGSHS inv.,HGSHS:A,5,INV.5,Finger lock,motor,584,2.515,1.797,3.0,3.0,0.0,5.0,23.8,16.6,0.0,involuntariness
+df4 HGSHS inv.,HGSHS:A,6,INV.6,Arm rigidity*,motor,584,2.522,1.825,3.0,3.0,0.0,5.0,24.1,17.1,0.0,involuntariness
+df4 HGSHS inv.,HGSHS:A,7,INV.7,Hands moving together,motor,584,3.647,1.503,4.0,2.0,0.0,5.0,7.5,36.6,0.0,involuntariness
+df4 HGSHS inv.,HGSHS:A,8,INV.8,Communication inhibition,motor,584,2.307,1.911,2.5,4.0,0.0,5.0,31.5,16.3,0.0,involuntariness
+df4 HGSHS inv.,HGSHS:A,9,INV.9,Fly hallucination,perceptual,584,0.709,1.313,0.0,1.0,0.0,5.0,72.1,2.6,0.0,involuntariness
+df4 HGSHS inv.,HGSHS:A,10,INV.10,Eye catalepsy,motor,584,2.661,1.93,3.0,4.0,0.0,5.0,26.2,22.8,0.0,involuntariness
+df4 HGSHS inv.,HGSHS:A,11,INV.11,Post-hypnotic suggestion,cognitive,584,0.637,1.204,0.0,1.0,0.0,5.0,70.0,1.9,0.0,involuntariness
+df4 HGSHS inv.,HGSHS:A,12,INV.12,Amnesia,cognitive,584,1.788,1.841,1.0,3.0,0.0,5.0,44.9,9.8,0.0,involuntariness
+df4 HGSHS obj.,HGSHS:A,1,HGSHS.A1,Head falling,motor,584,0.531,0.499,1.0,1.0,0.0,1.0,46.9,53.1,0.0,objective
+df4 HGSHS obj.,HGSHS:A,2,HGSHS.A2,Eye closure,motor,584,0.685,0.465,1.0,1.0,0.0,1.0,31.5,68.5,0.0,objective
+df4 HGSHS obj.,HGSHS:A,3,HGSHS.A3,Hand lowering,motor,584,0.866,0.34,1.0,0.0,0.0,1.0,13.4,86.6,0.0,objective
+df4 HGSHS obj.,HGSHS:A,4,HGSHS.A4,Arm immobilisation*,motor,584,0.394,0.489,0.0,1.0,0.0,1.0,60.6,39.4,0.0,objective
+df4 HGSHS obj.,HGSHS:A,5,HGSHS.A5,Finger lock,motor,584,0.51,0.5,1.0,1.0,0.0,1.0,49.0,51.0,0.0,objective
+df4 HGSHS obj.,HGSHS:A,6,HGSHS.A6,Arm rigidity*,motor,584,0.455,0.498,0.0,1.0,0.0,1.0,54.5,45.5,0.0,objective
+df4 HGSHS obj.,HGSHS:A,7,HGSHS.A7,Hands moving together,motor,584,0.839,0.368,1.0,0.0,0.0,1.0,16.1,83.9,0.0,objective
+df4 HGSHS obj.,HGSHS:A,8,HGSHS.A8,Communication inhibition,motor,584,0.435,0.496,0.0,1.0,0.0,1.0,56.5,43.5,0.0,objective
+df4 HGSHS obj.,HGSHS:A,9,HGSHS.A9,Fly hallucination,perceptual,584,0.14,0.348,0.0,0.0,0.0,1.0,86.0,14.0,0.0,objective
+df4 HGSHS obj.,HGSHS:A,10,HGSHS.A10,Eye catalepsy,motor,584,0.5,0.5,0.5,1.0,0.0,1.0,50.0,50.0,0.0,objective
+df4 HGSHS obj.,HGSHS:A,11,HGSHS.A11,Post-hypnotic suggestion,cognitive,584,0.264,0.441,0.0,1.0,0.0,1.0,73.6,26.4,0.0,objective
+df4 HGSHS obj.,HGSHS:A,12,HGSHS.A12,Amnesia,cognitive,584,0.123,0.329,0.0,0.0,0.0,1.0,87.7,12.3,0.0,objective

@@ -1,0 +1,229 @@
+---
+title: "Imagery and phenomenological control"
+output: html_document
+date: "2023-02-28"
+---
+
+This file contains analyses reported in supplementary material
+#load libraries
+```{r setdup, include=FALSE}
+library(tidyverse)
+library(osfr)
+library(ggpubr)
+library(bfrr) #install by running: (devtools::install_github("debruine/bfrr")
+library(effectsize)
+library(ggstatsplot)
+library(readxl)
+library(scales)
+library(readr)
+sessionInfo() #Print version information about R, the OS and attached or loaded packages 
+myseed <- 1 #set seed for reproducible figures
+```
+
+## Supplementary Page 1: comparisons PCS extreme aphantasics 
+```{r set556}
+#extreme aphantasics comparison (supplementary material)
+data_pc<-read_xlsx("pcs_vviq_full.xlsx") #import pc study 1 and 2 sample 
+data_pc$VVIQ_rescaled <- scales::rescale(data_pc$VVIQ, to = c(0, 4))
+
+extreme_aph <- filter(data_pc, 
+                   VVIQ == 1) #keep only extreme aphantasics, in both samples
+
+extreme_aph$Group<-as.factor(as.character(extreme_aph$Group))
+#let's order the group variable prior to plotting
+extreme_aph$Group <- factor(extreme_aph$Group, levels = c("Blinded aphantasics", "Self-reported aphantasics"))
+
+summary_pc_ex <- extreme_aph %>%
+    group_by(Group) %>% summarise(mean_pc=round(mean(Pcscore), digits=2), sd_pc=round(sd(Pcscore), digits=2), mean_vviq=round(mean(VVIQ_rescaled), digits=2), sd_vviq=round(sd(VVIQ_rescaled), digits=2)) #rounded as not used for stats calculation
+summary_pc_ex
+
+#t-test comparing extreme aphantasics
+exex<- t.test(extreme_aph$Pcscore~ extreme_aph$Group)
+round(exex$parameter, digits=2) #round df
+round(exex$p.value, digits=3) #round pvalue
+round(exex$statistic, digits=2) #round t value
+hedges_g(extreme_aph$Pcscore~ extreme_aph$Group) #calcultate hedges g
+round(exex$conf.int, digits=2) #round confidence
+
+mean_ex_unaware<-as.double(exex$estimate[1])
+mean_ex_selfr<-as.double(exex$estimate[2])
+mean_diff_ex<-mean_ex_unaware-mean_ex_selfr
+se_diff_ex<-mean_diff_ex/as.double(exex$statistic)
+abs(round(se_diff_ex, digits=2)) #calculate and round se
+#bf and rr for extreme aphabtasics comparison
+rr_extap <- bfrr(
+    sample_mean = mean_diff_ex, # mean of the sample
+    sample_se = se_diff_ex, # SE of the sample
+    model = "uniform", #or normal 
+    lower = 0, # mean of the H1 distribution
+    upper = mean_ex_unaware, # SD of the H1 distribution
+    criterion = 3, rr_interval = list( # ranges to vary H1 parameters for robustness regions
+       lower = c(0, 0), 
+       upper = c(0, mean_ex_unaware) 
+    ), precision = 0.001, 
+)
+summary(rr_extap)
+round(rr_extap$RR$upper, digits=2) #round rr
+
+#Generate Figure S1 comparing extreme blinded aphantasics from Study 1 with extreme self-reported aphantasics from Study 2
+set.seed(myseed) #this needs to be repeated before each figure with jittered dots
+plot_ext<-ggbetweenstats(
+    data = extreme_aph,
+    x = Group,
+    results.subtitle = FALSE,  # set to TRUE for Hedge's g
+    pairwise.comparisons = FALSE,
+    y = Pcscore,
+    grouping.var = group,
+    title ="", 
+    point.path.args = list(alpha = 0.3, linetype = "dotted"), 
+    bf.message=FALSE, 
+    xlab = "",
+    ylab = "PCS", ggplot.component = list(ggplot2::scale_y_continuous(breaks = seq(0, 5, 1), limits=c(0, 5))))+
+    ggpubr::theme_pubr(legend="none")
+ggsave(plot =plot_ext, paste("figureS01_", Sys.Date(), ".tiff", sep = ""), width = 180, height =120, units="mm") #this helps generating a figure without overwriting the one already present
+```
+
+
+### Supplementary Page 2: Comparison with german sample from https://osf.io/b7yfx/
+```{r setdup88, include=TRUE}
+#load german sample, remove # and run the three lines below to download the data (just need to be done once)
+if (file.exists("PC_Scale_german_all_samples.csv")==FALSE) {
+  datafile_german_sample <- osf_download(osf_retrieve_file("5wcy9"))
+}
+
+german_data<-read_csv2("PC_Scale_german_all_samples.csv") #download from https://osf.io/b7yfx/
+german_data2<- filter (german_data, 
+                     Sample == 0) #keep only participants that are the internet volunteers (coded as 0)
+german_data2<- subset (german_data2, select = c(`PC Score`, Gender, Age)) #subset data prior to merging
+
+german_data2$Experiment<-rep("German sample",each=1, times=nrow(german_data2))
+colnames(german_data2)<-c("Pcscore", "Gender", "Age", "Experiment") #change column names to that later we can merge with the pc data
+
+#german sample demographics
+round(mean(german_data2$Age), digits=2) #average age in german sample
+round(sd(german_data2$Age), digits=2) #sd age
+c(min(german_data2$Age), max(german_data2$Age))  #age range
+gender_pcs_exp1<-table(german_data2$Gender) # gender: 1 is female, 2 male, 3 other
+
+
+#load again pcs data from study 1 and 2 
+data_pc<-read_xlsx("pcs_vviq_full.xlsx") #import pc study 1 and 2 sample 
+data_pc$Age<-as.integer(as.character(data_pc$Age)) 
+data_pc$Experiment<-as.factor(data_pc$Experiment)
+data_pc2<-subset(data_pc, select = c(Pcscore, Gender, Age, Experiment)) #subset study1/2 data to merge it with german sample
+compared<-rbind(german_data2, data_pc2) #merge pc study 1 and 2 sample with german sample
+compared$Experiment<-as.factor(as.character(compared$Experiment))
+
+#comparison between german sample and study 1 sample
+data_pc2_1 <- filter(compared, 
+                   !Experiment == "Experiment 2") #keep only Exp 1 participants and german sample
+data_pc2_1$Experiment<-as.factor(as.character(data_pc2_1$Experiment))
+
+#age comparison between german sample and study 1 
+agetest<-t.test(data_pc2_1$Age~data_pc2_1$Experiment) #age t test with study 2
+round(agetest$parameter, digits=2) #round df
+round(agetest$statistic, digits=2) #round t value
+round(agetest$p.value, digits=2) #round p value to 2 digits 
+
+#german sample pc score mean and sd
+mean_pcscore_germansample<- round(mean(german_data2$Pcscore), digits=2) #round mean pc score for reporting
+sd_pcscore_germansample<-round(sd(german_data2$Pcscore), digits=2) #round  sd pc score for reporting
+
+#comparison of pc score between german sample and study 1 sample
+pc2<-t.test(data_pc2_1$Pcscore~data_pc2_1$Experiment) #pc t test of pc score between german sample and study 1
+round(pc2$parameter, digits=2) #round df
+round(pc2$statistic, digits=2) #round t value
+round(pc2$p.value, digits=2) #round p value to 2 digits (it's 0.018 so it has to be rounded to 2 digits)
+round(pc2$conf.int, digits=2) #round confidence
+hedges_g(data_pc2_1$Pcscore~data_pc2_1$Experiment) #95% CI for Hedges’ g is not reported in the manuscript to avoid confusion with the 95% CI reported in the same sentence
+
+#create summary of pc score for all groups
+summary_pcs_2<- compared %>% 
+    group_by(Experiment) %>%
+    summarise(mean_pc=mean(Pcscore), sd_pc=sd(Pcscore)) #we use this summary for calculating mean diff and bf
+
+compared %>%  #same summary but this one is for reporting
+    group_by(Experiment) %>%
+    summarise(mean_pc=round(mean(Pcscore), digits=2), sd_pc=round(sd(Pcscore), digits=2))
+sd_theory_diff<- ((summary_pcs_2$mean_pc[1])-(summary_pcs_2$mean_pc[2]))/2 #calulate mean diff in PCS between study 1 and study 2 / 2
+round(sd_theory_diff, digits=2) #round sd theory diff for reporting 
+
+             
+mean_diff <- summary_pcs_2$mean_pc[3] - summary_pcs_2$mean_pc[1] #substract mean of German sample minus mean pc Study 1
+se_diff<-mean_diff/as.double(pc2$statistic) # divide mean diff by pc2 t-statistics
+abs(round(se_diff, digits=2))
+df_pcaph<-as.double(pc2$parameter)
+#rr for "PCS between german sample and study 1 participants"
+rr_pc2 <- bfrr(
+    sample_mean = mean_diff, # mean of the sample
+    sample_se =se_diff,# SE of the sample
+    sample_df=df_pcaph, #t-test sample df
+    model = "normal", #or normal 
+    mean = 0, # mean of the H1 distribution
+    sd = sd_theory_diff, # half 
+    tail = 2, # is the test 1-tailed or 2-tailed
+    criterion = 3, # BF against which to test for support for H1/H0
+    precision = 0.001 # precision to vary RR parameters
+)
+summary(rr_pc2)
+round(rr_pc2$RR$sd, digits=2) #round rr
+
+
+#comparison between german sample and Exp 2 sample
+data_pc2_2 <- filter(compared, 
+                   !Experiment == "Experiment 1") #keep only Exp 2 participants and german sample
+data_pc2_2$Experiment<-as.factor(as.character(data_pc2_2$Experiment))
+pc3<-t.test(data_pc2_2$Pcscore~data_pc2_2$Experiment) #t test comparing PCS score between German sample and Study 2 sample (self-reported aphantatics)
+round(pc3$parameter, digits=2) #round df
+round(pc3$statistic, digits=2) #round t value
+round(pc3$p.value, digits=2) #round p value to 2 digits (it's 0.018 so it has to be rounded to 2 digits)
+round(pc3$conf.int, digits=2) #round confidence interval
+hedges_g(data_pc2_2$Pcscore~data_pc2_2$Experiment) #95% CI for Hedges’ g is not reported in the manuscript to avoid confusion with the 95% CI reported in the same sentence
+
+
+          
+mean_diff2 <- summary_pcs_2$mean_pc[3] - summary_pcs_2$mean_pc[2] #substract mean of german sample minus mean Experiment 2 aphantasics  
+round(mean_diff2, digits=2)
+se_diff2<-mean_diff2/as.double(pc3$statistic) # divide mean diff by pc2 t-statistics
+abs(round(se_diff2, digits=2)) #round se for reporting
+df_pcaph2<-as.double(pc3$parameter)
+#rr for PCS comparison between German sample and Study 2 sample (self reported aphantasics)
+rr_pc22 <- bfrr(
+    sample_mean = mean_diff2, # mean of the sample
+    sample_se =se_diff2,# SE of the sample
+    sample_df=df_pcaph2, #pc2 t-test sample df
+    model = "normal", #or normal 
+    mean = 0, # mean of the H1 distribution
+    sd = sd_theory_diff, # half 
+    tail = 2, # is the test 1-tailed or 2-tailed
+    criterion = 3, # BF against which to test for support for H1/H0
+    precision = 0.001 # precision to vary RR parameters
+)
+summary(rr_pc22) #get written BF results 
+round(rr_pc22$RR$sd, digits=2) #round rr
+sprintf("%.2e", rr_pc22$BF) #BF to scientific for reporting
+
+#generated figure s2
+#let's re-order the group variable prior to plotting -> please note this is done just for generating the figure
+compared2<- compared #into new dataframe to avoid confusion with order
+levels(compared2$Experiment) <- c("Study 1 sample", "Study 2 sample", "German sample") #let's rename the groups for the plot
+set.seed(myseed) #this needs to be repeated before each figure with jittered dots
+plot_aphnoaph_pc<- ggbetweenstats( #make plot of all three groups together
+    data = compared2,
+    x = Experiment,
+    results.subtitle = FALSE, 
+    pairwise.comparisons = FALSE,
+    y = Pcscore,
+    grouping.var = group,
+    title ="", 
+    point.path.args = list(alpha = 0.3, linetype = "dotted"), 
+    bf.message=FALSE, 
+    xlab = "",
+    ylab = "PCS", ggplot.component = list(ggplot2::scale_y_continuous(breaks = seq(0, 5, 1), limits=c(0, 5))))+
+    ggpubr::theme_pubr(legend="none")
+ggsave(plot =plot_aphnoaph_pc, paste("figures2_", Sys.Date(), ".tiff", sep = ""), width = 200, height =120, units="mm") #this helps generating a figure without overwriting the one already present
+
+```
+
+
+

@@ -1,0 +1,112 @@
+---
+title: "imgimport"
+output: html_document
+date: "2023-02-28"
+---
+
+#load libraries
+```{r setdup1, include=FALSE}
+library(tidyverse)
+library(readxl)
+library(writexl)
+library(psych)
+sessionInfo() #Print version information about R, the OS and attached or loaded packages 
+```
+
+#SWASH
+
+# Experiment 1 import database for both swash,  and calculate:mean vviq, mean swash
+```{r setdup88, include=FALSE}
+data_swash<-read_xlsx("SWASH_VVIQ_raw.xlsx")
+
+data_swash <- data_swash %>%
+  rowwise() %>%
+  mutate(posthyp = exp(mean(c(log(PostHypnoticSub1), log(PostHypnoticSub2)))), 
+         TasteSubj= mean(c(SweetSubRating, SourSubRating)),
+         SWASH = mean(c(HandBecomesHeavy, MagneticHands, Mosquito, StiffArm, HandAndArmHeavy, HappyBirthday, ColouredBalls, Amnesia, posthyp, TasteSubj)),
+         VVIQ =mean(c(vviq1, vviq2, vviq3, vviq4, vviq5, vviq6, vviq7, vviq8, vviq9, vviq10, vviq11, vviq12, vviq13, vviq14, vviq15, vviq16)))
+
+data_swash$Experiment<-rep("Experiment 1",each=1, times=nrow(data_swash)) #generate experiment column
+data_swash$Group <- factor(ifelse(data_swash$VVIQ>2, "Non-aphantasics", "Blinded aphantasics")) #Generate group column, to distinguish aphantasics from non-aphantasics
+data_swash0<-data_swash
+
+subset(data_swash0)
+round(mean(rowSums(data_swash0[,c("vviq1", "vviq2", "vviq3", "vviq4", "vviq5", "vviq6", "vviq7", "vviq8", "vviq9", "vviq10", "vviq11", "vviq12", "vviq13", "vviq14", "vviq15", "vviq16")])), digits=2) #calculate mean of total sum to report in Materials
+round(psych::alpha(data_swash0[,c("vviq1", "vviq2", "vviq3", "vviq4", "vviq5", "vviq6", "vviq7", "vviq8", "vviq9", "vviq10", "vviq11", "vviq12", "vviq13", "vviq14", "vviq15", "vviq16")])$total$raw_alpha,2) #calculate alpha to report in Materials section
+
+data_swash<- subset (data_swash, select = c(Age, Gender, VVIQ, SWASH, Group, Experiment)) #subset data prior to merging
+```
+
+#Experiment 2 import data and calculate mean vviq and mean swash, check vviq scores above 2 on the aphantasics sample (need to be removed as they do not meet criteria for aphantasia)
+```{r setdup88d, include=FALSE}
+data_swash_aph<-read_xlsx("aph_swash_raw.xlsx") #import pc 
+
+data_swash_aph <- data_swash_aph %>%
+   rowwise() %>%
+  mutate(posthyp = exp(mean(c(log(PostHypnoticSub1), log(PostHypnoticSub2)))), 
+         TasteSubj= mean(c(SweetSubRating, SourSubRating)),
+         SWASH = mean(c(HandBecomesHeavy, MagneticHands, Mosquito, StiffArm, HandAndArmHeavy, HappyBirthday, ColouredBalls, Amnesia, posthyp, TasteSubj)),
+         VVIQ =mean(c(vviq1, vviq2, vviq3, vviq4, vviq5, vviq6, vviq7, vviq8, vviq9, vviq10, vviq11, vviq12, vviq13, vviq14, vviq15, vviq16)))
+
+range_vviq_aph<-c(min(data_swash_aph$VVIQ), max(data_swash_aph$VVIQ)) #check range, check that vviq is equal or below two, should be min 1 and max 2
+data_swash_aph <- filter(data_swash_aph, 
+                      !VVIQ > 2) #remove whoever is above 2 on VVIQ!
+
+data_swash_aph$Experiment<-rep("Experiment 2",each=1, times=nrow(data_swash_aph))  #generate experiment column
+
+data_swash_aph$Group<-rep("Self-reported aphantasics",each=1, times=nrow(data_swash_aph)) #generate group column
+
+data_swash_aph<- subset (data_swash_aph, select = c(Age, Gender, VVIQ, SWASH, Group, Experiment)) #subset data prior to merging
+
+all_swash<-rbind(data_swash, data_swash_aph)  #merge exp1 and 2
+write_xlsx(all_swash, "swash_vviq_full.xlsx")
+```
+
+# PCS
+# Experiment 1 import database for both pcs,  and calculate:mean vviq, mean pcs
+```{r setdup88ddd, include=FALSE}
+data_pc<-read_xlsx("PCS_VVIQ_raw.xlsx")
+
+data_pc <- data_pc %>%
+  rowwise() %>%
+  mutate(posthyp = exp(mean(c(log(PostHypnoticSub1), log(PostHypnoticSub2)))), 
+         TasteSubj= mean(c(SweetSubRating, SourSubRating)),
+         Pcscore = mean(c(HandBecomesHeavy, MagneticHands, Mosquito, StiffArm, HandAndArmHeavy, HappyBirthday, ColouredBalls, Amnesia, posthyp, TasteSubj)),
+         VVIQ =mean(c(vviq1, vviq2, vviq3, vviq4, vviq5, vviq6, vviq7, vviq8, vviq9, vviq10, vviq11, vviq12, vviq13, vviq14, vviq15, vviq16)))
+
+data_pc$Experiment<-rep("Experiment 1",each=1, times=nrow(data_pc)) #generate experiment column
+data_pc$Group <- factor(ifelse(data_pc$VVIQ>2, "Non-aphantasics", "Blinded aphantasics")) #Generate group column, to distinguish aphantasics from non-aphantasics
+data_pc0<-data_pc
+round(mean(rowSums(data_pc0[,c("vviq1", "vviq2", "vviq3", "vviq4", "vviq5", "vviq6", "vviq7", "vviq8", "vviq9", "vviq10", "vviq11", "vviq12", "vviq13", "vviq14", "vviq15", "vviq16")])), digits=2) #calculate mean of total sum to report in materials section
+round(psych::alpha(data_pc0[,c("vviq1", "vviq2", "vviq3", "vviq4", "vviq5", "vviq6", "vviq7", "vviq8", "vviq9", "vviq10", "vviq11", "vviq12", "vviq13", "vviq14", "vviq15", "vviq16")])$total$raw_alpha,2) #calculate alpha to report in Materials section
+ #calculate alpha
+ 
+data_pc<- subset (data_pc, select = c(Age, Gender, VVIQ, Pcscore, Group, Experiment)) #subset data prior to merging
+
+```
+
+#Experiment 2 import data and calculate mean vviq and mean pcs, check vviq scores above 2 on the aphantasics sample (need to be removed as they do not meet criteria for aphantasia)
+```{r setdup8xx8, include=FALSE}
+data_aph_pc<-read_xlsx("aph_pcs_raw.xlsx") #import pc 
+
+data_aph_pc <- data_aph_pc %>%
+  rowwise() %>%
+  mutate(posthyp = exp(mean(c(log(PostHypnoticSub1), log(PostHypnoticSub2)))), 
+         TasteSubj= mean(c(SweetSubRating, SourSubRating)),
+         Pcscore = mean(c(HandBecomesHeavy, MagneticHands, Mosquito, StiffArm, HandAndArmHeavy, HappyBirthday, ColouredBalls, Amnesia, posthyp, TasteSubj)),
+         VVIQ =mean(c(vviq1, vviq2, vviq3, vviq4, vviq5, vviq6, vviq7, vviq8, vviq9, vviq10, vviq11, vviq12, vviq13, vviq14, vviq15, vviq16)))
+
+data_aph_pc$group<-rep("Self-reported aphantasics",each=1, times=nrow(data_aph_pc)) #group
+
+data_aph_pc <- filter(data_aph_pc,  #remove people scoring above 2
+                   !VVIQ > 2)
+data_aph_pc$Experiment<-rep("Experiment 2",each=1, times=nrow(data_aph_pc)) #generate experiment column
+data_aph_pc$Group <- rep("Self-reported aphantasics",each=1, times=nrow(data_aph_pc)) #
+
+only_pcs_aph <-  subset (data_aph_pc, select = c(Age, Gender, VVIQ, Pcscore, Group, Experiment)) #subset data for saving final dataframe
+
+
+all_pc<-rbind(data_pc, only_pcs_aph) #merge exp1 and 2
+write_xlsx(all_pc, "pcs_vviq_full.xlsx") #save for step 2 
+```
+
