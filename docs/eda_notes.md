@@ -398,17 +398,35 @@ to unmeasured spontaneous channel.
 
 **Revised taxonomy coverage with spontaneous branch collapsed into suggested:**
 
-With spontaneous phenomena treated as explicitly suggestionable, the uncovered space
-reduces to: affective suggestions (a1–a9), kinesthetic/proprioceptive positive (s5),
-analgesia/anaesthesia (s7/s8), higher cognitive (age regression/progression, false
-memory, trance logic, delusions), communicative motor (automatic writing, signaling),
-and relational (r1–r4). These remain genuinely absent from the existing datasets and
-require new instruments.
+With spontaneous phenomena treated as explicitly suggestionable, the irrecoverable
+gap for a brief self-report scale comes down to four structural constraints:
 
-The effective coverage of the *measurable* taxonomy (suggested + spontaneous-as-
-suggested, excluding relational) rises from ~30% to a potential ~55% with a revised
-10-item scale incorporating the proposed items (§11), and to ~75% if spontaneous items
-are added as explicit suggestions.
+1. **Apparatus required**: analgesia/anaesthesia (s7, s8) — needs a calibrated pain
+   or sensory stimulus; cannot be self-reported against nothing.
+2. **Different unit of analysis**: relational (r1–r4) — dyadic, not individual measures.
+3. **Different measurement modality**: observer-only spontaneous motor (xm1–xm7) —
+   waxy flexibility, psychomotor retardation, blinking rate. Behavioural, not
+   experiential. Requires video coder or trained rater.
+4. **Scale-format incompatible**: extended cognitive (hypermnesia, paramnesia, age
+   regression/progression) — need memory baselines or multi-session procedures.
+
+Partial gaps requiring design choices: affective suggestions (a1–a9, construct
+validity uncertain), trance logic (c7, needs probe task design).
+
+**Heaviness/force sensations are already covered** by existing motor items:
+- Hand lowering (m3) = heaviness
+- Hands together (m1) = magnetic force/pull
+- Arm immobilisation (m8) = resistance/heaviness against lifting
+
+**Floating is the genuine s5 gap.** Floating/levitation is not in PCS/SWASH/HGSHS:A.
+It maps directly onto arm levitation (m2, also absent) — adding one item covers both
+s5-floating and m2 simultaneously. Standard delivery: "Your arm feels lighter and
+lighter, as if it wants to rise on its own." Classic ideomotor suggestion, no
+equipment, natural 0–5 gradient.
+
+The effective coverage of the *self-reportable* taxonomy rises from ~30% to ~60%
+with the revised 10-item scale (§11) + floating item, and to ~75% if spontaneous
+items are added as explicit suggestions.
 
 ---
 
@@ -620,18 +638,19 @@ probably accounts for a meaningful fraction of the floor.
 Proposed item set replacing or improving all floored items while preserving the
 validated motor pair and taste:
 
-| # | Item | Modality | Replaces | Floor expected | Equipment |
-|---|------|----------|----------|----------------|-----------|
-| 1 | Hand lowering | Motor ideomotor | — (keep) | ~4% | None |
-| 2 | Moving hands together | Motor ideomotor | — (keep) | ~6% | None |
-| 3 | Localised tingling (finger) | Tactile/somatic | Mosquito | Low | None |
-| 4 | Taste hallucination | Gustatory | — (keep) | ~25% | None |
-| 5 | Arm rigidity | Motor challenge | — (keep) | ~8% | None |
-| 6 | Arm immobilisation | Motor challenge | — (keep) | ~13% | None |
-| 7 | Eigengrau visual / cross-modal | Visual (+ auditory) | Music + Neg. visual | Low | Speaker optional |
-| 8 | Naming inhibition | Cognitive executive | Amnesia | Low | Picture card |
-| 9 | Chills/ASMR | Somatic autonomic | Post-hypnotic | Low | Optional |
-| 10 | vEAR elaboration | Visual transformative | — (new) | Low | Brief flash |
+| # | Item | Modality | Replaces / adds | Floor expected | Equipment |
+|---|------|----------|-----------------|----------------|-----------|
+| 1 | Hand lowering | Motor ideomotor (heaviness) | — (keep) | ~4% | None |
+| 2 | Moving hands together | Motor ideomotor (force) | — (keep) | ~6% | None |
+| 3 | Arm levitation / floating | Motor facilitated + s5-floating | m2 + s5 (new) | Low | None |
+| 4 | Localised tingling (finger) | Tactile/somatic — s10 | Mosquito | Low | None |
+| 5 | Taste hallucination | Gustatory — s4 | — (keep) | ~25% | None |
+| 6 | Arm rigidity | Motor challenge — m7 | — (keep) | ~8% | None |
+| 7 | Arm immobilisation | Motor challenge — m8 | — (keep) | ~13% | None |
+| 8 | Eigengrau visual / cross-modal | Visual + auditory — s1/s2 | Music + Neg. visual | Low | Speaker optional |
+| 9 | Naming inhibition | Cognitive executive — c9 | Amnesia | Low | Picture card |
+| 10 | Chills/ASMR | Somatic autonomic — s3/s10 | Post-hypnotic | Low | Optional |
+| 11 | vEAR elaboration | Visual transformative — s1 | — (new) | Low | Brief flash |
 
 Motor pair (#5, #6) preserved as the two-item short form. All floor items replaced
 with lower-floor alternatives grounded in sensory-confidence framework. Three new
