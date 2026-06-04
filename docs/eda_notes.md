@@ -1,741 +1,584 @@
 # EDA notes — suggestibility datasets
 *W. Weaver, June 2026. Aside from main paper. Scripts: analysis/a09_eda.py, analysis/a10_eda2.py.*
 
+Theory anchor: **Phenomenawork Causal Model — PP × GWT × HOT/CCT.** Three layers explain
+both what the existing scale data shows and what a better scale should measure. Each layer
+also maps onto a practitioner E from the 3Es model (Expectation, Engagement, Emotion).
+
 ---
 
-## 1. VVIQ does not predict visual items — it predicts taste
+## Part A: Empirical findings
+
+### A1. VVIQ predicts taste, not visual items
 
 **Dataset:** df2 (PCS-VVIQ, N=508)
 
-VVIQ total correlates most strongly with taste hallucination (r=0.242), not with visual items.
-Neg. visual hallucination r=−0.017 (ns). Music r=0.076 (ns). Arm rigidity r=0.146 (p<.01).
+VVIQ total correlates most strongly with taste hallucination (r=0.242), not with visual
+items. Neg. visual hallucination r=−0.017 (ns). Music r=0.076 (ns). Arm rigidity r=0.146
+(p<.01).
 
 Sub-item check: sweet r=0.218, sour r=0.223 — nearly identical. The taste-VVIQ
 relationship is not a reliability artefact from averaging two ratings; it is present in
 both components equally.
 
-VVIQ does not predict profile membership (Kruskal-Wallis p=0.11). High imagers are
-not disproportionately in any response-profile group.
+VVIQ does not predict profile membership (Kruskal-Wallis p=0.11). High imagers are not
+disproportionately in any response-profile group.
 
-**Interpretation.** VVIQ captures general phenomenological richness or imaginative
-compliance, not visual-modality-specific imagery. The prediction that imagery vividness
-would selectively elevate perceptual/visual items is not supported. The
-visual hallucination items are near-floor in this sample, so floor effects may
-suppress any true correlation there; but mosquito hallucination (which does not floor,
-pass rate 69%) also sits below taste (r=0.092 vs 0.242). Taste hallucination may
-genuinely require vivid cross-modal imagination in a way visual items do not.
-
-**Follow-up questions.**
-- Does VVIQ predict the taste sub-items equally across scales (SWASH has matched items)?
-- Is the taste-VVIQ link replicated in df3 (SWASH paper)?
-- Does vividness of olfactory/gustatory imagery (not measured by VVIQ, which is purely visual)
-  mediate the taste finding?
+**Interpretation.** Taste hallucination has no competing ambient sensory signal — it is
+already a "pure prior" context — and VVIQ predicts it strongly. Music and visual items
+floor in a clear sensory environment: prior strength is irrelevant when sensory confidence
+is high. Under sensory degradation the VVIQ correlations should emerge (see PP layer
+section).
 
 ---
 
-## 2. Response profiles: one dominant type, no distinct perceptual class
+### A2. Response profiles: one dominant type, no distinct perceptual class
 
 **Dataset:** df1 PCS (N=244), k-means k=4
 
-| Profile | n | % | Signature |
-|---------|---|---|-----------|
-| P1 | 12 | 5% | High all items including music (3.67) — rare high-suggestible |
-| P2 | 15 | 6% | Neg. visual = 4.73, music near-zero — specific visual responder |
-| P3 | 138 | 57% | High motor + ideomotor, both perceptual floor items near-zero — **modal** |
-| P4 | 79 | 32% | Low everything — low-suggestible |
+| Profile | n   | %   | Signature |
+|---------|-----|-----|-----------|
+| P1      | 12  |  5% | High all items including music (3.67) — rare high-suggestible |
+| P2      | 15  |  6% | Neg. visual = 4.73, music near-zero — specific visual responder |
+| P3      | 138 | 57% | High motor + ideomotor, both perceptual floor items near-zero — **modal** |
+| P4      | 79  | 32% | Low everything — low-suggestible |
 
-Profile P2 (neg-visual spike) was inspected at case level: 13/15 had neg-visual = 5/5
-(ceiling). These are not noise. They are mid-to-high overall responders who also maxed
-out on visual hallucination specifically; many have high motor scores as well. This is
-probably a small high-responder subgroup, not a qualitatively distinct type.
+Profile P2 (neg-visual spike) inspected at case level: 13/15 had neg-visual = 5/5. These
+are not noise — mid-to-high overall responders who also maxed visual hallucination. Likely
+a small high-responder subgroup, not a qualitatively distinct type.
 
-No "motor-only" cluster emerges that is distinct from "motor + ideomotor." Motor challenge
-and ideomotor items cluster naturally together in the modal profile.
-
-**LCA (Bernoulli mixture EM) on binary pass/fail responses:**
-
-BIC selects k=2 over k=3, 4, 5. The two-class solution:
+**LCA (Bernoulli mixture EM) on binary pass/fail:**
+BIC selects k=2. Two-class solution:
 
 | Class | Weight | P(pass\|motor) | P(pass\|music) | P(pass\|neg.vis) |
-|-------|--------|---------------|----------------|-----------------|
-| High  | 73%    | ~0.99          | 0.185           | 0.121            |
-| Low   | 27%    | ~0.77          | 0.000           | 0.039            |
+|-------|--------|----------------|----------------|-----------------|
+| High  | 73%    | ~0.99          | 0.185          | 0.121           |
+| Low   | 27%    | ~0.77          | 0.000          | 0.039           |
 
-No evidence for a qualitatively distinct perceptual-responder class. The structure is
-a gradient, not a taxonomy. Consistent with the GMM-BIC result on HGSHS:A (see §4).
+No evidence for a qualitatively distinct perceptual-responder class. The structure is a
+gradient. Consistent with GMM-BIC on HGSHS:A (see dimensionality section).
 
 ---
 
-## 3. Motor items are the least temporally stable
+### A3. Item retest stability
 
-**Dataset:** PCS norms retest file (n=61 PCS, n=62 SWASH, embedded re-administration)
+**Dataset:** PCS norms retest (n=61 PCS, n=62 SWASH, embedded re-administration)
 
-PCS item test-retest correlations:
-
-| Item | Type | r (PCS) | r (SWASH) | Floor T1 |
-|------|------|---------|-----------|----------|
-| Hand lowering | motor | 0.323 | 0.469 | 0% |
-| Hands together | motor | 0.318 | 0.490 | 2% |
-| Mosquito | perceptual | 0.503 | 0.610 | 28% |
-| Taste | perceptual | 0.449 | 0.639 | 18% |
-| Arm rigidity | motor | 0.217 | 0.558 | 0% |
-| Arm immobilisation | motor | 0.411 | 0.420 | 5% |
-| Music | perceptual | 0.645 | −0.013 | 84% |
-| Neg. visual | perceptual | 0.216 | −0.025 | 95% |
-| Amnesia | cognitive | 0.337 | 0.382 | 23% |
-| Post-hypnotic | cognitive | 0.266 | 0.193 | 54% |
+| Item               | Type       | r (PCS) | r (SWASH) | Floor T1 |
+|--------------------|------------|---------|-----------|----------|
+| Hand lowering      | motor      | 0.323   | 0.469     | 0%       |
+| Hands together     | motor      | 0.318   | 0.490     | 2%       |
+| Mosquito           | perceptual | 0.503   | 0.610     | 28%      |
+| Taste              | perceptual | 0.449   | 0.639     | 18%      |
+| Arm rigidity       | motor      | 0.217   | 0.558     | 0%       |
+| Arm immobilisation | motor      | 0.411   | 0.420     | 5%       |
+| Music              | perceptual | 0.645   | −0.013    | 84%      |
+| Neg. visual        | perceptual | 0.216   | −0.025    | 95%      |
+| Amnesia            | cognitive  | 0.337   | 0.382     | 23%      |
+| Post-hypnotic      | cognitive  | 0.266   | 0.193     | 54%      |
 
 Mean retest r by type (PCS): motor=0.317, perceptual=0.453, cognitive=0.301.
 
-Motor items are less stable session-to-session than perceptual items in PCS.
-Music hallucination (r=0.645 in PCS) is the single most stable item, despite being
-84% floor. When a participant does experience music hallucination, they reliably
-experience it again.
-
-SWASH reverses the perceptual picture: music and neg-visual drop to near-zero retest
-r under SWASH, where floor rates are ~89% and ~94%. Too few non-zero cases to
-produce stable correlations.
-
-**Implication for the screener.** The motor pair has good internal consistency
-(inter-item r ~0.55 embedded), but modest individual item stability (arm rigidity
-r=0.217 PCS). The perceptual items that look useless for cross-sectional variance
-carry more trait-like signal when they do fire. This is a genuine tension if the
-two-item form is ever tested as a standalone instrument — standalone administration
-may show worse retest stability than expected from the embedded figures.
+Motor items are *less* stable session-to-session than perceptual items in PCS despite
+dominating the cross-sectional variance. Music hallucination (r=0.645 PCS) is the single
+most stable item — when the experience fires it fires consistently (trait signal is real).
+SWASH collapses music and neg-visual retest r to near-zero because floor rates climb to
+~89%/~94%: too few non-zero cases to correlate.
 
 ---
 
-## 4. HGSHS:A objective score is dimensional, not taxonic
+### A4. HGSHS:A objective score is dimensional, not taxonic
 
 **Dataset:** df4 (Terhune/Reshetnikov, N=584)
 
-Gaussian mixture model BIC comparison:
+| k | BIC    | AIC    | Means               | Weights      |
+|---|--------|--------|---------------------|--------------|
+| 1 | 2740.8 | 2732.1 | [5.74]              | [1.0]        |
+| 2 | 2754.4 | 2732.6 | [4.37, 7.87]        | [0.61, 0.39] |
+| 3 | 2769.0 | 2734.1 | [4.16, 7.34, 1.41]  | [0.33, 0.58, 0.09] |
 
-| k | BIC | AIC | Means | Weights |
-|---|-----|-----|-------|---------|
-| 1 | 2740.8 | 2732.1 | [5.74] | [1.0] |
-| 2 | 2754.4 | 2732.6 | [4.37, 7.87] | [0.61, 0.39] |
-| 3 | 2769.0 | 2734.1 | [4.16, 7.34, 1.41] | [0.33, 0.58, 0.09] |
+BIC favours k=1 (dimensional) by 13.6 points over k=2. MAMBAC curve (arm rigidity
+indicator) is monotone. Score distribution roughly unimodal, centred ~5–6 out of 12.
 
-BIC favours the single-component (dimensional) model by 13.6 points over k=2.
-MAMBAC curve (arm rigidity indicator) is monotone, consistent with dimensionality.
-Score distribution is roughly unimodal, centred around 5–6 out of 12.
-
-**Note.** GMM-BIC is not identical to the waveform-based taxometric methods (MAMBAC,
-MAXEIG, L-Mode) used in the Terhune paper. These results are complementary, not
-directly contradictory. The published taxometric claim should be re-examined with
-proper MAMBAC/MAXEIG on these data using the original item indicators.
+Note: GMM-BIC is not identical to waveform-based taxometric methods (MAMBAC, MAXEIG,
+L-Mode) used in the Terhune paper. Complementary, not contradictory. Full taxometric
+replication is warranted.
 
 ---
 
-## 5. Induction (SWASH) uniformly suppresses responding — no amplification
+### A5. Induction (SWASH) uniformly suppresses responding
 
-**Dataset:** df1 randomised norms (PCS N=244 vs SWASH N=240, same item pool)
+**Dataset:** df1 randomised norms (PCS N=244 vs SWASH N=240)
 
-All items decrease from PCS to SWASH. There is no amplification.
+All items decrease from PCS to SWASH. No amplification.
 
-| Item type | Mean change |
-|-----------|-------------|
-| Perceptual (mosquito, taste, music, neg.visual) | −36% to −48% |
-| Motor challenge (rigidity, immobilisation) | −22% to −25% |
-| Motor ideomotor (hand lower, hands together) | −13% to −17% |
-| Cognitive (amnesia, post-hypnotic) | −2% to −7% |
+| Item type                                          | Mean change    |
+|----------------------------------------------------|----------------|
+| Perceptual (mosquito, taste, music, neg.visual)    | −36% to −48%  |
+| Motor challenge (rigidity, immobilisation)         | −22% to −25%  |
+| Motor ideomotor (hand lower, hands together)       | −13% to −17%  |
+| Cognitive (amnesia, post-hypnotic)                 | −2% to −7%    |
 
-**Interpretation.** The higher motor-pair correlation under SWASH is not because
-induction amplifies motor responding — it is because perceptual items are pushed
-further toward floor, leaving the total variance even more dominated by motor items.
+Profile 4 (low-everything) grows from 23% (PCS) to 51% (SWASH) — whole-distribution
+compression downward, not selective shift.
 
-The differential suppression pattern is consistent with a relaxation/context mechanism:
-- Perceptual items require active effortful imagination → suppressed most by relaxation
-- Motor ideomotor items involve passive kinesthetic experience → partially facilitated by relaxation
-- Cognitive items (amnesia, PHS) depend on compliance/expectation mechanisms → nearly unaffected
-- Motor challenge items are intermediate
-
-A competing context-effects account: the formal hypnosis framing raises the subjective
-threshold for what counts as a genuine experience (participants demand more of
-themselves before rating), particularly for imaginative/perceptual items that feel
-more voluntary.
-
-**Profile consequence.** Profile D joint fit shows Profile 4 (low-everything) growing
-from 23% (PCS) to 51% (SWASH). This is a whole-distribution compression downward,
-not a selective shift of low-suggestibles upward.
+Two competing accounts:
+1. **Relaxation mechanism:** perceptual items require active effortful imagination →
+   suppressed most by relaxation. Ideomotor items involve passive kinesthetic experience
+   → partially spared.
+2. **Context/threshold effect (PP):** formal hypnosis framing raises the subjective
+   threshold for what counts as a genuine experience. Participants demand more of
+   themselves before rating, especially for imaginative/perceptual items that feel more
+   voluntary. Cognitive items (amnesia, PHS) depend on compliance mechanisms → nearly
+   unaffected.
 
 ---
 
-## 6. Scale development idea: lift perceptual floors via sensory degradation
+## Part B: PP layer — priors, sensory confidence, and floor effects
 
-The persistent floor on music hallucination (~84%) and negative visual hallucination
-(~92%) is not a defect in those items per se — they are valid perceptual suggestions
-that carry domain-specific variance and high trait stability when they fire (music
-retest r=0.645). The floor is a consequence of running the scale in a normal sensory
-environment, where high sensory confidence means top-down suggestions can rarely
-compete with bottom-up input.
+*Practitioner equivalent: Expectation (the E that sets the prior before experience begins).*
 
-**The mechanism (Reeder 2024; Clark 2013, 2015, 2023; Dijkstra):**
-
-Under predictive processing, perception is a weighted competition between bottom-up
-sensory evidence (precision-weighted) and top-down priors. In a quiet, well-lit
-testing room, sensory confidence is high and suggestions lose. Reducing sensory
-confidence — by introducing ambiguous background stimulation — shifts the balance
-toward top-down priors, enabling more participants to experience the suggested
-percept.
-
-Two established laboratory demonstrations of this:
-
-**Auditory — White Christmas paradigm**
-- Barber & Calverley (1964): participants instructed to imagine "White Christmas";
-  >50% reported hearing it clearly.
-- Merckelbach & van de Ven (2001): signal-detection version with white noise
-  background; participants reported the song embedded in static. Fantasy proneness
-  modulated the effect.
-- Directly applicable to music hallucination: presenting the suggestion against
-  low-level broadband noise would reduce sensory confidence, lower the effective
-  threshold, and convert a near-floor item into a variable one.
-
-**Visual — Dijkstra paradigm (Dijkstra, Bosch & van Gerven)**
-- Participants imagine a Gabor patch (tilted grating) while viewing dynamic visual
-  noise. Vivid imagers show reality-monitoring failures — they report the imagined
-  pattern as actually present.
-- Neural mechanism: visual imagery activates V1/fusiform with sufficient signal to
-  cross a reality threshold governed by frontal-visual networks; visual noise reduces
-  the competing bottom-up signal so the threshold is crossed more easily.
-- Applicable to negative visual hallucination: present the suggestion against a
-  dynamic visual noise background (or a Gabor-family ambiguous stimulus) rather than
-  in a clear field.
-
-**Connection to Reeder's Divergent Predictive Perception Model (2024):**
-Sensory confidence = Bayesian precision weight on incoming data.
-Degraded input (white noise, visual static) forces sensory confidence toward zero,
-making high-level priors (the suggestion) dominate.
+Under predictive processing, perception is the outcome of a precision-weighted competition
+between bottom-up sensory evidence (Si) and top-down generative model (Se). The brain
+does not read Si directly — it reads it through Se. The posterior experience is always a
+blend.
 
 ```
-Normal:   High sensory confidence + weak prior  → realistic perception
-Degraded: Low sensory confidence  + strong prior → suggested hallucination
+Normal environment:   High precision(Si) + weak prior  →  veridical perception
+Degraded environment: Low precision(Si)  + strong prior →  suggested hallucination
 ```
 
-Reeder's model adds individual differences: position on the aphantasia–hyperphantasia
-spectrum determines the strength of the mid-level imagery prior. Hyperphantasics
-generate a large top-down signal that easily clears the reality threshold; aphantasics
-generate none and would not hallucinate even under degraded conditions. This predicts
-that the VVIQ × item correlation that currently disappears at floor (music r=0.076,
-visual r=−0.017) would emerge strongly under sensory degradation.
+Reeder's (2024) Divergent Predictive Perception Model: individual differences in the
+aphantasia–hyperphantasia spectrum determine the strength of the mid-level imagery prior.
+Hyperphantasics generate a large top-down signal that clears the reality threshold easily;
+aphantasics generate none and would not hallucinate even under degraded conditions.
 
-**Our data make this prediction concrete:**
+**What it explains in the data:**
+- Floor on music (85%) and neg-visual (90%): normal acoustic/visual environment has high
+  sensory confidence; the prior (suggestion) loses.
+- VVIQ predicts taste (r=0.242) but not visual items: gustatory context has no competing
+  ambient signal, so prior strength determines outcome. Under sensory degradation the
+  visual/auditory VVIQ correlations should emerge.
+- SWASH suppression (context-effects account): induction loads a prior that raises the
+  experienced-percept bar, disproportionately hurting imaginative/perceptual items.
+- Mosquito partial floor (43%): multi-modal suggestion in an uncontrolled environment —
+  some participants' sensory confidence for the relevant modality is too high to pass.
 
-| Item | Retest r (trait stability when non-zero) | Floor rate | VVIQ r (current) |
-|------|------------------------------------------|------------|-----------------|
-| Music hallucination | 0.645 | 84% | 0.076 |
-| Neg. visual hallucination | 0.216 (unreliable at floor) | 95% | −0.017 |
-| Taste hallucination | 0.449 | 18% | **0.242** |
+**Interventions at this layer — substrate approaches:**
 
-Taste hallucination has no ambient masking noise to overcome — it is already a "pure
-imagery" context — and VVIQ predicts it strongly. Music and visual items are suppressed
-by a clear sensory environment. If that environment were degraded, VVIQ should predict
-them as strongly as it currently predicts taste, or more so (perceptual modality match).
+*1. Degraded environment (equipment-assisted)*
+- Auditory: suggestion against low-level broadband noise (~40 dB). Direct analogue of
+  Merckelbach & van de Ven (2001) White Christmas paradigm.
+- Visual: suggestion against dynamic pixelated noise or phase-scrambled grating (Dijkstra
+  paradigm). Vivid imagers show reality-monitoring failures when imagined pattern competes
+  with noise.
 
-**Three substrate approaches for perceptual items:**
+*2. Eigengrau/phosphene substrate (no equipment)*
+Eyes closed in a moderately darkened room. The visual field is already a dynamic noise
+field (eigengrau + phosphene activity) — sensory confidence for "external visual input" is
+near zero by default. The phosphenes are genuine first-order visual states; they are not
+generated by the suggestion. The suggestion then routes attention to them (GWT) and gives
+them shape and direction (PP prior).
 
-**1. Degraded-environment versions (equipment-assisted)**
-- *Auditory:* suggestion delivered against low-level broadband noise (~40 dB); rate
-  intensity of heard music 0–5. Direct analogue of Merckelbach & van de Ven.
-- *Visual:* suggestion delivered against dynamic pixelated noise or phase-scrambled
-  grating (Dijkstra paradigm); rate intensity of seen pattern 0–5.
+Instruction principle: discovery-oriented — "notice what appears" not "try to see X."
+Spontaneous > deliberate. Forced attempts fail (Sheldrake microphenomenological data;
+Weaver 2024, veil-of-perception). The progression observed empirically: phosphene flicker
+(1) → colour splotches → organised shapes → outlined forms → 3D constructs.
 
-**2. Phosphene/eigengrau substrate (no equipment)**
-Eyes closed in a moderately darkened room. The visual field is already a dynamic
-noise field (eigengrau + phosphene activity) — sensory confidence is near-zero by
-default. Two item variants:
-- *Positive visual hallucination:* "Notice the visual field behind your eyes. As you
-  watch, something begins to take shape — a light, a colour, a form." Rate vividness
-  0–5. Natural gradient: phosphene flicker (1) → organised shapes (3) → stable 3D
-  constructs (5).
-- *Instruction principle:* discovery-oriented over volitional — "notice what appears"
-  not "try to see X." Volitional instruction fails; undirected attention on the
-  substrate succeeds. (Weaver, blog.phenomenal.ink/veil-of-perception, n.d.)
-  Phenomenologically equivalent to passing an ideomotor suggestion — the experience
-  arrives, it is not produced.
+Phosphene-hallucination trait link: respondents who report spontaneous hallucination
+experience show ~10× higher odds of phosphene experience (chi-square p < 0.0025;
+Weaver 2024, something-about-phosphenes). The substrate is differentially available to
+those with pre-existing hallucinatory tendency.
 
-Phosphene-hallucination trait link supports this as a valid suggestibility probe:
-respondents who have spontaneous hallucination experience show ~10× higher odds of
-phosphene experience (chi-square p < 0.0025; Weaver, blog.phenomenal.ink/
-something-about-phosphenes, n.d.). When the substrate is already active (phosphenes),
-the suggestion has a real percept to work with rather than nothing.
+*3. Cross-modal synesthesia (Nair & Brang 2019)*
+Brief visual deprivation releases auditory-evoked visual percepts in non-synesthetes —
+cross-modal binding is latent and released by reduced visual sensory confidence. Item:
+eyes closed + tone or musical phrase → colour/form in visual field. Eigengrau provides
+the substrate; the auditory signal is the prior-driving input.
 
-**3. Cross-modal synesthesia item (Nair & Brang 2019)**
-Nair & Brang demonstrated that brief visual deprivation is sufficient to induce
-auditory-evoked visual percepts in non-synesthetes — cross-modal binding is latent
-in the general population and released by reducing visual sensory confidence.
-
-Applied item: eyes closed + brief tone or musical phrase → suggest colour or form
-associated with the sound appears in the visual field. Combines:
-- Eigengrau substrate (visual deprivation, sensory confidence → 0)
-- Auditory input as the prior-driving signal
-- Top-down imagery as the generative mechanism
-
-This collapses the music hallucination and visual hallucination dimensions into a
-single cross-modal item. Reeder's model predicts that hyperphantasics (strong
-mid-level imagery prior) will show the strongest binding; aphantasics will not bind
-even under deprivation, producing maximal individual-differences sensitivity.
-
-The item also connects naturally to the existing scale structure: the music
-hallucination item is already auditory; adding the cross-modal visual component
-upgrades it from a pure auditory suggestion to a richer perceptual event without
-requiring new equipment.
-
-**Additional candidate items:**
-
-**vEAR as a scale item (not just criterion)**
-vEAR (visual evoked afterimage response) has been used here as an external criterion
-(df5 correlations). But the afterimage itself is a natural suggestion substrate: show
-a brief bright stimulus, then suggest the participant maintains, extends, and
-elaborates the afterimage under suggestion. Real sensory persistence provides an
-anchor — not purely imagined, not purely perceived. The suggestion rides a genuine
-trace rather than generating from nothing.
-- Substrate: veridical afterimage (high credibility, reduces demand characteristics)
-- Direction: suggestion to shape/transform/extend what is already there
-- Modality: visual, but distinct from both eigengrau (no prior stimulus) and
-  Dijkstra noise (no structured percept). Closer to the morphic/figure-ground class.
-- Individual differences: vEAR score itself predicts PCS performance (df5), so
-  afterimage suggestibility may already be partially indexed by it.
-
-**Chills/tingles (somatic/ASMR-adjacent)**
-A somatosensory modality absent from PCS/SWASH entirely. ASMR-like tingling and
-musical frissons (chills) share the feature of being:
-- Involuntary (arrive rather than being produced — same phenomenology as ideomotor)
-- Triggered top-down (specific sounds, expectations, or direct suggestion)
-- Graded in intensity (0–5 is natural)
-- Already widely experienced in the general population (ASMR prevalence ~20–30% in
-  unselected samples; frissons higher)
-
-As a suggestion item: auditory trigger (whispering, tapping, music) or direct
-suggestion alone → rate tingling/chilling spreading from scalp or spine 0–5.
-Near-floor problem is less acute than for visual items because the phenomenon is
-common and the relevant sensory confidence (skin/proprioception) is lower than
-external visual/auditory confidence.
-
-The ASMR dataset (Autonomous Experiences Questionnaire) was briefly in the repo
-(removed as unused). Its correlation with PCS items was not run — worth recovering.
-Cross-modal angle: chills to music (frisson) involves an auditory→somatic pathway;
-ASMR involves auditory/visual→somatic. Both are real cross-modal binding under
-reduced threat of sensory contradiction.
-
-**Proposed extended screener (exploratory):**
-
-| Item | Modality | Substrate | Equipment |
-|------|----------|-----------|-----------|
-| Arm rigidity | Motor challenge | Normal | None |
-| Arm immobilisation | Motor challenge | Normal | None |
-| Eigengrau visual | Positive visual | Eyes-closed eigengrau | None |
-| Cross-modal tone→colour | Auditory-visual | Eigengrau + tone | Speaker |
-| vEAR elaboration | Visual-transformative | Afterimage | Brief flash stimulus |
-| Chills/tingling | Somatic | Auditory trigger or direct | Optional speaker |
-
-Would capture: general factor (motor pair) + visual perceptual (eigengrau/vEAR) +
-cross-modal binding (Nair & Brang) + somatic/ASMR channel.
-No floor issues anticipated for any item. All have a substrate that reduces reliance
-on effortful generation.
-
-**Key references:**
-- Barber, T.X., & Calverley, D.S. (1964). *J. Abnorm. Soc. Psychol.*, 68(1), 13–20.
-- Merckelbach, H., & van de Ven, V. (2001). *J. Behav. Ther. Exp. Psychiat.*, 32(3), 137–144.
-- Nair, A., & Brang, D. (2019). Inducing synesthesia in non-synesthetes: Short-term
-  visual deprivation facilitates auditory-evoked visual percepts. *Consciousness and
-  Cognition*, 70, 70–79. https://doi.org/10.1016/j.concog.2019.02.006
-- Dijkstra, N., Bosch, S.E., & van Gerven, M.A.J. (2021). Perceptual reality monitoring.
-  *Trends Cogn. Sci.* (and related MEG/fMRI work).
-- Reeder, R.R. (2024). A novel model of divergent predictive perception. *Neurosci.
-  Biobehav. Rev.* https://doi.org/10.1093/nc/niae011 (verify journal/year).
-- Clark, A. (2013). Whatever next? *Behav. Brain Sci.*, 36(3), 181–204.
-- Clark, A. (2015). *Surfing Uncertainty.* Oxford University Press.
-- Clark, A. (2023). *The Experience Machine.* W.W. Norton.
-- Weaver, W. (n.d.). Something about phosphenes. blog.phenomenal.ink
-- Weaver, W. (n.d.). Veil of perception. blog.phenomenal.ink
+**The loop:** environment → sensory state → internal state → active state → environment.
+PP-layer interventions act at the first two nodes: manipulate the environment (substrate,
+lighting, noise) and thereby lower the precision weight on incoming sensory evidence.
+First-order states created this way can be farmed and grown with engagement over time —
+they are not manufactured by the suggestion, they are routed and elaborated by it.
 
 ---
 
-## 7. The spontaneous/suggested distinction is a delivery artefact
+## Part C: GWT layer — attention, access gate, first-order state farming
 
-The Weitzenhoffer taxonomy separates "spontaneous" phenomena (waxy flexibility,
-psychomotor retardation, time distortion, dissociation, absorption, GRO suspension)
-from "suggested" phenomena. But spontaneous phenomena are not mechanistically
-distinct — they arise because the induction context, setting, and expectation function
-as implicit priors that generate the same top-down suppression of sensory evidence
-that explicit verbal suggestions produce.
+*Practitioner equivalent: Engagement (the E governing what gets attended to and broadcast).*
 
-**The mechanism is identical under predictive processing:**
-- Explicit suggestion: verbal instruction → strong top-down prior → experience
-- Spontaneous phenomenon: context/expectation → strong top-down prior → same experience
+Global Workspace Theory locates the bottleneck at access to broadcast. Signals exist as
+first-order states continuously; most never enter the workspace. Attention is the access
+mechanism: point it somewhere, and that signal wins the competition for broadcast. Without
+broadcast there is no HOT and no phenomenal experience.
 
-The "spontaneous" label means only that the prior source is contextual rather than
-verbal, not that a different computational process is at work.
+**What it explains in the data:**
+- Motor items' low floor: proprioceptive and kinaesthetic first-order states (arm weight,
+  muscle tension, position sense) are always present. The suggestion does not generate
+  them — it routes attention to them. This is why you cannot deny workspace access to
+  existing sensation as easily as you can fail to generate absent sensation.
+- The JND principle: "notice the small differences" is a GWT instruction. It grants
+  workspace access to signals that were already there but losing the competition.
+- Retest stability of motor items (r=0.217–0.503): the first-order states are consistent
+  across sessions because they are real proprioceptive signals; what varies is routing
+  efficiency.
 
-**Implication for the taxonomy:** The spontaneous branch is better treated as an
-inventory of phenomena not yet formalised into explicit suggestion format. Every item
-in the spontaneous branch should be reproducible by giving an explicit verbal
-suggestion — and probably more reliably, since verbal instruction calibrates the prior
-more precisely than ambient context does. The spontaneous/suggested boundary should
-not be treated as a meaningful measurement category.
+**The discovery-oriented instruction principle (veil-of-perception experiments):**
+The minimal suggestion sequence — "notice what you notice; notice any changes however
+slight; notice if observing changes reinforces them" — is a GWT protocol. It directs
+attention to the substrate without generating content. This differs from conventional
+suggestion in that graceful failure is possible: if the first-order state is not
+accessible, nothing is reported; the bar is the participant's actual experience, not
+a demanded outcome.
 
-**Implication for scale coverage:** Items in the spontaneous branch are measurable
-with explicit suggestions:
-- xm1 (Waxy Flexibility) → "Your limbs will hold any position I place them in"
-- xs3 (Time Distortion) → "The time passing will feel much shorter/longer than it is"
-- xs4 (Body Image Distortions) → "You will feel your body sinking, floating, expanding"
-- xc1 (Dissociation) → "Part of you will watch the session from a distance"
-- xc5 (Absorption) → "Your attention will narrow completely to this single experience"
-- xc7 (Abdication of Volition) → "You will find it easy to let go of the sense of directing yourself"
+Subjects trying to deliberately hear/see specific things failed; subjects discovering
+what was already present succeeded. The word heard in the seashell cupping was not a
+manufactured auditory percept — it was ambient sound + auditory pareidolia routed to
+broadcast by attention direction (Weaver 2024, veil-of-perception).
 
-None of these require special apparatus. They are standard therapeutic/clinical
-hypnosis language already in use.
-
-**Implication for the SWASH finding (§5):** The hypnotic induction context generates
-implicit priors for spontaneous phenomena. Participants under SWASH may be having
-genuine experiences (time distortion, absorption, waxy flexibility) that score zero
-on every scale item because nothing measures them. If measured, SWASH might show
-*higher* total responding than PCS on an expanded item set — the apparent suppression
-of explicit suggestion items under induction may partly reflect attention diverted
-to unmeasured spontaneous channel.
-
-**Revised taxonomy coverage with spontaneous branch collapsed into suggested:**
-
-With spontaneous phenomena treated as explicitly suggestionable, the irrecoverable
-gap for a brief self-report scale comes down to four structural constraints:
-
-1. **Apparatus required**: analgesia/anaesthesia (s7, s8) — needs a calibrated pain
-   or sensory stimulus; cannot be self-reported against nothing.
-2. **Different unit of analysis**: relational (r1–r4) — dyadic, not individual measures.
-3. **Different measurement modality**: observer-only spontaneous motor (xm1–xm7) —
-   waxy flexibility, psychomotor retardation, blinking rate. Behavioural, not
-   experiential. Requires video coder or trained rater.
-4. **Scale-format incompatible**: extended cognitive (hypermnesia, paramnesia, age
-   regression/progression) — need memory baselines or multi-session procedures.
-
-Partial gaps requiring design choices: affective suggestions (a1–a9, construct
-validity uncertain), trance logic (c7, needs probe task design).
-
-**Heaviness/force sensations are already covered** by existing motor items:
-- Hand lowering (m3) = heaviness
-- Hands together (m1) = magnetic force/pull
-- Arm immobilisation (m8) = resistance/heaviness against lifting
-
-**Floating is the genuine s5 gap.** Floating/levitation is not in PCS/SWASH/HGSHS:A.
-It maps directly onto arm levitation (m2, also absent) — adding one item covers both
-s5-floating and m2 simultaneously. Standard delivery: "Your arm feels lighter and
-lighter, as if it wants to rise on its own." Classic ideomotor suggestion, no
-equipment, natural 0–5 gradient.
-
-The effective coverage of the *self-reportable* taxonomy rises from ~30% to ~60%
-with the revised 10-item scale (§11) + floating item, and to ~75% if spontaneous
-items are added as explicit suggestions.
+**The loop — GWT acts at the third and fourth nodes:**
+Internal state (attending vs. not attending) → active state (reporting, elaborating).
+The suggestion says: open the gate to this first-order state. The participant's attention
+habits (absorption, attentional control) determine how efficiently they can do this.
 
 ---
 
-## 8. Individual differences measures: PsiQ as alternative/supplement to VVIQ
+## Part D: HOT/CCT layer — involuntariness and the efforting paradox
 
-VVIQ (Marks 1973) has two limitations for this context:
-1. **Volitional only** — measures deliberate imagery vividness; does not capture
-   spontaneous/intrusive imagery, which is closer to what hallucination items require.
-2. **Visual only** — single modality; misses auditory, somatic, gustatory imagery
-   relevant to the items above.
+*Practitioner equivalent: Emotion (the E governing the phenomenal quality and felt
+autonomy of the experience — the one that makes it feel real).*
 
-**PsiQ (Phenomenological Sensitivity / Perceptual Sensitivity Questionnaire)** —
-note: verify which specific scale is intended; candidates include:
-- Reeder's **Perceptual Imagination Scale** / Phenomenological Imagery measures
-  (multi-modal, includes spontaneous dimension)
-- The **Psi-Q** (parapsychology; measures anomalous perceptual experiences,
-  feelings of presence, etc. — correlates with hallucination proneness and
-  reduced reality monitoring)
-- The **Questionnaire on Mental Imagery (QMI)** / Betts — multi-modal including
-  auditory, tactile, kinaesthetic, gustatory
+Global Workspace Theory tells you whether something is broadcast. Higher-Order Thought
+theory tells you what it feels like. The same broadcast signal can produce radically
+different phenomenal experience depending on which HOT forms on it.
 
-For the revised scale's validation purposes, the ideal individual differences battery:
+**CCT — the critical extension:**
+The key variable is not whether a HOT forms, but which HOT forms about the *intention*
+underlying the experience:
 
-| Measure | What it adds over VVIQ |
-|---------|------------------------|
-| VVIQ | Baseline volitional visual imagery vividness |
-| PsiQ / Perceptual Sensitivity | Spontaneous/anomalous perceptual experiences; non-volitional channel |
-| OSIVQ or QMI | Multi-modal (auditory, somatic, gustatory) coverage |
-| ASMR proneness (AEQ) | Somatic cross-modal sensitivity directly relevant to chills item |
-| Aphantasia/hyperphantasia self-report | Extreme ends of Reeder spectrum; controls ceiling/floor in imagery measures |
+- *HOT on intention present*: "I am trying to make this happen." Experience is felt as
+  manufactured, effortful, self-generated. The involuntariness disappears; felt realness
+  collapses.
+- *HOT on intention absent* (or replaced by a first-order impression): "This is just
+  happening." Experience is autonomous, found rather than made. This is the target
+  phenomenology.
 
-**Prediction:** PsiQ should predict the new perceptual items more strongly than VVIQ
-because it captures the involuntary/spontaneous dimension — the hallucination items
-require passive discovery, not active generation. VVIQ will still predict the
-deliberate imagination required by the White Christmas/noise paradigm versions.
-The two measures might dissociate cleanly across item types.
+The involuntariness is not a bug; it is the phenomenological signature that the mechanism
+is working correctly. When the arm feels like it rises on its own, that is the correct
+output of a process where the first-order intention is executing without the HOT tagging
+it as intentional.
 
----
+**What it explains in the data:**
+- Challenge items (arm rigidity, immobilisation) work by structuring the trial so the
+  HOT-on-intention is removed: the participant is "trying to bend" — the not-bending
+  arrives without intentional authorship. The effort is directed at movement; the
+  stillness feels like it comes from outside.
+- Ideomotor items (hand lowering, levitation) work by priming a kinematic expectation
+  that self-fulfils — the HOT-on-intention is never formed because no deliberate action
+  was attempted.
+- Music hallucination r=0.645 PCS when non-zero: when the experience fires it fires
+  completely involuntarily — that is why it is so stable. The HOT structure is consistent.
+- SWASH suppression of perceptual items: induction may promote metacognitive monitoring,
+  increasing HOT-on-intention for items that require active imagination, paradoxically
+  collapsing their felt realness.
 
-## 9. Open questions for future work
+**The paradox of Right Effort (the connoisseur problem):**
+The more capable someone is metacognitively — the better their HOT machinery — the harder
+it is to withhold the HOT on their own efforting. High metacognitive ability creates more
+monitoring, which creates more HOT-on-intention, which breaks the response. The trying
+self does not fail to respond; it generates the HOT that makes the response feel
+manufactured, which retroactively breaks it.
 
-1. Does VVIQ × taste replicate in df3 (SWASH paper has matched items)?
-2. Does the Bernoulli k=2 LCA finding hold in df2, df3, df5? Cross-dataset
-   replication would strengthen the anti-taxon conclusion.
-3. Item-level retest in a standalone two-item context — the embedded figures
-   (arm rigidity r=0.217) are a lower bound; standalone may be worse or better.
-4. What mediates the taste-VVIQ relationship? Olfactory/gustatory imagery
-   vividness scales would clarify whether it is truly taste-specific or
-   general imaginative compliance.
-5. Full MAMBAC/MAXEIG/L-Mode on df4 using proper taxometric methodology.
-6. The neg-visual spike profile (P2): is it stable across sessions? If those 15
-   people have stable high neg-visual scores, they are a genuine phenotype worth
-   characterising.
-7. Why does the relaxation induction reduce responding when the classic literature
-   expects induction to increase it? The norms sample is unselected undergraduates.
-   In selected high-suggestibles the direction might be different.
-8. Does the cross-modal (Nair & Brang) item show stronger PsiQ/VVIQ correlation than
-   the unimodal auditory item under equivalent deprivation? Would distinguish
-   imagery-vividness sensitivity from general hallucinability.
-9. Does the eigengrau positive-visual item correlate with phosphene proneness
-   (from blog survey) and with the neg-visual spike profile (P2)?
-10. Does PsiQ dissociate from VVIQ in predicting volitional-substrate items
-    (noise paradigm) vs. discovery-oriented items (eigengrau, chills)?
-11. Run ASMR questionnaire (AEQ) × PCS item correlations — the dataset was in the
-    repo but correlations were never computed. Recover and run.
+Right Effort is the practitioner term for the skill of cultivating the absence of the HOT
+on effort. Active un-work: you direct attention (GWT) and calibrate priors (PP), then
+withhold the meta-layer that monitors its own intending. This is learnable with practice.
 
----
+**Three failure modes unified:**
 
-## 10. Cognitive challenge item: naming inhibition as amnesia replacement/supplement
+| Failure               | Layer   | What breaks               | Symptom in scale data                          |
+|-----------------------|---------|---------------------------|------------------------------------------------|
+| Wrong prior (Se)      | PP      | Signal can't be read      | No click; floor even when substrate present    |
+| Misdirected attention | GWT     | Signal never broadcast    | Nothing felt; first-order states present       |
+| Monitoring effort     | HOT/CCT | HOT on intention present  | Experience feels manufactured; low subjective rating despite behavioural pass |
 
-**The existing amnesia item:**
-- Floor rate: ~27% (PCS/SWASH); moderate, not extreme.
-- Requires post-procedure administration — cannot be embedded anywhere in a standalone
-  short form. Participant must try to recall items from the earlier suggestions.
-- The *experience* rated is trying-and-failing to remember, which is ambiguous
-  (genuine blocking vs. simply forgetting vs. inattention).
-- Practical problem (IME): a significant proportion of participants are simply confused
-  by the instruction — they are unsure whether they are supposed to try to remember,
-  not try, or report the experience of trying. The naming inhibition version removes
-  this ambiguity: there is a single visible object, one unambiguous task (name it),
-  and the experience is the felt resistance to doing so.
-
-**Proposed replacement: naming inhibition (scissors paradigm)**
-Suggestion: "When you look at this object [show scissors/picture], the word for it
-will not come to mind. The more you try to name it, the more the word stays out of
-reach." Rate blocking 0–5.
-
-- No post-procedure dependency — testable immediately after suggestion
-- Clear behavioral criterion (named it / hesitated / did not name it) + graded
-  subjective experience of blocking
-- Direct analogue of HGSHS:A item 8 (Communication inhibition / aphasia suggestion),
-  which is also in our data (LABELS_HGSHS)
-- Floor rates expected lower than amnesia: naming a highly familiar object is easy,
-  so the *failure* to name it is a cleaner signal than failing to recall a list
-
-**Mechanism under predictive processing:**
-Naming inhibition is a top-down executive suppression of a motor/phonological output
-pathway. The suggestion primes a "blocked" prior that competes with the automatic
-retrieval pathway. Different from perceptual hallucination (adding signal) and motor
-challenge (inhibiting movement completion) — a fourth modality adding
-cognitive/executive variance.
-
-This is the cognitive analogue of negative visual hallucination (suppressing a
-perception rather than adding one). Both involve suggestion-driven inhibition rather
-than generation.
+**Instruction implications:**
+- Avoid "imagine," "try to feel," "picture" — all HOT-on-intention invitations.
+- Prefer "notice," "discover," "allow," "find."
+- Challenge framing for inhibitory items: "as hard as you try, you cannot" — ensures the
+  effort is directed at the competing action, leaving the suggested state to arrive
+  without authorship.
 
 ---
 
-## 11. Item-by-item problems and replacements
+## Part E: Item design — 4 × 2 matrix
 
-Floor rates across five datasets (mean across PCS norms, SWASH norms, PCS-VVIQ,
-SWASH-val, vEAR PCS):
+Items are classified by two independent dimensions:
+- **Modality:** Motor · Perceptual (5 senses) · Cognitive · Affective
+- **Direction:** Facilitatory (adds/enables experience) · Inhibitory (removes/blocks)
 
-| Item | Type | Mean floor | Problem |
-|------|------|-----------|---------|
-| Neg. visual hallucination | perceptual | 90% | High sensory confidence; negative suggestion hard to detect |
-| Music hallucination | perceptual | 85% | High sensory confidence; rare in normal acoustic env. |
-| Post-hypnotic suggestion | cognitive | 65% | Two-stage structure; requires specific post-session event |
-| Mosquito hallucination | perceptual | 43% | Multi-modal collapse (presence/touch/auditory); unclear criterion |
-| Amnesia | cognitive | 29% | Post-procedure dependency; instruction routinely misunderstood |
-| Taste hallucination | perceptual | 25% | Acceptable; already sub-rated (sweet/sour); VVIQ r=0.242 |
+This is independent of whether the item is suggested or spontaneous. "Spontaneous"
+phenomena (waxy flexibility, time distortion, dissociation, absorption) are not
+mechanistically distinct: the prior source is contextual rather than verbal, but PP × GWT
+× HOT operates identically. The spontaneous/suggested boundary is a delivery distinction.
+Every spontaneous phenomenon is reproducible with explicit verbal suggestion, usually more
+reliably (verbal calibrates the prior more precisely than ambient context).
 
-Items below 15% floor (motor items) are fine as-is.
+**Psychometric implication of direction:**
+Facilitatory items discriminate at low-to-mid suggestibility (most people can feel
+something). Inhibitory/challenge items discriminate at mid-to-high (the gap between "felt
+resistance" and "genuinely couldn't" separates moderate from high). Covering both
+directions in each modality gives better measurement across the full range.
 
----
+**Why motor inhibitory dominates current scales:**
+The motor inhibitory cell (arm rigidity, arm immobilisation) is the only fully-populated
+cell in PCS/SWASH — which is precisely why the motor pair dominates total-score variance.
+Every other cell is underpopulated, floored, or absent.
 
-### Neg. visual hallucination (90% floor)
-Asks participant to fail to see something in a clear, structured visual field. Two
-structural problems: (1) high sensory confidence — the external signal is real and
-strong, so the suggestion must suppress a genuine percept; (2) the "pass" criterion
-requires recording exactly two ball colours, which depends on attending to the test
-rather than the experience. Replace with a **positive visual suggestion under reduced
-sensory confidence** (eigengrau, see §6).
-
----
-
-### Music hallucination (85% floor)
-Pure auditory generative suggestion in a quiet room. Sensory confidence for "silence"
-is high; there is nothing for the suggestion to ride. The objective criterion (raise
-hand when you hear music) is actually clean — it's the environmental conditions that
-fail. Fix: low-level acoustic substrate (broadband noise, or a tonally ambiguous drone)
-delivered before the suggestion. Alternatively fold into the cross-modal item (§6,
-Nair & Brang approach: eyes closed + substrate → music/colour experience).
-
----
-
-### Post-hypnotic suggestion (65% floor)
-Structurally broken for any standalone or short form. Requires: (1) a specific cue
-(spacebar press) to be delivered after the session ends, (2) participant to recall that
-they are supposed to do it, (3) the experimenter to trigger it. In online/remote
-administration the logistics are even worse. The underlying construct (response to a
-post-hoc cue) is valid but the delivery mechanism is fragile.
-
-Replacement options:
-- **Deferred naming task**: earlier in the session, suggest "later you will be asked a
-  question and the word will come easily / not come at all." Test at session end.
-  Simpler logistics than the spacebar paradigm, no external equipment needed.
-- **Ideomotor cue response**: suggest that hearing a specific word or tone later will
-  trigger an involuntary movement (finger lift, hand turn). Test within-session.
-  Collapses latency with the motor items structurally.
-
----
-
-### Mosquito hallucination (43% floor) — best replaced
-
-**The multi-modal collapse problem.** The suggestion can produce three
-qualitatively distinct experiences: (a) sense of presence near the skin, (b) tactile
-sensation (itch, crawl, bite, tickle), (c) auditory hallucination (buzzing). The
-objective criterion — "an outward acknowledgment of the effect" (any behavioural
-response: swatting, flinching, scratching) — accepts all three equally. The subjective
-0–5 rating is a single undifferentiated number with no modal decomposition.
-
-Practically: participants who feel an itch but hear nothing wonder if it "counts."
-Participants who get a strong presence without touch or sound don't know what to
-rate. The 43% floor likely includes people who had a partial experience in one
-modality but not the expected one.
-
-The taste item handles this correctly: sweet and sour sub-rated separately, combined
-as mean. The mosquito item gives no such guidance.
-
-**Best replacement: a discrete, unambiguous unimodal tactile item.**
-
-Candidate: **Localised itch/tingling suggestion** — suggest a specific, localised
-sensation at a named body location (e.g., left forearm, tip of index finger). Single
-modality (somatosensory), no ambiguity about what to attend to, no acoustic substrate
-needed, naturally discrete.
-
-- "As I count down, you will begin to notice a tingling sensation at the tip of your
-  left index finger. The sensation will build with each count."
-- Rate 0–5: no sensation → faint tingling → clear tingling → spreading/warming →
-  strong persistent sensation.
-
-This is phenomenologically cleaner than mosquito (no presence/auditory confusion),
-has a natural 0–5 gradient, and as a somatic item adds a distinct modality not
-covered by motor challenge (which is proprioceptive/kinaesthetic). The chills/ASMR
-item (§6) is a related but autonomic/full-body version — this localised itch would
-be a lower-intensity, more controllable variant suitable for unselected samples.
-
----
-
-### Amnesia (29% floor)
-Fixable via replacement with naming inhibition (§9). Instruction confusion alone
-probably accounts for a meaningful fraction of the floor.
-
----
-
-### Updated full screener (exploratory, revised PCS-style)
-
-Proposed item set replacing or improving all floored items while preserving the
-validated motor pair and taste:
-
-| # | Item | Modality | Replaces / adds | Floor expected | Equipment |
-|---|------|----------|-----------------|----------------|-----------|
-| 1 | Hand lowering | Motor ideomotor (heaviness) | — (keep) | ~4% | None |
-| 2 | Moving hands together | Motor ideomotor (force) | — (keep) | ~6% | None |
-| 3 | Arm levitation / floating | Motor facilitated + s5-floating | m2 + s5 (new) | Low | None |
-| 4 | Localised tingling (finger) | Tactile/somatic — s10 | Mosquito | Low | None |
-| 5 | Taste hallucination | Gustatory — s4 | — (keep) | ~25% | None |
-| 6 | Arm rigidity | Motor challenge — m7 | — (keep) | ~8% | None |
-| 7 | Arm immobilisation | Motor challenge — m8 | — (keep) | ~13% | None |
-| 8 | Eigengrau visual / cross-modal | Visual + auditory — s1/s2 | Music + Neg. visual | Low | Speaker optional |
-| 9 | Naming inhibition | Cognitive executive — c9 | Amnesia | Low | Picture card |
-| 10 | Chills/ASMR | Somatic autonomic — s3/s10 | Post-hypnotic | Low | Optional |
-| 11 | vEAR elaboration | Visual transformative — s1 | — (new) | Low | Brief flash |
-
-Motor pair (#6, #7) preserved as the two-item short form. All floor items replaced
-with lower-floor alternatives grounded in sensory-confidence framework. Three new
-modalities added: tactile-localised, somatic-autonomic, visual-transformative.
-
-Note: this is a theoretical proposal, not a validated scale. Ordering, phrasing,
-and combination would need piloting before any psychometric claims.
-
----
-
-## 12. Organising framework: 4 × 2 matrix
-
-A cleaner principle than Weitzenhoffer's taxonomy. Items are classified by two
-independent dimensions:
-
-**Modality** (what faculty the suggestion acts on): Motor, Perceptual, Cognitive, Affective
-
-**Direction** (what the suggestion does):
-- *Facilitatory / direct / positive* — adds, enables, or enhances an experience
-- *Inhibitory / challenge / negative* — removes, blocks, or resists an experience
-
-The motor inhibitory cell is the only fully-populated cell in existing scales — which
-is precisely why the motor pair dominates total-score variance. Every other cell is
-underpopulated, floored, or absent.
-
-**Psychometric implication of direction:** Facilitatory items discriminate better at
-low-to-mid suggestibility (most people can do something). Inhibitory/challenge items
-discriminate better at mid-to-high (the gap between "felt resistance" and "genuinely
-couldn't" separates moderate from high responders). Covering both directions in each
-modality gives better measurement across the full range.
-
----
-
-### 4 × 2 mapping of proposed items
+### 4 × 2 mapping
 
 | | Facilitatory | Inhibitory |
 |---|---|---|
-| **Motor** | Hand lowering (heaviness) · Hands together (force) · Arm levitation (floating) | Arm rigidity · Arm immobilisation · [Finger lock — df4 only] |
-| **Perceptual** | Taste · Localised tingling · Eigengrau/cross-modal (visual+auditory) · Chills/ASMR · vEAR elaboration | Naming inhibition *(cognitive-perceptual border)* · [Analgesia — apparatus required] |
-| **Cognitive** | **[gap — hypermnesia needs memory baseline]** | Amnesia / naming inhibition |
-| **Affective** | Calm/contentment · Chills as somatic-affective *(border)* | **[gap — emotional blunting is clinical]** |
+| **Motor** | Hand lowering · Hands together · Arm levitation/floating | Arm rigidity · Arm immobilisation · [Finger lock — df4 only] |
+| **Perceptual** | Taste · Eigengrau/cross-modal visual+auditory · Localised tingling · Chills/ASMR · vEAR elaboration | [Analgesia/anaesthesia — apparatus required] |
+| **Cognitive** | [Hypermnesia — needs memory baseline] | Naming inhibition · [Amnesia — keep or replace] |
+| **Affective** | Calm/contentment | [Emotional blunting — clinical; ethical constraints] |
 
-**Two cells remain empty in a brief self-report format:**
+**Two irrecoverable empty cells in brief self-report format:**
 
-*Cognitive facilitatory:* Hypermnesia requires a memory test and a baseline — you
-cannot self-report enhanced recall without something to recall against. Options:
-- Within-session recall: study a word list early, suggest recall enhancement, test
-  later. Adds complexity but keeps it within a single session.
-- Alternatively: drop this cell and accept cognitive coverage is inhibitory-only
-  (naming inhibition covers the inhibitory side well).
+*Cognitive facilitatory:* Hypermnesia requires a memory test and baseline. Options: (a)
+word list early in session, recall enhancement suggestion, test at end — adds complexity
+but stays within-session; (b) drop this cell and accept cognitive coverage is inhibitory-
+only (naming inhibition covers the inhibitory side cleanly).
 
-*Affective inhibitory:* Emotional blunting, dissociation from affect, and
-indifference induction are clinically relevant but ethically complex in unselected
-samples (inducing fear/guilt/anxiety is not appropriate for screening). Calm/safety
-is the accessible end of affective inhibitory (suggesting affect-away from anxiety)
-but that blurs into facilitatory calm. Options:
-- Frame as "emotional distance" suggestion: "Whatever you feel, you observe it calmly
-  from a distance." Crosses into dissociation (xc2) and is double-coded.
-- Accept the cell is empty for unselected screening use; reserve for clinical contexts.
+*Affective inhibitory:* Emotional blunting, dissociation from affect, and fear/guilt
+induction are clinically relevant but inappropriate for unselected screening. "Emotional
+distance" suggestion ("whatever you feel, you observe it calmly from a distance") crosses
+into cognitive dissociation (xc2) and double-codes. Reserve for clinical contexts.
 
----
+### Item-by-item audit (floor rates, mean across five datasets)
 
-### Item count per cell (proposed 11-item scale)
+| Item                    | Type       | Mean floor | Problem |
+|-------------------------|------------|-----------|---------|
+| Neg. visual hallucination | perceptual | 90%      | High sensory confidence; suppression hard to detect without structured test |
+| Music hallucination     | perceptual | 85%       | High sensory confidence; no acoustic substrate |
+| Post-hypnotic suggestion | cognitive  | 65%      | Two-stage; post-session cue; broken for standalone/remote |
+| Mosquito hallucination  | perceptual | 43%       | Multi-modal collapse (presence/touch/auditory); single undifferentiated rating |
+| Amnesia                 | cognitive  | 29%       | Post-procedure dependency; instruction routinely misunderstood |
+| Taste hallucination     | perceptual | 25%       | Acceptable; sub-rated (sweet/sour); VVIQ r=0.242 |
 
-| | Facilitatory | Inhibitory |
-|---|---|---|
-| **Motor** | 3 (lowering, together, levitation) | 2 (rigidity, immobilisation) |
-| **Perceptual** | 4 (taste, tingling, eigengrau, chills) | 0–1 (naming inhibition is border) |
-| **Cognitive** | 0 | 1 (naming inhibition) |
-| **Affective** | 1 (calm/chills border) | 0 |
+Items below 15% floor (all motor items): no changes needed.
 
-Motor is 5/11 items. Perceptual facilitatory is richest new addition. Cognitive and
-affective are thin. If trimming to 8 items for practicality, a balanced selection:
+**Mosquito: the multi-modal collapse problem.** The suggestion elicits three qualitatively
+distinct experiences: (a) sense of presence, (b) tactile itch/crawl/bite, (c) auditory
+buzzing. The objective criterion — "any outward acknowledgment" — accepts all three
+equally. The subjective 0–5 is a single undifferentiated number with no modal decomposition
+(contrast taste: sweet + sour rated separately, combined as mean). Participants who get
+itch-only wonder if it counts; those with presence-only rate conservatively. The 43% floor
+includes people who had a genuine partial experience in one modality but not the expected
+one. Best replaced by a **discrete unimodal tactile item** (see proposed items).
 
-| # | Item | Cell |
-|---|------|------|
-| 1 | Hand lowering | Motor facilitatory |
-| 2 | Arm levitation / floating | Motor facilitatory |
-| 3 | Arm rigidity | Motor inhibitory |
-| 4 | Arm immobilisation | Motor inhibitory |
-| 5 | Taste hallucination | Perceptual facilitatory (gustatory) |
-| 6 | Eigengrau / cross-modal visual | Perceptual facilitatory (visual+auditory) |
-| 7 | Naming inhibition | Cognitive inhibitory |
-| 8 | Calm / contentment | Affective facilitatory |
+**Amnesia: instruction confusion (IME).** A significant proportion of participants are
+confused about whether they should be trying to remember, not trying, or rating the
+experience of trying. This is the instruction problem, independent of the floor. Naming
+inhibition removes the ambiguity: one visible object, one task, one felt resistance.
+
+### Proposed new and replacement items
+
+**Arm levitation / floating (motor facilitatory, covers m2 + s5-kinesthetic)**
+"Your arm feels lighter and lighter, as if it wants to rise on its own." Classic
+ideomotor. Heaviness and force are already covered (hand lowering = heaviness, hands
+together = magnetic force). Floating is the genuine gap. No equipment, natural 0–5
+gradient, low floor expected.
+
+**Eigengrau visual / cross-modal (perceptual facilitatory, visual + auditory)**
+Eyes closed, discovery-oriented instruction on the eigengrau substrate. "Notice the visual
+field behind your eyes. As you watch, something begins to take shape." Optionally with
+tone: "notice if the sound suggests a colour or form." Covers both music hallucination
+(auditory suggestion) and negative visual hallucination (visual suggestion) with a single
+item at a fraction of the floor cost. The progression (splotches → lines → shapes → 3D)
+provides a natural fine-grained 0–5 scale.
+
+**Localised tingling — finger (perceptual facilitatory, tactile, replaces mosquito)**
+"As I count down, you will begin to notice a tingling sensation at the tip of your left
+index finger. The sensation will build with each count." Rate 0–5. Single modality,
+unambiguous location, no equipment, naturally graded. Proprioceptive first-order states
+already present in the finger; the suggestion routes attention to them (GWT) and amplifies
+via prior.
+
+**vEAR elaboration (perceptual facilitatory, visual-transformative)**
+Show a brief bright stimulus, then suggest the participant maintains and elaborates the
+afterimage. Real sensory persistence provides an anchor — not purely imagined, not purely
+perceived. The suggestion rides a genuine trace rather than generating from nothing. vEAR
+score itself predicts PCS performance (df5), so afterimage suggestibility may already be
+partially indexed; this makes it a scale item from the existing external criterion.
+
+**Chills / ASMR (perceptual facilitatory, somatic-autonomic)**
+Auditory trigger (whispering, tapping, music) or direct suggestion → rate spreading
+tingling/chilling from scalp or spine 0–5. Involuntary (arrives rather than produced —
+same ideomotor phenomenology as hand lowering). ASMR prevalence ~20–30% in unselected
+samples. Near-floor problem less acute than visual items: somatic sensory confidence is
+lower than external visual/auditory confidence. Cross-modal: frissons = auditory→somatic
+pathway; ASMR = auditory/visual→somatic. Both involve real cross-modal binding.
+
+**Naming inhibition (cognitive inhibitory, replaces amnesia)**
+"When you look at this object [show picture of scissors], the word for it will not come to
+mind. The more you try to name it, the more the word stays out of reach." Rate blocking
+0–5. No post-procedure dependency; behavioral criterion (named/hesitated/did not name) +
+graded subjective blocking. Direct analogue of HGSHS:A communication inhibition item (df4
+data available). HOT/CCT framing: the challenge structure ("try and cannot") removes
+HOT-on-intention from the naming output, same mechanism as arm rigidity for motor output.
+
+**Calm / contentment (affective facilitatory)**
+"As you breathe, you feel a sense of ease and warmth spreading through your body." Rate
+0–5. Standard induction language; the lowest-floor affective item; no ethical concerns in
+unselected samples. Distinguishable from the motor/perceptual items by modality.
+
+**Post-hypnotic replacement options:**
+- Deferred naming task: earlier in session, suggest the name of a specified object will
+  not be accessible when asked. Test at session end. Converts post-hypnotic structure into
+  within-session naming inhibition with a delay.
+- Ideomotor cue response: suggest a specific tone later will trigger a finger lift.
+  Test within-session. Collapses latency with motor items structurally.
+
+### Proposed scale — 8-item balanced form
+
+This is a theoretical proposal, not a validated scale. Ordering, phrasing, and combination
+require piloting before any psychometric claims.
+
+| # | Item | Cell | Layer | Equipment |
+|---|------|------|-------|-----------|
+| 1 | Hand lowering | Motor facilitated | GWT (proprioceptive FOS) | None |
+| 2 | Arm levitation / floating | Motor facilitated | GWT + PP | None |
+| 3 | Arm rigidity | Motor inhibitory | HOT/CCT (challenge) | None |
+| 4 | Arm immobilisation | Motor inhibitory | HOT/CCT (challenge) | None |
+| 5 | Taste hallucination | Perceptual facilitated (gustatory) | PP (prior → weak Si) | None |
+| 6 | Eigengrau / cross-modal | Perceptual facilitated (visual+auditory) | PP + GWT + CCT | Speaker optional |
+| 7 | Naming inhibition | Cognitive inhibitory | HOT/CCT (challenge) | Picture card |
+| 8 | Calm / contentment | Affective facilitated | HOT/CCT + PP | None |
 
 Short form (2-item): items 3+4 (motor inhibitory pair — current validated screener).
 Mid form (4-item): items 2+3+4+6 (motor facilitated + inhibited + perceptual).
 Full form (8-item): all above.
+
+---
+
+## Part F: Taxonomy coverage
+
+Reference taxonomy: Weitzenhoffer (hypnotic phenomena). Coverage assessed across current
+datasets + proposed items.
+
+**Spontaneous branch:** The spontaneous/suggested distinction is a delivery artefact. Every
+item in the spontaneous branch is producible by explicit verbal suggestion (usually more
+reliably). Examples: waxy flexibility → "your limbs will hold any position"; time
+distortion → "the time will feel much shorter"; body image distortions → eigengrau item
+covers body-floating side; dissociation → "part of you watches from a distance";
+absorption → discovery instruction is itself an absorption induction.
+
+**Current + proposed coverage** (self-reportable taxonomy excluding relational):
+With existing PCS/SWASH/HGSHS:A items: ~30%.
+With proposed items + spontaneous-as-suggested: ~60–75%.
+
+**Irrecoverable gaps in brief self-report format — four structural constraints:**
+
+1. *Apparatus required:* Analgesia/anaesthesia (s7, s8) — needs calibrated pain or sensory
+   stimulus. Cannot self-report against nothing. Clinically the most important items;
+   practically the most constrained.
+2. *Different unit of analysis:* Relational phenomena (r1–r4, trust/transference) — dyadic,
+   not individual measures.
+3. *Different measurement modality:* Observer-only spontaneous motor (xm1–xm7: waxy
+   flexibility, psychomotor retardation, blinking rate) — behavioural, requires video or
+   trained rater.
+4. *Scale-format incompatible:* Extended cognitive (hypermnesia, paramnesia, age
+   regression/progression) — need memory baselines or multi-session procedures.
+
+---
+
+## Part G: Individual differences battery
+
+VVIQ (Marks 1973) has two structural limitations for validating the proposed scale:
+1. *Volitional only:* measures deliberate imagery vividness; does not capture the
+   spontaneous/involuntary dimension that the new perceptual items require.
+2. *Visual only:* misses auditory, somatic, and gustatory imagery relevant to items 5–8.
+
+**3Es / PP×GWT×HOT mapping to individual differences:**
+
+| Layer | What it predicts | Measure |
+|-------|-----------------|---------|
+| PP (Expectation) | Prior strength; imagery vividness; reality monitoring threshold | VVIQ; aphantasia self-report; PsiQ/anomalous perceptions |
+| GWT (Engagement) | Absorption; attentional control; ability to sustain internal attention | TAS (Tellegen Absorption Scale); flow proneness |
+| HOT/CCT (Emotion) | Metacognitive tendency; dissociation; involuntary experience frequency | DES; PsiQ spontaneous dimension; ASMR proneness (AEQ) |
+
+**Specific predictions by item type:**
+- PP-layer items (eigengrau, White Christmas/noise versions): VVIQ and PsiQ should predict
+  response, because prior strength determines whether the degraded signal clicks.
+- GWT-layer items (localised tingling, floating): absorption should predict response more
+  than VVIQ, because first-order states are already present and routing efficiency matters.
+- HOT/CCT-layer items (arm rigidity, naming inhibition): dissociation and involuntary
+  experience measures should predict, because HOT-suppression ability matters. VVIQ may
+  be irrelevant.
+- PsiQ should predict the new perceptual items more strongly than VVIQ overall, because
+  it captures the involuntary/spontaneous dimension that VVIQ misses.
+
+**PsiQ — note on specific scale:** verify which measure is intended; candidates:
+Reeder's Perceptual Imagination Scale (multi-modal, includes spontaneous dimension); the
+Psi-Q (parapsychology; anomalous perceptions, reality monitoring failures); or the
+Questionnaire on Mental Imagery (QMI/Betts, multi-modal).
+
+**Proposed validation battery:**
+
+| Measure | Predicted association |
+|---------|----------------------|
+| VVIQ | PP-layer items (eigengrau, taste, noise versions) |
+| PsiQ / Perceptual Sensitivity | Spontaneous/involuntary items (eigengrau, chills, vEAR) |
+| TAS / absorption | GWT-layer items (tingling, floating) |
+| DES (dissociation) | HOT/CCT-layer items (rigidity, naming inhibition) |
+| ASMR proneness (AEQ) | Chills/ASMR item specifically |
+| Aphantasia self-report | Extreme ends of imagery spectrum; floor/ceiling control |
+
+---
+
+## Part H: Open questions
+
+1. Does VVIQ × taste replicate in df3 (SWASH paper has matched items)?
+2. Does the Bernoulli k=2 LCA finding hold in df2, df3, df5?
+3. Item-level retest in a standalone two-item context — embedded r=0.217 is a lower bound.
+4. What mediates taste-VVIQ? Gustatory imagery vividness would clarify modality specificity.
+5. Full MAMBAC/MAXEIG/L-Mode on df4 using proper taxometric methodology.
+6. Is the neg-visual spike profile (P2) stable across sessions? 15 people, 13 at ceiling —
+   a real phenotype if it replicates.
+7. Why does SWASH induction reduce responding? In selected high-suggestibles the direction
+   might reverse (relaxation facilitates rather than suppresses).
+8. Does the cross-modal (Nair & Brang) item show stronger PsiQ/VVIQ correlation than the
+   unimodal auditory item under equivalent deprivation?
+9. Does the eigengrau item correlate with phosphene proneness and with the P2 profile?
+10. Does PsiQ dissociate from VVIQ in predicting PP-layer items (noise paradigm) vs.
+    GWT/CCT-layer items (motor, tingling)?
+11. Run ASMR questionnaire (AEQ) × PCS item correlations — dataset was in the repo,
+    correlations never computed.
+
+---
+
+## References
+
+- Barber, T.X., & Calverley, D.S. (1964). *J. Abnorm. Soc. Psychol.*, 68(1), 13–20.
+- Clark, A. (2013). Whatever next? Predictive brains, situated agents, and the future of
+  cognitive science. *Behav. Brain Sci.*, 36(3), 181–204.
+- Clark, A. (2015). *Surfing Uncertainty.* Oxford University Press.
+- Clark, A. (2023). *The Experience Machine.* W.W. Norton.
+- Dijkstra, N., Bosch, S.E., & van Gerven, M.A.J. (2021). Perceptual reality monitoring.
+  *Trends Cogn. Sci.* (and associated MEG/fMRI work).
+- Merckelbach, H., & van de Ven, V. (2001). *J. Behav. Ther. Exp. Psychiat.*, 32(3), 137–144.
+- Nair, A., & Brang, D. (2019). Inducing synesthesia in non-synesthetes: Short-term visual
+  deprivation facilitates auditory-evoked visual percepts. *Consciousness and Cognition*,
+  70, 70–79. https://doi.org/10.1016/j.concog.2019.02.006
+- Reeder, R.R. (2024). A novel model of divergent predictive perception. *Neurosci.
+  Biobehav. Rev.* https://doi.org/10.1093/nc/niae011 (verify journal/year).
+- Wampold, B.E. (2015). How important are the common factors in psychotherapy? *World
+  Psychiatry*, 14(3), 270–277.
+- Weaver, W. (2024a). Something about phosphenes. *The Phenomenal Blog.*
+  https://blog.phenomenal.ink/something-about-phosphenes
+- Weaver, W. (2024b). Veil of perception. *The Phenomenal Blog.*
+  https://blog.phenomenal.ink/veil-of-perception
+- Weaver, W. (2024c). A retrospective on C.R.E.A.M. *The Phenomenal Blog.*
+  https://blog.phenomenal.ink/cream-to-3e
