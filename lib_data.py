@@ -19,7 +19,9 @@ RANDOM_SEED = 20260603
 N_BOOT      = 5000
 CI_LEVEL    = 95
 
-DATA_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(ROOT_DIR, 'data')   # raw dataset files
+OSF_DIR  = os.path.join(ROOT_DIR, 'osf')    # source OSF repositories
 
 # ── Motor-pair column names per dataset ─────────────────────
 MOTOR_COLS = {
@@ -147,17 +149,15 @@ def load_all():
 
     Returns a dict: keys are df1_pcs, df1_swash, df2, df3, df4, df5.
     """
-    d = DATA_DIR
-
     # df1 — PCS norms (PCS + SWASH, split by Condition)
-    df1_raw = pd.read_csv(f'{d}/PCS_norms_first_test_data.csv')
+    df1_raw = pd.read_csv(f'{DATA_DIR}/PCS_norms_first_test_data.csv')
     df1_raw = df1_raw[df1_raw['exclude'] != 1].copy()
     df1_pcs   = df1_raw[df1_raw['Condition'] == 0].copy().reset_index(drop=True)
     df1_swash = df1_raw[df1_raw['Condition'] == 1].copy().reset_index(drop=True)
     # Total column: Subjective_scale_score_first_test (author-precomputed; r=1.0 with item mean)
 
     # df2 — PCS-VVIQ (no precomputed total; canonical recompute required)
-    df2 = pd.read_excel(f'{d}/PCS_VVIQ_raw.xlsx')
+    df2 = pd.read_excel(f'{DATA_DIR}/PCS_VVIQ_raw.xlsx')
     df2['Taste'] = df2[['SweetSubRating', 'SourSubRating']].mean(axis=1)
     df2['PHS']   = np.sqrt(df2['PostHypnoticSub1'] * df2['PostHypnoticSub2'])
     df2['SubjectiveTotal'] = df2[ITEMS_DF2].mean(axis=1)
@@ -167,18 +167,18 @@ def load_all():
     df2['VVIQ_total'] = df2[vviq_cols].mean(axis=1)
 
     # df3 — SWASH paper (first-test rows only; NOT retest total)
-    df3_raw = pd.read_csv(f'{d}/SWASHPAPERDATA.csv')
+    df3_raw = pd.read_csv(f'{DATA_DIR}/SWASHPAPERDATA.csv')
     df3 = df3_raw[df3_raw['Subjectivescore'].notna()].copy().reset_index(drop=True)
     # Total: Subjectivescore (author-precomputed, first-test)
 
     # df4 — Terhune/Reshetnikov HGSHS:A
-    df4_raw = pd.ExcelFile(f'{d}/osf/terhune/raw_data.xlsx').parse('HGSHSA_data')
+    df4_raw = pd.ExcelFile(f'{OSF_DIR}/terhune/raw_data.xlsx').parse('HGSHSA_data')
     df4 = df4_raw[df4_raw['Missing'] != 1].copy().reset_index(drop=True)
     df4['INV_total'] = df4[ITEMS_DF4_INV].mean(axis=1)
     df4['OBJ_total'] = df4[ITEMS_DF4_OBJ].sum(axis=1)
 
     # df5 — vEAR PCS
-    df5_raw = pd.read_csv(f'{d}/vEAR and PC data.csv')
+    df5_raw = pd.read_csv(f'{DATA_DIR}/vEAR and PC data.csv')
     df5 = df5_raw[df5_raw['Incomplete_exclude'] != 1].copy().reset_index(drop=True)
     # Total: PCscore (author-precomputed)
 
@@ -199,8 +199,7 @@ def load_all():
 
 def load_retest():
     """Load PCS norms retest data (n=123, split by Condition)."""
-    d = DATA_DIR
-    rt = pd.read_csv(f'{d}/osf/pcs_norms/Data_extracted/PCS_norms_retest_data.csv')
+    rt = pd.read_csv(f'{OSF_DIR}/pcs_norms/Data_extracted/PCS_norms_retest_data.csv')
     rt_pcs   = rt[rt['Condition'] == 0].copy().reset_index(drop=True)
     rt_swash = rt[rt['Condition'] == 1].copy().reset_index(drop=True)
     return rt_pcs, rt_swash
@@ -212,7 +211,7 @@ def load_external_validity():
     Returns dict with keys: anomalous, flow, des.
     Each has individual PCS items + external criterion columns.
     """
-    base = (f'{DATA_DIR}/osf/unusual_experiences/'
+    base = (f'{OSF_DIR}/unusual_experiences/'
             'unusual_experiences_data_and_analyses/preprocessed')
     anom  = pd.read_csv(f'{base}/anomalous_PCS_preprocessed.csv')
     flow  = pd.read_csv(f'{base}/flow_PCS_preprocessed.csv')
