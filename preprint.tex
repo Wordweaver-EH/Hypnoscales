@@ -182,10 +182,12 @@ the inter-item correlation \citep{eisinga2013spearman}. All CIs are 95\%
 bootstrap ($n_{\text{boot}} = 5000$, seed\,=\,20260603).
 
 Classification used three ordered groups (low/medium/high) defined by strict
-score thresholds at the 33rd/67th percentile boundaries. For discrete motor
-composites, the realised high group is typically smaller than one third of the
-sample (22--28\% in most datasets); actual proportions are reported alongside
-each $\kappa$ estimate. Weighted Cohen's $\kappa$ (linear weights) was used. Both the full-scale total and the overlap-free
+score thresholds at the 33rd/67th percentile boundaries (scores strictly above
+the boundary assigned to the higher group). Because the motor composite is a
+discrete 0--10 sum, participants tied at the boundary score are assigned to the
+lower group, so the realised high group is typically smaller than one third of
+the sample (22--32\% depending on dataset); actual proportions are reported
+alongside each $\kappa$ estimate. Weighted Cohen's $\kappa$ (linear weights) was used. Both the full-scale total and the overlap-free
 rest score are reported as criteria; the latter quantifies classification
 agreement not attributable to shared items. Binary cutoff sweeps (8\%--33\%)
 provide AUC, sensitivity, specificity, PPV, and NPV. All-pairs analysis computed $r_{\text{full}}$ and $r_{\text{rest}}$ for all
