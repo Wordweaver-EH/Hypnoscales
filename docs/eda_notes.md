@@ -134,9 +134,31 @@ Two competing accounts:
 
 ---
 
+## 3Es × PP×GWT×HOT cross-cut
+
+The 3Es are practitioner-level constructs; the mechanistic layers are not their
+one-to-one equivalents. Each E taps multiple layers, and each layer is touched by
+multiple Es:
+
+| Layer    | Primary E                                        | Secondary E                                              |
+|----------|--------------------------------------------------|----------------------------------------------------------|
+| PP       | **Expectation** — perceptual prior calibration   | **Emotion** — strong felt salience amplifies prior strength |
+| GWT      | **Engagement** — attention routing, access       | **Expectation** — cognitive: if you don't expect, you don't attend |
+| HOT/CCT  | **Engagement** — quality: not-monitoring-effort  | **Emotion** — motivation reduces HOT-on-intention formation |
+
+Key dependency: Expectation operates at two levels. *Perceptual-level* Expectation is PP
+(precision weighting of the prior). *Cognitive-level* Expectation ("I believe this will
+work") feeds directly into GWT: without it, there is no reason to open the gate and
+attend. Strong Emotion usually comes packaged with strong Expectation; they are correlated
+but separable. The HOT/CCT layer is engaged by both Engagement (mode of attending) and
+Emotion (motivation that absorbs the monitoring resource before it can form a
+HOT-on-intention).
+
+---
+
 ## Part B: PP layer — priors, sensory confidence, and floor effects
 
-*Practitioner equivalent: Expectation (the E that sets the prior before experience begins).*
+*Primary E: Expectation (perceptual level). Secondary E: Emotion (amplifies prior).*
 
 Under predictive processing, perception is the outcome of a precision-weighted competition
 between bottom-up sensory evidence (Si) and top-down generative model (Se). The brain
@@ -206,7 +228,7 @@ they are not manufactured by the suggestion, they are routed and elaborated by i
 
 ## Part C: GWT layer — attention, access gate, first-order state farming
 
-*Practitioner equivalent: Engagement (the E governing what gets attended to and broadcast).*
+*Primary E: Engagement (attention routing). Secondary E: Expectation (cognitive level — if you don't expect, you don't attend).*
 
 Global Workspace Theory locates the bottleneck at access to broadcast. Signals exist as
 first-order states continuously; most never enter the workspace. Attention is the access
@@ -246,8 +268,8 @@ habits (absorption, attentional control) determine how efficiently they can do t
 
 ## Part D: HOT/CCT layer — involuntariness and the efforting paradox
 
-*Practitioner equivalent: Emotion (the E governing the phenomenal quality and felt
-autonomy of the experience — the one that makes it feel real).*
+*Primary Es: both Engagement (quality of engagement — not-monitoring-the-effort) and
+Emotion (motivation absorbs the monitoring resource before HOT-on-intention can form).*
 
 Global Workspace Theory tells you whether something is broadcast. Higher-Order Thought
 theory tells you what it feels like. The same broadcast signal can produce radically
