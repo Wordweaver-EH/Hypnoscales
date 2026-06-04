@@ -415,3 +415,55 @@ The two measures might dissociate cleanly across item types.
     (noise paradigm) vs. discovery-oriented items (eigengrau, chills)?
 11. Run ASMR questionnaire (AEQ) × PCS item correlations — the dataset was in the
     repo but correlations were never computed. Recover and run.
+
+---
+
+## 9. Cognitive challenge item: naming inhibition as amnesia replacement/supplement
+
+**The existing amnesia item:**
+- Floor rate: ~27% (PCS/SWASH); moderate, not extreme.
+- Requires post-procedure administration — cannot be embedded anywhere in a standalone
+  short form. Participant must try to recall items from the earlier suggestions.
+- The *experience* rated is trying-and-failing to remember, which is ambiguous
+  (genuine blocking vs. simply forgetting vs. inattention).
+- Practical problem (IME): a significant proportion of participants are simply confused
+  by the instruction — they are unsure whether they are supposed to try to remember,
+  not try, or report the experience of trying. The naming inhibition version removes
+  this ambiguity: there is a single visible object, one unambiguous task (name it),
+  and the experience is the felt resistance to doing so.
+
+**Proposed replacement: naming inhibition (scissors paradigm)**
+Suggestion: "When you look at this object [show scissors/picture], the word for it
+will not come to mind. The more you try to name it, the more the word stays out of
+reach." Rate blocking 0–5.
+
+- No post-procedure dependency — testable immediately after suggestion
+- Clear behavioral criterion (named it / hesitated / did not name it) + graded
+  subjective experience of blocking
+- Direct analogue of HGSHS:A item 8 (Communication inhibition / aphasia suggestion),
+  which is also in our data (LABELS_HGSHS)
+- Floor rates expected lower than amnesia: naming a highly familiar object is easy,
+  so the *failure* to name it is a cleaner signal than failing to recall a list
+
+**Mechanism under predictive processing:**
+Naming inhibition is a top-down executive suppression of a motor/phonological output
+pathway. The suggestion primes a "blocked" prior that competes with the automatic
+retrieval pathway. Different from perceptual hallucination (adding signal) and motor
+challenge (inhibiting movement completion) — a fourth modality adding
+cognitive/executive variance.
+
+This is the cognitive analogue of negative visual hallucination (suppressing a
+perception rather than adding one). Both involve suggestion-driven inhibition rather
+than generation.
+
+**Updated extended screener table:**
+
+| Item | Modality | Mechanism | Substrate | Equipment |
+|------|----------|-----------|-----------|-----------|
+| Arm rigidity | Motor challenge | Inhibition + proprioception | Normal | None |
+| Arm immobilisation | Motor challenge | Inhibition + proprioception | Normal | None |
+| Eigengrau visual | Visual positive | Generative top-down | Eyes-closed eigengrau | None |
+| Cross-modal tone→colour | Auditory-visual | Cross-modal binding | Eigengrau + tone | Speaker |
+| vEAR elaboration | Visual transformative | Trace + generation | Afterimage | Brief flash |
+| Chills/tingling | Somatic | Cross-modal, autonomic | Auditory/direct | Optional |
+| Naming inhibition | Cognitive executive | Inhibition of retrieval | Direct suggestion | Picture card |
