@@ -1,0 +1,4 @@
+components,bic,aic,log_likelihood,means,weights
+1,2740.8,2732.1,-1364.1,[np.float64(5.74)],[np.float64(1.0)]
+2,2754.4,2732.6,-1361.3,"[np.float64(4.37), np.float64(7.87)]","[np.float64(0.608), np.float64(0.392)]"
+3,2769.0,2734.1,-1359.0,"[np.float64(4.16), np.float64(7.34), np.float64(1.41)]","[np.float64(0.334), np.float64(0.576), np.float64(0.091)]"

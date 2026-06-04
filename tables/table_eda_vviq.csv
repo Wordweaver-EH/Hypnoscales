@@ -1,0 +1,11 @@
+item,label,type,r,p,ci_lo,ci_hi,n
+HandBecomesHeavy,Hand lowering,motor,0.036,0.4188,-0.058,0.13,508
+MagneticHands,Moving hands together,motor,0.089,0.0449,-0.008,0.187,508
+Mosquito,Mosquito hallucination,perceptual,0.092,0.0384,0.007,0.176,508
+Taste,Taste hallucination,perceptual,0.242,0.0,0.162,0.317,508
+StiffArm,Arm rigidity*,motor,0.146,0.001,0.053,0.238,508
+HandAndArmHeavy,Arm immobilisation*,motor,0.105,0.018,0.008,0.198,508
+HappyBirthday,Music hallucination,perceptual,0.076,0.0856,-0.015,0.16,508
+ColouredBalls,Neg. visual hallucination,perceptual,-0.017,0.7106,-0.098,0.058,508
+Amnesia,Amnesia,cognitive,0.046,0.3052,-0.042,0.129,508
+PHS,Post-hypnotic suggestion,cognitive,0.054,0.2216,-0.026,0.136,508
