@@ -162,7 +162,111 @@ not a selective shift of low-suggestibles upward.
 
 ---
 
-## 6. Open questions for future work
+## 6. Scale development idea: lift perceptual floors via sensory degradation
+
+The persistent floor on music hallucination (~84%) and negative visual hallucination
+(~92%) is not a defect in those items per se — they are valid perceptual suggestions
+that carry domain-specific variance and high trait stability when they fire (music
+retest r=0.645). The floor is a consequence of running the scale in a normal sensory
+environment, where high sensory confidence means top-down suggestions can rarely
+compete with bottom-up input.
+
+**The mechanism (Reeder 2024; Clark 2013, 2015, 2023; Dijkstra):**
+
+Under predictive processing, perception is a weighted competition between bottom-up
+sensory evidence (precision-weighted) and top-down priors. In a quiet, well-lit
+testing room, sensory confidence is high and suggestions lose. Reducing sensory
+confidence — by introducing ambiguous background stimulation — shifts the balance
+toward top-down priors, enabling more participants to experience the suggested
+percept.
+
+Two established laboratory demonstrations of this:
+
+**Auditory — White Christmas paradigm**
+- Barber & Calverley (1964): participants instructed to imagine "White Christmas";
+  >50% reported hearing it clearly.
+- Merckelbach & van de Ven (2001): signal-detection version with white noise
+  background; participants reported the song embedded in static. Fantasy proneness
+  modulated the effect.
+- Directly applicable to music hallucination: presenting the suggestion against
+  low-level broadband noise would reduce sensory confidence, lower the effective
+  threshold, and convert a near-floor item into a variable one.
+
+**Visual — Dijkstra paradigm (Dijkstra, Bosch & van Gerven)**
+- Participants imagine a Gabor patch (tilted grating) while viewing dynamic visual
+  noise. Vivid imagers show reality-monitoring failures — they report the imagined
+  pattern as actually present.
+- Neural mechanism: visual imagery activates V1/fusiform with sufficient signal to
+  cross a reality threshold governed by frontal-visual networks; visual noise reduces
+  the competing bottom-up signal so the threshold is crossed more easily.
+- Applicable to negative visual hallucination: present the suggestion against a
+  dynamic visual noise background (or a Gabor-family ambiguous stimulus) rather than
+  in a clear field.
+
+**Connection to Reeder's Divergent Predictive Perception Model (2024):**
+Sensory confidence = Bayesian precision weight on incoming data.
+Degraded input (white noise, visual static) forces sensory confidence toward zero,
+making high-level priors (the suggestion) dominate.
+
+```
+Normal:   High sensory confidence + weak prior  → realistic perception
+Degraded: Low sensory confidence  + strong prior → suggested hallucination
+```
+
+Reeder's model adds individual differences: position on the aphantasia–hyperphantasia
+spectrum determines the strength of the mid-level imagery prior. Hyperphantasics
+generate a large top-down signal that easily clears the reality threshold; aphantasics
+generate none and would not hallucinate even under degraded conditions. This predicts
+that the VVIQ × item correlation that currently disappears at floor (music r=0.076,
+visual r=−0.017) would emerge strongly under sensory degradation.
+
+**Our data make this prediction concrete:**
+
+| Item | Retest r (trait stability when non-zero) | Floor rate | VVIQ r (current) |
+|------|------------------------------------------|------------|-----------------|
+| Music hallucination | 0.645 | 84% | 0.076 |
+| Neg. visual hallucination | 0.216 (unreliable at floor) | 95% | −0.017 |
+| Taste hallucination | 0.449 | 18% | **0.242** |
+
+Taste hallucination has no ambient masking noise to overcome — it is already a "pure
+imagery" context — and VVIQ predicts it strongly. Music and visual items are suppressed
+by a clear sensory environment. If that environment were degraded, VVIQ should predict
+them as strongly as it currently predicts taste, or more so (perceptual modality match).
+
+**Proposed revision:**
+
+A revised two-item perceptual probe using sensory degradation:
+- *Auditory version:* suggestion delivered against low-level broadband noise (~40dB);
+  participant rates intensity of heard music 0–5.
+- *Visual version:* suggestion delivered against dynamic pixelated noise or phase-
+  scrambled grating; participant rates intensity of seen pattern 0–5.
+
+These items would have:
+- Higher pass rates in unselected samples (floor lifted)
+- Stronger VVIQ correlations (imagery vividness no longer masked by environmental
+  sensory dominance)
+- Genuine domain-specific perceptual variance not captured by motor items
+- Direct theoretical grounding in predictive processing + individual differences
+
+Combined with the motor pair (which indexes the shared general factor efficiently),
+a four-item hybrid screener — two motor challenge + one degraded auditory + one
+degraded visual — might capture both the general factor and the perceptual-specific
+variance that the current ten-item scale carries but the two-item version gives up.
+
+**Key references:**
+- Barber, T.X., & Calverley, D.S. (1964). *J. Abnorm. Soc. Psychol.*, 68(1), 13–20.
+- Merckelbach, H., & van de Ven, V. (2001). *J. Behav. Ther. Exp. Psychiat.*, 32(3), 137–144.
+- Dijkstra, N., Bosch, S.E., & van Gerven, M.A.J. (2021). Perceptual reality monitoring.
+  *Trends Cogn. Sci.* (and related MEG/fMRI work).
+- Reeder, R.R. (2024). A novel model of divergent predictive perception. *Neurosci.
+  Biobehav. Rev.* (or similar — check exact journal/year).
+- Clark, A. (2013). Whatever next? *Behav. Brain Sci.*, 36(3), 181–204.
+- Clark, A. (2015). *Surfing Uncertainty.* Oxford University Press.
+- Clark, A. (2023). *The Experience Machine.* W.W. Norton.
+
+---
+
+## 7. Open questions for future work
 
 1. Does VVIQ × taste replicate in df3 (SWASH paper has matched items)?
 2. Does the Bernoulli k=2 LCA finding hold in df2, df3, df5? Cross-dataset
