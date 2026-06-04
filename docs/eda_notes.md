@@ -456,14 +456,127 @@ This is the cognitive analogue of negative visual hallucination (suppressing a
 perception rather than adding one). Both involve suggestion-driven inhibition rather
 than generation.
 
-**Updated extended screener table:**
+---
 
-| Item | Modality | Mechanism | Substrate | Equipment |
-|------|----------|-----------|-----------|-----------|
-| Arm rigidity | Motor challenge | Inhibition + proprioception | Normal | None |
-| Arm immobilisation | Motor challenge | Inhibition + proprioception | Normal | None |
-| Eigengrau visual | Visual positive | Generative top-down | Eyes-closed eigengrau | None |
-| Cross-modal tone→colour | Auditory-visual | Cross-modal binding | Eigengrau + tone | Speaker |
-| vEAR elaboration | Visual transformative | Trace + generation | Afterimage | Brief flash |
-| Chills/tingling | Somatic | Cross-modal, autonomic | Auditory/direct | Optional |
-| Naming inhibition | Cognitive executive | Inhibition of retrieval | Direct suggestion | Picture card |
+## 10. Item-by-item problems and replacements
+
+Floor rates across five datasets (mean across PCS norms, SWASH norms, PCS-VVIQ,
+SWASH-val, vEAR PCS):
+
+| Item | Type | Mean floor | Problem |
+|------|------|-----------|---------|
+| Neg. visual hallucination | perceptual | 90% | High sensory confidence; negative suggestion hard to detect |
+| Music hallucination | perceptual | 85% | High sensory confidence; rare in normal acoustic env. |
+| Post-hypnotic suggestion | cognitive | 65% | Two-stage structure; requires specific post-session event |
+| Mosquito hallucination | perceptual | 43% | Multi-modal collapse (presence/touch/auditory); unclear criterion |
+| Amnesia | cognitive | 29% | Post-procedure dependency; instruction routinely misunderstood |
+| Taste hallucination | perceptual | 25% | Acceptable; already sub-rated (sweet/sour); VVIQ r=0.242 |
+
+Items below 15% floor (motor items) are fine as-is.
+
+---
+
+### Neg. visual hallucination (90% floor)
+Asks participant to fail to see something in a clear, structured visual field. Two
+structural problems: (1) high sensory confidence — the external signal is real and
+strong, so the suggestion must suppress a genuine percept; (2) the "pass" criterion
+requires recording exactly two ball colours, which depends on attending to the test
+rather than the experience. Replace with a **positive visual suggestion under reduced
+sensory confidence** (eigengrau, see §6).
+
+---
+
+### Music hallucination (85% floor)
+Pure auditory generative suggestion in a quiet room. Sensory confidence for "silence"
+is high; there is nothing for the suggestion to ride. The objective criterion (raise
+hand when you hear music) is actually clean — it's the environmental conditions that
+fail. Fix: low-level acoustic substrate (broadband noise, or a tonally ambiguous drone)
+delivered before the suggestion. Alternatively fold into the cross-modal item (§6,
+Nair & Brang approach: eyes closed + substrate → music/colour experience).
+
+---
+
+### Post-hypnotic suggestion (65% floor)
+Structurally broken for any standalone or short form. Requires: (1) a specific cue
+(spacebar press) to be delivered after the session ends, (2) participant to recall that
+they are supposed to do it, (3) the experimenter to trigger it. In online/remote
+administration the logistics are even worse. The underlying construct (response to a
+post-hoc cue) is valid but the delivery mechanism is fragile.
+
+Replacement options:
+- **Deferred naming task**: earlier in the session, suggest "later you will be asked a
+  question and the word will come easily / not come at all." Test at session end.
+  Simpler logistics than the spacebar paradigm, no external equipment needed.
+- **Ideomotor cue response**: suggest that hearing a specific word or tone later will
+  trigger an involuntary movement (finger lift, hand turn). Test within-session.
+  Collapses latency with the motor items structurally.
+
+---
+
+### Mosquito hallucination (43% floor) — best replaced
+
+**The multi-modal collapse problem.** The suggestion can produce three
+qualitatively distinct experiences: (a) sense of presence near the skin, (b) tactile
+sensation (itch, crawl, bite, tickle), (c) auditory hallucination (buzzing). The
+objective criterion — "an outward acknowledgment of the effect" (any behavioural
+response: swatting, flinching, scratching) — accepts all three equally. The subjective
+0–5 rating is a single undifferentiated number with no modal decomposition.
+
+Practically: participants who feel an itch but hear nothing wonder if it "counts."
+Participants who get a strong presence without touch or sound don't know what to
+rate. The 43% floor likely includes people who had a partial experience in one
+modality but not the expected one.
+
+The taste item handles this correctly: sweet and sour sub-rated separately, combined
+as mean. The mosquito item gives no such guidance.
+
+**Best replacement: a discrete, unambiguous unimodal tactile item.**
+
+Candidate: **Localised itch/tingling suggestion** — suggest a specific, localised
+sensation at a named body location (e.g., left forearm, tip of index finger). Single
+modality (somatosensory), no ambiguity about what to attend to, no acoustic substrate
+needed, naturally discrete.
+
+- "As I count down, you will begin to notice a tingling sensation at the tip of your
+  left index finger. The sensation will build with each count."
+- Rate 0–5: no sensation → faint tingling → clear tingling → spreading/warming →
+  strong persistent sensation.
+
+This is phenomenologically cleaner than mosquito (no presence/auditory confusion),
+has a natural 0–5 gradient, and as a somatic item adds a distinct modality not
+covered by motor challenge (which is proprioceptive/kinaesthetic). The chills/ASMR
+item (§6) is a related but autonomic/full-body version — this localised itch would
+be a lower-intensity, more controllable variant suitable for unselected samples.
+
+---
+
+### Amnesia (29% floor)
+Fixable via replacement with naming inhibition (§9). Instruction confusion alone
+probably accounts for a meaningful fraction of the floor.
+
+---
+
+### Updated full screener (exploratory, revised PCS-style)
+
+Proposed item set replacing or improving all floored items while preserving the
+validated motor pair and taste:
+
+| # | Item | Modality | Replaces | Floor expected | Equipment |
+|---|------|----------|----------|----------------|-----------|
+| 1 | Hand lowering | Motor ideomotor | — (keep) | ~4% | None |
+| 2 | Moving hands together | Motor ideomotor | — (keep) | ~6% | None |
+| 3 | Localised tingling (finger) | Tactile/somatic | Mosquito | Low | None |
+| 4 | Taste hallucination | Gustatory | — (keep) | ~25% | None |
+| 5 | Arm rigidity | Motor challenge | — (keep) | ~8% | None |
+| 6 | Arm immobilisation | Motor challenge | — (keep) | ~13% | None |
+| 7 | Eigengrau visual / cross-modal | Visual (+ auditory) | Music + Neg. visual | Low | Speaker optional |
+| 8 | Naming inhibition | Cognitive executive | Amnesia | Low | Picture card |
+| 9 | Chills/ASMR | Somatic autonomic | Post-hypnotic | Low | Optional |
+| 10 | vEAR elaboration | Visual transformative | — (new) | Low | Brief flash |
+
+Motor pair (#5, #6) preserved as the two-item short form. All floor items replaced
+with lower-floor alternatives grounded in sensory-confidence framework. Three new
+modalities added: tactile-localised, somatic-autonomic, visual-transformative.
+
+Note: this is a theoretical proposal, not a validated scale. Ordering, phrasing,
+and combination would need piloting before any psychometric claims.
